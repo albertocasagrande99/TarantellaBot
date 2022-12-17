@@ -5,7 +5,6 @@ language: en
 pipeline:
   - name: SpacyNLP
     model: en_core_web_md
-  - name: EntitySynonymMapper
   - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
@@ -18,6 +17,16 @@ pipeline:
   - name: DIETClassifier
     epochs: 50
     constrain_similarities: yes
+  - name: RegexEntityExtractor
+    # text will be processed with case insensitive as default
+    case_sensitive: False
+    # use lookup tables to extract entities
+    use_lookup_tables: True
+    # use regexes to extract entities
+    use_regexes: True
+    # use match word boundaries for lookup table
+    use_word_boundaries: True
+  - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 50
 

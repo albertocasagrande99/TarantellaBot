@@ -2,8 +2,7 @@ version: "3.1"
 nlu:
 - lookup: pizza_type
   examples: |
-    - Funghi
-    - Hawaii
-    - Margherita
-    - Pepperoni
-    - Vegetarian
+    - funghi
+    - pepperoni
+    - margherita
+    - marinara

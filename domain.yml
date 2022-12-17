@@ -8,6 +8,7 @@ intents:
 - welcome_greet
 - init_request
 - init_pizza_question
+- item_price
 #- item_start_generic
 #- order_confirm_negative
 #- order_confirm_positive
@@ -30,14 +31,14 @@ intents:
 # - item_size
 # - item_topping
 # - item_amount
-# - pizza_questions
+- pizza_availability
 # - item_type_start_positive
 # - out_of_scope
 
-#entities:
+entities:
 # - anti_pizza_type
 # - pizza_size
-# - pizza_type
+- pizza_type
 # - pizza_amount
 # - active_form_pizza_order_form
 # - toppings
@@ -45,7 +46,7 @@ intents:
 # - phone_number
 # - order_number
 
-#slots:
+slots:
   # anti_pizza_type:
   #   type: any
   #   mappings:
@@ -75,11 +76,11 @@ intents:
   #   mappings:
   #     - type: from_entity
   #       entity: pizza_size
-  # pizza_type:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: pizza_type
+  pizza_type:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: pizza_type
   # requested_slot:
   #   type: any
   #   mappings:
@@ -166,6 +167,8 @@ actions:
 #- utter_init_request
 - utter_init_pizza_question/size
 - utter_init_pizza_question/toppings
+- action_price
+- action_pizza_availability
 # - utter_ask_pizza_size
 # - utter_ask_pizza_type
 # - utter_ask_pizza_amount

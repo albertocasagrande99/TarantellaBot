@@ -76,6 +76,25 @@ nlu:
     - what are the available toppings?
     - available toppings?
     - which toppings do you have?
+
+- intent: item_price
+  examples: |
+    - Can you tell me the price of the [marinara](pizza_type)?
+    - What is the price for the [margherita](pizza_type)?
+    - [pepperoni](pizza_type) price?
+    - How much is the [funghi](pizza_type) pizza?
+    - what's the cost of [margherita](pizza_type)?
+    - price of [pepperoni](pizza_type) pizza
+    - What is the price for the [Pepperoni](pizza_type) pizza?
+    - how much is the [Pepperoni](pizza_type) one?
+    - Can you tell me the price of the [Marinara](pizza_type)?
+    - What is the price for the [marghe](pizza_type)?
+    - [pepp](pizza_type) pizza price?
+    - How much is the [Mushrooms](pizza_type) pizza?
+    - what's the cost of [Margherita](pizza_type)?
+    - price of [Pepp](pizza_type) pizza
+    - What is the price for the [Pepperoni](pizza_type) pizza?
+    - how much is the [Pepperoni](pizza_type) one?
 # - intent: init_pizza_question
 #   examples: |
 #     - do you have pizza with no [meat](toppings)?
@@ -300,10 +319,21 @@ nlu:
 #   examples: |
 #     - [3](pizza_amount)
 #     - [2](pizza_amount)
-# - intent: pizza_questions
-#   examples: |
-#     - do you have [hawaii](pizza_type)
-#     - do you offer pizza [margherita](pizza_type)
+- intent: pizza_availability
+  examples: |
+    - do you have [pepperoni](pizza_type) pizza?
+    - do you have [margherita](pizza_type) pizza?
+    - do you have [mushroom](pizza_type) pizza?
+    - do you have [marinara](pizza_type) pizza?
+    - do you offer pizza [margherita](pizza_type)
+    - do you offer [Pepperoni](pizza_type) pizza
+    - do you offer [mushrooms](pizza_type) pizza
+    - do you offer [marinara](pizza_type) pizza
+    - is [mushroom](pizza_type) pizza available?
+    - is [pepperoni](pizza_type) pizza available?
+    - is [margherita](pizza_type) available?
+    - is [marghe](pizza_type) available?
+    - is [marinara](pizza_type) available?
 # - intent: out_of_scope
 #   examples: |
 #     - What is 2 + 2?
@@ -361,19 +391,29 @@ nlu:
 #     - jumbo
 #     - XXL
 #     - size XXL
-# - synonym: Funghi
-#   examples: |
-#     - Funghi
+- synonym: funghi
+  examples: |
+    - Funghi
+    - Mushroom
+    - funghi
+    - mushrooms
+    - mushroom
 # - synonym: Hawaii
 #   examples: |
 #     - Hawaii
-# - synonym: Margherita
-#   examples: |
-#     - Margherita
-#     - margherita
-# - synonym: Pepperoni
-#   examples: |
-#     - Pepp
+- synonym: margherita
+  examples: |
+    - Margherita
+    - margherita
+    - marghe
+- synonym: pepperoni
+  examples: |
+    - Pepp
+    - Pepperoni
+- synonym: marinara
+  examples: |
+    - marinara
+    - Marinara
 # - synonym: Vegetarian
 #   examples: |
 #     - Vegetarian

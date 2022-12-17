@@ -16,6 +16,16 @@ rules:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
 
+- rule: tell pizza price
+  steps:
+  - intent: item_price
+  - action: action_price
+
+- rule: pizza availability
+  steps:
+  - intent: pizza_availability
+  - action: action_pizza_availability
+
 # - rule: start
 #   steps:
 #     - intent: init_request
