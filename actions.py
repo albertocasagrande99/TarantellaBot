@@ -78,7 +78,31 @@ class ActionPizzaAvailability(Action):
 		if len(list(rows)) < 1:
 			dispatcher.utter_message(f"The pizza '{pizza_type}' is not present in the menu")
 		else:
-			dispatcher.utter_message("Yes! The "+pizza_type+" pizza is available.")
+			dispatcher.utter_message("Yes! The " + pizza_type + " pizza is available.")
+		return[]
+
+class ActionPizzaQuestionToppings(Action):
+	def name(self):
+		return 'action_pizza_question_toppings'
+
+	def run(self, dispatcher, tracker, domain):
+		topping = tracker.get_slot("toppings")
+		conn = create_connection("pizzas.db")
+		cur = conn.cursor()
+		cur.execute("""SELECT * FROM pizzas """)
+		rows = cur.fetchall()
+		if len(list(rows)) < 1:
+			dispatcher.utter_message("These are no available pizzas at the moment")
+		else:
+			pizzas = ""
+			for pizza in rows:
+				if(not pizza[2].__contains__(topping)):
+					pizzas = pizzas + pizza[0] + ", "
+			pizzas = pizzas[:-2]
+			if(len(pizzas)!=0):
+				dispatcher.utter_message("Our pizzas without " + topping + " are: " + pizzas)
+			else:
+				dispatcher.utter_message("There are no pizzas without " + topping + " in our menu")
 		return[]
 
 class ActionChangeOrder(Action):

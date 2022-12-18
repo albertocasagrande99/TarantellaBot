@@ -1,0 +1,10 @@
+version: "3.1"
+nlu:
+- lookup: toppings
+  examples: |
+    - mushrooms
+    - mozzarella
+    - tomato sauce
+    - pepperoni
+    - vegetables
+    - peppers

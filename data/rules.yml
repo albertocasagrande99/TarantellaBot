@@ -10,6 +10,17 @@ rules:
   steps:
   - intent: init_request
   - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+
+- rule: submit form
+  condition:
+  - active_loop: pizza_order_form
+  steps:
+  - action: pizza_order_form      
+  - active_loop: null            
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
 
 - rule: tell pizzas information
   steps:
@@ -25,6 +36,11 @@ rules:
   steps:
   - intent: pizza_availability
   - action: action_pizza_availability
+
+- rule: pizza without topping
+  steps:
+  - intent: pizza_question_toppings
+  - action: action_pizza_question_toppings
 
 # - rule: start
 #   steps:

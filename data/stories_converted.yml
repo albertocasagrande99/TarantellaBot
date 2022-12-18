@@ -5,21 +5,42 @@ stories:
   - intent: welcome_greet
   - action: utter_welcome_greet
   - checkpoint: start_questions_on_pizza
+
 - story: greeting
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
   - checkpoint: start_order
+
 - story: greet and ask pizza
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
   - intent: init_request
   - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
 - story: ask pizza
   steps:
   - intent: init_request
   - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
 
 - story: greet and ask information
   steps:
@@ -30,17 +51,17 @@ stories:
 
 - story: ask information
   steps:
-  - intent: init_pizza_question
+  - intent: init_pizza_question 
   - action: utter_init_pizza_question
 
-- story: ask price information
+- story: greet and ask price information
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
   - intent: item_price
   - action: action_price
 
-- story: greet and ask price information
+- story: ask price information
   steps:
   - intent: item_price
   - action: action_price
@@ -56,6 +77,27 @@ stories:
   - action: utter_welcome_greet
   - intent: pizza_availability
   - action: action_pizza_availability
+
+- story: ask pizza without toppings
+  steps:
+  - intent: pizza_question_toppings
+  - action: action_pizza_question_toppings
+
+- story: greet and ask pizza without toppings
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: pizza_question_toppings
+  - action: action_pizza_question_toppings
+
+- story: greet, ask pizza without toppings and ask price
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: pizza_question_toppings
+  - action: action_pizza_question_toppings
+  - intent: item_price
+  - action: action_price
 # - story: questions_on_pizza
 #   steps:
 #   - checkpoint: start_questions_on_pizza

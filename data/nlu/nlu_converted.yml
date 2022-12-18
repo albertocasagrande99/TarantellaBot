@@ -95,48 +95,90 @@ nlu:
     - price of [Pepp](pizza_type) pizza
     - What is the price for the [Pepperoni](pizza_type) pizza?
     - how much is the [Pepperoni](pizza_type) one?
-# - intent: init_pizza_question
-#   examples: |
-#     - do you have pizza with no [meat](toppings)?
-#     - do you have pizza with no [cheese](toppings)?
-#     - do you have pizza with no [pepper](toppings)?
-#     - do you have pizza with no [vegetables](toppings)?
-#     - do you have pizza without [meat](toppings)?
-#     - do you have pizza without [cheese](toppings)?
-#     - do you have pizza without [pepper](toppings)?
-#     - do you have pizza without [vegetables](toppings)?
-#     - do you have pizza with no [meat](toppings) please?
-#     - do you have pizza with no [cheese](toppings) please?
-#     - do you have pizza with no [pepper](toppings) please?
-#     - do you have pizza with no [vegetables](toppings) please?
-#     - do you have pizza without [meat](toppings) please?
-#     - do you have pizza without [cheese](toppings) please?
-#     - do you have pizza without [pepper](toppings) please?
-#     - do you have pizza without [vegetables](toppings) please?
-#     - pizza with no [meat](toppings)?
-#     - pizza with no [cheese](toppings)?
-#     - pizza with no [pepper](toppings)?
-#     - pizza with no [vegetables](toppings)?
-#     - pizza without [meat](toppings)?
-#     - pizza without [cheese](toppings)?
-#     - pizza without [pepper](toppings)?
-#     - pizza without [vegetables](toppings)?
-#     - pizza with no [meat](toppings) please?
-#     - pizza with no [cheese](toppings) please?
-#     - pizza with no [pepper](toppings) please?
-#     - pizza with no [vegetables](toppings) please?
-#     - pizza without [meat](toppings) please?
-#     - pizza without [cheese](toppings) please?
-#     - pizza without [pepper](toppings) please?
-#     - pizza without [vegetables](toppings) please?
-#     - any pizza with no [meat](toppings)?
-#     - any pizza with no [cheese](toppings)?
-#     - any pizza with no [pepper](toppings)?
-#     - any pizza with no [vegetables](toppings)?
-#     - any pizza without [meat](toppings) please?
-#     - any pizza without [cheese](toppings) please?
-#     - any pizza without [pepper](toppings) please?
-#     - any pizza without [vegetables](toppings) please?
+- intent: pizza_question_toppings
+  examples: |
+    - do you have pizza with no [pepperoni](toppings)?
+    - do you have pizza with no [tomato sauce](toppings)?
+    - do you have pizza with no [funghi](toppings)?
+    - do you have pizza with no [cheese](toppings)?
+    - do you have pizza with no [peppers](toppings)?
+    - do you have pizza with no [vegetables](toppings)?
+    - do you have pizza without [pepperoni](toppings)?
+    - do you have pizza without [mozzarella](toppings)?
+    - do you have pizza without [red sauce](toppings)?
+    - do you have pizza without [pepper](toppings)?
+    - do you have pizza without [vegetables](toppings)?
+    - do you have pizza with no [pepperoni](toppings) please?
+    - do you have pizza with no [cheese](toppings) please?
+    - do you have pizza with no [pepper](toppings) please?
+    - do you have pizza with no [tomato sauce](toppings) please?
+    - do you have pizza with no [vegetables](toppings) please?
+    - do you have pizza without [pepperoni](toppings) please?
+    - do you have pizza without [mushrooms](toppings) please?
+    - do you have pizza without [cheese](toppings) please?
+    - do you have pizza without [peppers](toppings) please?
+    - do you have pizza without [vegetables](toppings) please?
+    - pizza with no [pepperoni](toppings)?
+    - pizza with no [marinara sauce](toppings)?
+    - pizza with no [funghi](toppings)?
+    - pizza with no [mushrooms](toppings)?
+    - pizza with no [mozzarella](toppings)?
+    - pizza with no [pepper](toppings)?
+    - pizza with no [vegetables](toppings)?
+    - pizza without [pepperoni](toppings)?
+    - pizza without [tomato sauce](toppings)?
+    - pizza without [mozzarella](toppings)?
+    - pizza without [peppers](toppings)?
+    - pizza without [vegetables](toppings)?
+    - pizza with no [pepperoni](toppings) please?
+    - pizza with no [cheese](toppings) please?
+    - pizza with no [pepper](toppings) please?
+    - pizza with no [vegetables](toppings) please?
+    - pizza with no [pasta sauce](toppings) please?
+    - pizza without [pepperoni](toppings) please?
+    - pizza without [mushrooms](toppings) please?
+    - pizza without [mozzarella](toppings) please?
+    - pizza without [pepper](toppings) please?
+    - pizza without [vegetables](toppings) please?
+    - any pizza with no [pepperoni](toppings)?
+    - any pizza with no [funghi](toppings)?
+    - any pizza with no [cheese](toppings)?
+    - any pizza with no [peppers](toppings)?
+    - any pizza with no [vegetables](toppings)?
+    - any pizza without [pepperoni](toppings) please?
+    - any pizza without [red sauce](toppings) please?
+    - any pizza without [mozzarella](toppings) please?
+    - any pizza without [peppers](toppings) please?
+    - any pizza without [mushrooms](toppings) please?
+    - any pizza without [vegetables](toppings) please?
+    - any pizza without [tomato sauce](toppings) please?
+    - I want a pizza without [pepperoni](toppings) please
+    - I want a pizza without [cheese](toppings) please
+    - I want a pizza without [vegetables](toppings) please
+    - I want a pizza without [red sauce](toppings) please
+    - I want a pizza without [funghi](toppings) please
+    - I want a pizza without [peppers](toppings) please
+    - I want a pizza without [mushrooms](toppings) please
+    - I want a pizza with no [pepperoni](toppings) please
+    - I want a pizza with no [cheese](toppings) please
+    - I want a pizza with no [vegetables](toppings) please
+    - I want a pizza with no [red sauce](toppings) please
+    - I want a pizza with no [funghi](toppings) please
+    - I want a pizza with no [peppers](toppings) please
+    - I want a pizza with no [mushrooms](toppings) please
+
+- intent: inform
+  examples: |
+    - a [margherita](pizza_type) pizza please
+    - [large](pizza_size)
+    - [small](pizza_size)
+    - [medium](pizza_size)
+    - [large](pizza_size) please
+    - [small](pizza_size) please
+    - [medium](pizza_size) please
+    - just [one](pizza_amount) please
+    - [2](pizza_amount) please
+    - [two](pizza_amount) thanks
 # - intent: item_start_generic
 #   examples: |
 #     - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
@@ -391,7 +433,7 @@ nlu:
 #     - jumbo
 #     - XXL
 #     - size XXL
-- synonym: funghi
+- synonym: mushrooms
   examples: |
     - Funghi
     - Mushroom
@@ -414,6 +456,22 @@ nlu:
   examples: |
     - marinara
     - Marinara
+- synonym: mozzarella
+  examples: |
+    - mozzarella
+    - Mozzarella
+    - cheese
+    - Cheese
+- synonym: tomato sauce
+  examples: |
+    - marinara sauce
+    - red sauce
+    - tomato paste
+    - pasta sauce
+- synonym: peppers
+  examples: |
+    - pepper
+    - Peppers
 # - synonym: Vegetarian
 #   examples: |
 #     - Vegetarian

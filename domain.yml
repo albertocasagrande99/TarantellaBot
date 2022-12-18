@@ -9,6 +9,8 @@ intents:
 - init_request
 - init_pizza_question
 - item_price
+- pizza_question_toppings
+- inform
 #- item_start_generic
 #- order_confirm_negative
 #- order_confirm_positive
@@ -37,11 +39,11 @@ intents:
 
 entities:
 # - anti_pizza_type
-# - pizza_size
+- pizza_size
 - pizza_type
-# - pizza_amount
+- number
 # - active_form_pizza_order_form
-# - toppings
+- toppings
 # - client_name
 # - phone_number
 # - order_number
@@ -66,16 +68,16 @@ slots:
   #   mappings:
   #     - type: from_entity
   #       entity: phone_number
-  # pizza_amount:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: pizza_amount
-  # pizza_size:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: pizza_size
+  pizza_amount:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: number
+  pizza_size:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: pizza_size
   pizza_type:
     type: any
     mappings:
@@ -85,11 +87,11 @@ slots:
   #   type: any
   #   mappings:
   #     - type: custom
-  # toppings:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: toppings
+  toppings:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: toppings
   # total_order:
   #   type: any
   #   mappings:
@@ -100,22 +102,20 @@ responses:
   #  - text: Sorry, I can't handle that request.
   utter_welcome_greet:
   - text: Hello There! Welcome to Pizzbot. How can I help you?
-  # utter_init_request:
-  # - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian,
-  #     all available in sizes Small, Medium or Large . What would you like to have?
   utter_init_pizza_question/size:
   - text: The available sizes are small, medium and large.
   utter_init_pizza_question/toppings:
   - text: The available toppings are cheese, mushrooms, sausages and potatoes.
-  # utter_init_pizza_question:
-  # - text: For pizza without meat we have.... For pizza without cheese we have. Sizes
-  #     available are Small, Medium and Large. What would you love to have?
-  # utter_ask_pizza_size:
-  # - text: What size of pizza do you want?
-  # utter_ask_pizza_type:
-  # - text: What type of pizza do you want?
-  # utter_ask_pizza_amount:
-  # - text: How many pizzas do you want?
+  utter_ask_pizza_size:
+  - text: And, what size of pizza do you want?
+  utter_ask_pizza_type:
+  - text: What type of pizza do you want?
+  utter_ask_pizza_amount:
+  - text: Ok, how many pizzas do you want?
+  utter_submit_form_pizza:
+  - text: All done!
+  utter_slots_values:
+  - text: "Your order includes {pizza_amount} {pizza_size} {pizza_type} pizzas. Is that correct?"
   # utter_order_confirm_negative:
   # - text: What would you like to change?
   # utter_order_confirm_positive:
@@ -169,6 +169,7 @@ actions:
 - utter_init_pizza_question/toppings
 - action_price
 - action_pizza_availability
+- action_pizza_question_toppings
 # - utter_ask_pizza_size
 # - utter_ask_pizza_type
 # - utter_ask_pizza_amount
@@ -197,10 +198,10 @@ actions:
 # - utter_default
 # - utter_summarize_order
 
-#forms:
-  # pizza_order_form:
-  #   required_slots:
-  #   - pizza_amount
-  #   - pizza_type
-  #   - pizza_size
+forms:
+  pizza_order_form:
+    required_slots:
+    - pizza_type
+    - pizza_size
+    - pizza_amount
 
