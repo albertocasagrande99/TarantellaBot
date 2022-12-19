@@ -27,6 +27,8 @@ stories:
   - active_loop: null
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
 
 - story: ask pizza
   steps:
@@ -41,6 +43,8 @@ stories:
   - active_loop: null
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
 
 - story: greet and ask information
   steps:

@@ -3,12 +3,13 @@ digraph  {
 "-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
 1 [class=active, fontsize=12, label=action_session_start];
 2 [class=active, fontsize=12, label=utter_welcome_greet];
-3 [class=active, fontsize=12, label=action_menu];
-4 [class="active dashed", fontsize=12, label=action_price];
+3 [class=active, fontsize=12, label=utter_init_pizza_question];
+4 [class=active, fontsize=12, label=action_pizza_question_toppings];
+5 [class="dashed active", fontsize=12, label=action_menu];
 6 [class="intent active", fillcolor=lightblue, label="/welcome_greet", shape=rect, style=filled];
-7 [class="intent active", fillcolor=lightblue, label="/init_request", shape=rect, style=filled];
-8 [class="intent active", fillcolor=lightblue, label="/item_price", shape=rect, style=filled];
-9 [class="intent active", fillcolor=lightblue, label="/item_price", shape=rect, style=filled];
+7 [class="intent active", fillcolor=lightblue, label="/init_pizza_question", shape=rect, style=filled];
+8 [class="intent active", fillcolor=lightblue, label="/pizza_question_toppings", shape=rect, style=filled];
+9 [class="intent active", fillcolor=lightblue, label="/init_request", shape=rect, style=filled];
 0 -> "-1"  [class="", key=NONE, label=""];
 0 -> 1  [class=active, key=NONE, label=""];
 1 -> 6  [class=active, key=0];
@@ -18,5 +19,5 @@ digraph  {
 6 -> 2  [class=active, key=0];
 7 -> 3  [class=active, key=0];
 8 -> 4  [class=active, key=0];
-9 -> 4  [class=active, key=0];
+9 -> 5  [class=active, key=0];
 }

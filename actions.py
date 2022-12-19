@@ -31,18 +31,20 @@ class ActionMenu(Action):
 		return 'action_menu'
 
 	def run(self, dispatcher, tracker, domain):
-		conn = create_connection("pizzas.db")
-		cur = conn.cursor()
-		cur.execute("""SELECT title FROM pizzas """)
-		rows = cur.fetchall()
-		if len(list(rows)) < 1:
-			dispatcher.utter_message("These are no available pizzas at the moment")
-		else:
-			pizzas = ""
-			for i in rows:
-				pizzas = pizzas + i[0] + ", "
-			pizzas = pizzas[:-2]
-			dispatcher.utter_message("The available pizzas are: " + pizzas)
+		pizza = tracker.get_slot("pizza_type")
+		if(pizza==None):
+			conn = create_connection("pizzas.db")
+			cur = conn.cursor()
+			cur.execute("""SELECT title FROM pizzas """)
+			rows = cur.fetchall()
+			if len(list(rows)) < 1:
+				dispatcher.utter_message("These are no available pizzas at the moment")
+			else:
+				pizzas = ""
+				for i in rows:
+					pizzas = pizzas + i[0] + ", "
+				pizzas = pizzas[:-2]
+				dispatcher.utter_message("The available pizzas are: " + pizzas)
 		return[]
 
 class ActionPrice(Action):
@@ -103,6 +105,23 @@ class ActionPizzaQuestionToppings(Action):
 				dispatcher.utter_message("Our pizzas without " + topping + " are: " + pizzas)
 			else:
 				dispatcher.utter_message("There are no pizzas without " + topping + " in our menu")
+		return[]
+
+class ActionResponsePositive(Action):
+	def name(self):
+		return 'action_response_positive'
+
+	def run(self, dispatcher, tracker, domain):
+		try:
+			bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
+			if (bot_event['metadata']['utter_action'] == 'utter_slots_values'):
+				# save order to database
+				dispatcher.utter_message(response='utter_anything_else')
+				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
+			else:
+				dispatcher.utter_message("Sorry, can you repeat that?")
+		except:
+			dispatcher.utter_message("Sorry, can you repeat that?")
 		return[]
 
 class ActionChangeOrder(Action):

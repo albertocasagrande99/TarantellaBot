@@ -17,9 +17,9 @@ pipeline:
   - name: DIETClassifier
     epochs: 50
     constrain_similarities: yes
-  - name: DucklingEntityExtractor
-    dimensions: ["number"]
-    url: "http://localhost:8000"  #docker run -p 8000:8000 rasa/duckling
+  # - name: DucklingEntityExtractor
+  #   dimensions: ["number"]
+  #   url: "http://localhost:8000"  #docker run -p 8000:8000 rasa/duckling
   - name: RegexEntityExtractor
     # text will be processed with case insensitive as default
     case_sensitive: False

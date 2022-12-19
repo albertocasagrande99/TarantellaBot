@@ -24,7 +24,7 @@ intents:
 # - item_confirm_no
 # - item_confirm_yes
 # - response_negative
-# - response_positive
+- response_positive
 # - response_name_phone
 # - item_change_request_without_entity
 # - item_type_start_negative
@@ -41,7 +41,7 @@ entities:
 # - anti_pizza_type
 - pizza_size
 - pizza_type
-- number
+- pizza_amount
 # - active_form_pizza_order_form
 - toppings
 # - client_name
@@ -72,7 +72,7 @@ slots:
     type: any
     mappings:
       - type: from_entity
-        entity: number
+        entity: pizza_amount
   pizza_size:
     type: any
     mappings:
@@ -111,11 +111,13 @@ responses:
   utter_ask_pizza_type:
   - text: What type of pizza do you want?
   utter_ask_pizza_amount:
-  - text: Ok, how many pizzas do you want?
+  - text: Ok, how many {pizza_type} pizzas do you want?
   utter_submit_form_pizza:
   - text: All done!
   utter_slots_values:
   - text: "Your order includes {pizza_amount} {pizza_size} {pizza_type} pizzas. Is that correct?"
+  utter_anything_else:
+  - text: "Great, your order is being processed! Anything else?"
   # utter_order_confirm_negative:
   # - text: What would you like to change?
   # utter_order_confirm_positive:
@@ -170,6 +172,8 @@ actions:
 - action_price
 - action_pizza_availability
 - action_pizza_question_toppings
+- action_response_positive
+- utter_anything_else
 # - utter_ask_pizza_size
 # - utter_ask_pizza_type
 # - utter_ask_pizza_amount
@@ -205,3 +209,7 @@ forms:
     - pizza_size
     - pizza_amount
 
+
+# salvare nel database l'ordine
+# gestire risposta si a anything else?
+# gestire risposte no a is that correct? and anything else?
