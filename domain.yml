@@ -23,7 +23,7 @@ intents:
 #- order_confirm_final
 # - item_confirm_no
 # - item_confirm_yes
-# - response_negative
+- response_negative
 - response_positive
 # - response_name_phone
 # - item_change_request_without_entity
@@ -35,7 +35,7 @@ intents:
 # - item_amount
 - pizza_availability
 # - item_type_start_positive
-# - out_of_scope
+- out_of_scope
 
 entities:
 # - anti_pizza_type
@@ -98,8 +98,8 @@ slots:
   #     - type: custom
 
 responses:
-  #utter_out_of_scope:
-  #  - text: Sorry, I can't handle that request.
+  utter_out_of_scope:
+   - text: Sorry, I can't handle that request.
   utter_welcome_greet:
   - text: Hello There! Welcome to Tarantellabot. How can I help you?
   utter_init_pizza_question/size:
@@ -174,6 +174,8 @@ actions:
 - action_pizza_question_toppings
 - action_response_positive
 - utter_anything_else
+- utter_out_of_scope
+- action_response_negative
 # - utter_ask_pizza_size
 # - utter_ask_pizza_type
 # - utter_ask_pizza_amount
@@ -211,7 +213,6 @@ forms:
 
 
 # salvare nel database l'ordine (incompleto)
-# gestire risposta si a anything else?
 # gestire risposte no a is that correct? and anything else?
 # Chiedere nel form se l'utente vuole ingredienti aggiuntivi
 # Chiedere il nome all'utente (form apposito)

@@ -46,6 +46,130 @@ stories:
   - intent: response_positive
   - action: action_response_positive
 
+- story: ask pizza and yes anything else
+  steps:
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
+- story: ask information pizza and yes anything else
+  steps:
+  - intent: init_pizza_question
+  - action: utter_init_pizza_question
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
+
+- story: ask information pizza and no anything else
+  steps:
+  - intent: init_pizza_question
+  - action: utter_init_pizza_question
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_negative
+  - action: action_response_negative
+
+- story: ask information pizza and yes anything else and then no anything else
+  steps:
+  - intent: init_pizza_question
+  - action: utter_init_pizza_question
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_negative
+  - action: action_response_negative
+  
+
 - story: greet and ask information
   steps:
   - intent: welcome_greet

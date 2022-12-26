@@ -13,6 +13,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 import sqlite3
 import pandas as pd
+import time
 
 
 def create_connection(db_file):
@@ -107,7 +108,7 @@ class ActionPizzaQuestionToppings(Action):
 				dispatcher.utter_message("Our pizzas without " + topping + " are: " + pizzas)
 			else:
 				dispatcher.utter_message("There are no pizzas without " + topping + " in our menu")
-		return[]
+		return[SlotSet("toppings", None)]
 
 class ActionResponsePositive(Action):
 	def name(self):
@@ -121,6 +122,7 @@ class ActionResponsePositive(Action):
 				pizza_type = tracker.get_slot('pizza_type')
 				pizza_size = tracker.get_slot('pizza_size')
 				pizza_amount = tracker.get_slot('pizza_amount')
+				toppings = tracker.get_slot('toppings')
 				
 				conn = create_connection("data_db/orders.db")
 				cur = conn.cursor()
@@ -131,14 +133,47 @@ class ActionResponsePositive(Action):
 				cur.execute(f"""
 					INSERT INTO orders (order_id, client_name, pizza_type, pizza_size, pizza_amount, toppings)
 						VALUES
-						('{tracker.sender_id}','Alberto','{pizza_type}', '{pizza_size}', '{pizza_amount}', '...')
+						('{tracker.sender_id}','Alberto','{pizza_type}', '{pizza_size}', '{pizza_amount}', '{toppings}')
 				""")
 				# cur.execute("""SELECT * FROM orders """)
 				# df = pd.DataFrame(cur.fetchall(), columns=['order_id','client_name','pizza_type','pizza_size','pizza_amount','toppings'])
 				# print (df)
 				conn.commit()
 				dispatcher.utter_message(response='utter_anything_else')
-				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
+				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
+			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
+				#dispatcher.utter_message(response='pizza_order_form')
+				print("The user wants something else")
+			else:
+				dispatcher.utter_message("Sorry, can you repeat that?")
+		except:
+			dispatcher.utter_message("Sorry, can you repeat that?")
+		return[]
+
+class ActionResponseNegative(Action):
+	def name(self):
+		return 'action_response_negative'
+
+	def run(self, dispatcher, tracker, domain):
+		try:
+			bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
+			if (bot_event['metadata']['utter_action'] == 'utter_slots_values'):
+				print("is that correct no")
+				# return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
+			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
+				dispatcher.utter_message("Let me check your order. Please wait a moment... ")
+				conn = create_connection("data_db/orders.db")
+				cur = conn.cursor()
+				cur.execute(f"""SELECT * FROM orders WHERE order_id='{tracker.sender_id}'""")
+				rows = cur.fetchall()
+				if len(list(rows)) < 1:
+					dispatcher.utter_message("There are no orders with your name.")
+				else:
+					order = ""
+					for i in rows:
+						order = order + str(i[4]) + " " + i[3] + " " + i[2] + ", "	
+					order = order[:-2]
+				dispatcher.utter_message("Ok, your total order includes: " + order)
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:

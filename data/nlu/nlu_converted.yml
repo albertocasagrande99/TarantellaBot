@@ -278,14 +278,17 @@ nlu:
 #     - I want to change the size to [medium](pizza_size)
 #     - I want to change the size to [large](pizza_size)
 #     - I want my pizza in [small](pizza_size) instead
-# - intent: response_negative
-#   examples: |
-#     - actually no
-#     - nope
-#     - no
-#     - Nope
-#     - No, I want to make a change
-#     - Noo
+- intent: response_negative
+  examples: |
+    - actually no
+    - nope
+    - no
+    - Nope
+    - No, I want to make a change
+    - Noo
+    - no thanks
+    - no thank you
+
 - intent: response_positive
   examples: |
     - all good
@@ -301,6 +304,12 @@ nlu:
     - Yeah
     - right
     - that sounds good
+    - Yes I want another [margherita](pizza_type)
+    - Yes I would like to add another pizza
+    - Yes another pizza please
+    - yeah can I have [a](pizza_amount) [marinara](pizza_type) pizza please
+    - yes I'd like [two](pizza_amount) [pepperoni](pizza_type) pizzas
+    - yes I want to add another pizza
 # - intent: response_name_phone
 #   examples: |
 #     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -396,17 +405,22 @@ nlu:
     - is [margherita](pizza_type) available?
     - is [marghe](pizza_type) available?
     - is [marinara](pizza_type) available?
-# - intent: out_of_scope
-#   examples: |
-#     - What is 2 + 2?
-#     - Who's the US President?
-#     - do you have shoes
-#     - what is your name
-#     - are you real
-#     - do you have a sister
-#     - book a flight from milan to ny
-#     - how far is the square
-#     - give me the directions to time square
+- intent: out_of_scope
+  examples: |
+    - What is 2 + 2?
+    - Who's the US President?
+    - do you have shoes
+    - what is your name
+    - are you real
+    - do you have a sister
+    - book a flight from milan to ny
+    - how far is the square
+    - give me the directions to time square
+    - do you have a dog?
+    - i like football
+    - where are my glasses?
+    - how old are you?
+    - where do you come from?
 # - synonym: Americana
 #   examples: |
 #     - Americana
@@ -501,6 +515,8 @@ nlu:
   examples: |
     - one
     - One
+    - a
+    - an
 
 - synonym: '2'
   examples: |
