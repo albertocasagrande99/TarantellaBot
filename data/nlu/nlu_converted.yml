@@ -70,6 +70,11 @@ nlu:
     - [large](pizza_size) pizzas?
     - [medium](pizza_size) pizzas?
     - small pizzas?
+    - how big can I order my pizza?
+    - do you have pizzas with [large](pizza_size) size?
+    - do you sell [small](pizza_size) pizzas?
+    - do you sell [medium](pizza_size) pizzas?
+    - do you sell [large](pizza_size) pizzas?
 
 - intent: init_pizza_question/toppings
   examples: |
@@ -80,6 +85,8 @@ nlu:
     - what are the available toppings?
     - available toppings?
     - which toppings do you have?
+    - what can i put on my pizza?
+    - what toppings do you have available?
 
 - intent: item_price
   examples: |
@@ -198,37 +205,37 @@ nlu:
 #     - I [hawaii](pizza_type) pizza small
 #     - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
 #     - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
-#     - I want [2](pizza_amount) [[medium](pizza_size)](pizza_size) pizza [hawaii](pizza_type) please
+#     - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
 #     - [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
-#     - [two](pizza_amount) [[medium](pizza_size)](pizza_size) [Margherita](pizza_type) pizza
-#     - [2](pizza_amount) [[large](pizza_size)](pizza_size) [Hawaii](pizza_type) pizza
-#     - [two](pizza_amount) [[medium](pizza_size)](pizza_size) [Pepperoni](pizza_type) pizza
+#     - [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizza
+#     - [2](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizza
+#     - [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizza
 #     - [4](pizza_amount) [small](pizza_size) [Vegetarian](pizza_type) pizza pizza
 #     - [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
-#     - [two](pizza_amount) [[large](pizza_size)](pizza_size) pizza [hawaii](pizza_type)
-#     - [four](pizza_amount) [[medium](pizza_size)](pizza_size) pizza [Margherita](pizza_type)
-#     - [4](pizza_amount) [[large](pizza_size)](pizza_size) pizza [Hawaii](pizza_type)
-#     - [four](pizza_amount) [[medium](pizza_size)](pizza_size) pizza [Pepperoni](pizza_type)
+#     - [two](pizza_amount) [large](pizza_size) pizza [hawaii](pizza_type)
+#     - [four](pizza_amount) [medium](pizza_size) pizza [Margherita](pizza_type)
+#     - [4](pizza_amount) [large](pizza_size) pizza [Hawaii](pizza_type)
+#     - [four](pizza_amount) [medium](pizza_size) pizza [Pepperoni](pizza_type)
 #     - [four](pizza_amount) [small](pizza_size) pizza [Vegetarian](pizza_type)
 #     - [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza
-#     - [one](pizza_amount) [Margherita](pizza_type) [[medium](pizza_size)](pizza_size) pizza
-#     - [1](pizza_amount) [Hawaii](pizza_type) [[large](pizza_size)](pizza_size) pizza
-#     - [one](pizza_amount) [Pepperoni](pizza_type) [[medium](pizza_size)](pizza_size) pizza
+#     - [one](pizza_amount) [Margherita](pizza_type) [medium](pizza_size) pizza
+#     - [1](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) pizza
+#     - [one](pizza_amount) [Pepperoni](pizza_type) [medium](pizza_size) pizza
 #     - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
 #     - [one](pizza_amount) [Funghi](pizza_type) pizza [small](pizza_size)
-#     - [one](pizza_amount) [Margherita](pizza_type) pizza [[medium](pizza_size)](pizza_size)
-#     - [1](pizza_amount) [Hawaii](pizza_type) pizza [[large](pizza_size)](pizza_size)
-#     - [one](pizza_amount) [Pepperoni](pizza_type) pizza [[medium](pizza_size)](pizza_size)
+#     - [one](pizza_amount) [Margherita](pizza_type) pizza [medium](pizza_size)
+#     - [1](pizza_amount) [Hawaii](pizza_type) pizza [large](pizza_size)
+#     - [one](pizza_amount) [Pepperoni](pizza_type) pizza [medium](pizza_size)
 #     - [3](pizza_amount) [Vegetarian](pizza_type) pizza [small](pizza_size)
 #     - [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
-#     - [Margherita](pizza_type) [[medium](pizza_size)](pizza_size) pizza [6](pizza_amount)
-#     - [Hawaii](pizza_type) [[large](pizza_size)](pizza_size) pizza [9](pizza_amount)
-#     - [Pepperoni](pizza_type) [[medium](pizza_size)](pizza_size) pizza  [4](pizza_amount)
+#     - [Margherita](pizza_type) [medium](pizza_size) pizza [6](pizza_amount)
+#     - [Hawaii](pizza_type) [large](pizza_size) pizza [9](pizza_amount)
+#     - [Pepperoni](pizza_type) [medium](pizza_size) pizza  [4](pizza_amount)
 #     - [Vegetarian](pizza_type) [small](pizza_size) pizza [two](pizza_amount)
 #     - [Funghi](pizza_type) pizza [small](pizza_size)  [three](pizza_amount)
-#     - [Margherita](pizza_type) pizza [[medium](pizza_size)](pizza_size)  [6](pizza_amount)
-#     - [Hawaii](pizza_type) pizza [[large](pizza_size)](pizza_size)  [9](pizza_amount)
-#     - [Pepperoni](pizza_type) pizza [[medium](pizza_size)](pizza_size)   [4](pizza_amount)
+#     - [Margherita](pizza_type) pizza [medium](pizza_size)  [6](pizza_amount)
+#     - [Hawaii](pizza_type) pizza [large](pizza_size)  [9](pizza_amount)
+#     - [Pepperoni](pizza_type) pizza [medium](pizza_size)   [4](pizza_amount)
 #     - [Vegetarian](pizza_type) pizza [small](pizza_size)  [two](pizza_amount)
 #     - [Funghi](pizza_type) pizza
 #     - [Margherita](pizza_type) pizza
@@ -243,18 +250,18 @@ nlu:
 #     - [hawaii](pizza_type) pizza small
 #     - [hawaii](pizza_type) pizza small please
 #     - small [hawaii](pizza_type) pizza
-#     - [two](pizza_amount) [[medium](pizza_size)](pizza_size) pizza [margherita](pizza_type) please
+#     - [two](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type) please
 #     - [jumbo](pizza_type)
 #     - [two](pizza_amount)
 #     - [2](pizza_amount)
 #     - [two](pizza_amount) please
 #     - [2](pizza_amount) please
-#     - [[large](pizza_size)](pizza_size) please
-#     - [[large](pizza_size)](pizza_size)
+#     - [large](pizza_size) please
+#     - [large](pizza_size)
 #     - just [one](pizza_amount)
 #     - just [1](pizza_amount)
 #     - [one](pizza_amount) pizza [funghi](pizza_type)
-#     - i'd like [three](pizza_amount) [[medium](pizza_size)](pizza_size) pizza [margherita](pizza_type)
+#     - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
 #     - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
 # - intent: item_change
 #   examples: |
@@ -265,11 +272,11 @@ nlu:
 #     - actually , i 'd like [small](pizza_size) pizza.
 #     - I'd like in [small](pizza_size) instead.
 #     - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
-#     - wait, can i get  it in [[large](pizza_size)](pizza_size).
+#     - wait, can i get  it in [large](pizza_size).
 #     - I want [funghi](pizza_type)
 #     - I want [funghi](pizza_type) instead
-#     - I want to change the size to [[medium](pizza_size)](pizza_size)
-#     - I want to change the size to [[large](pizza_size)](pizza_size)
+#     - I want to change the size to [medium](pizza_size)
+#     - I want to change the size to [large](pizza_size)
 #     - I want my pizza in [small](pizza_size) instead
 # - intent: response_negative
 #   examples: |
@@ -293,6 +300,7 @@ nlu:
     - Yes
     - Yeah
     - right
+    - that sounds good
 # - intent: response_name_phone
 #   examples: |
 #     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -341,17 +349,17 @@ nlu:
 # - intent: item_size
 #   examples: |
 #     - [small](pizza_size)
-#     - [[large](pizza_size)](pizza_size)
-#     - I want to order [[large](pizza_size)](pizza_size) pizza
-#     - I want a [[large](pizza_size)](pizza_size) pizza
+#     - [large](pizza_size)
+#     - I want to order [large](pizza_size) pizza
+#     - I want a [large](pizza_size) pizza
 #     - I think its [large](pizza_size)
-#     - [[medium](pizza_size)](pizza_size) pizza
+#     - [medium](pizza_size) pizza
 #     - huge pizza
 #     - Little pizza
 #     - Probably avg
 #     - [small](pizza_size)
-#     - [[large](pizza_size)](pizza_size)
-#     - [[medium](pizza_size)](pizza_size)
+#     - [large](pizza_size)
+#     - [medium](pizza_size)
 # - intent: item_topping
 #   examples: |
 #     - I want to order pizza with OLIVES

@@ -101,17 +101,17 @@ responses:
   #utter_out_of_scope:
   #  - text: Sorry, I can't handle that request.
   utter_welcome_greet:
-  - text: Hello There! Welcome to Pizzbot. How can I help you?
+  - text: Hello There! Welcome to Tarantellabot. How can I help you?
   utter_init_pizza_question/size:
   - text: The available sizes are small, medium and large.
   utter_init_pizza_question/toppings:
   - text: The available toppings are cheese, mushrooms, sausages and potatoes.
   utter_ask_pizza_size:
-  - text: And, what size of pizza do you want?
+  - text: And, what size would you like your {pizza_type} pizza to be?
   utter_ask_pizza_type:
   - text: What type of pizza do you want?
   utter_ask_pizza_amount:
-  - text: Ok, how many {pizza_type} pizzas do you want?
+  - text: Ok, how many {pizza_size} {pizza_type} pizzas do you want?
   utter_submit_form_pizza:
   - text: All done!
   utter_slots_values:
@@ -210,6 +210,8 @@ forms:
     - pizza_amount
 
 
-# salvare nel database l'ordine
+# salvare nel database l'ordine (incompleto)
 # gestire risposta si a anything else?
 # gestire risposte no a is that correct? and anything else?
+# Chiedere nel form se l'utente vuole ingredienti aggiuntivi
+# Chiedere il nome all'utente (form apposito)

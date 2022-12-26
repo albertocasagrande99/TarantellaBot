@@ -12,6 +12,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 import sqlite3
+import pandas as pd
+
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database specified by the db_file
@@ -116,6 +118,25 @@ class ActionResponsePositive(Action):
 			bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
 			if (bot_event['metadata']['utter_action'] == 'utter_slots_values'):
 				# save order to database
+				pizza_type = tracker.get_slot('pizza_type')
+				pizza_size = tracker.get_slot('pizza_size')
+				pizza_amount = tracker.get_slot('pizza_amount')
+				
+				conn = create_connection("orders.db")
+				cur = conn.cursor()
+				cur.execute("""
+          			CREATE TABLE IF NOT EXISTS orders
+          			([order_id] TEXT, [client_name] TEXT, [pizza_type] TEXT, [pizza_size] TEXT, [pizza_amount] INTEGER, [toppings] TEXT)
+				""")
+				cur.execute(f"""
+					INSERT INTO orders (order_id, client_name, pizza_type, pizza_size, pizza_amount, toppings)
+						VALUES
+						('{tracker.sender_id}','Alberto','{pizza_type}', '{pizza_size}', '{pizza_amount}', '...')
+				""")
+				# cur.execute("""SELECT * FROM orders """)
+				# df = pd.DataFrame(cur.fetchall(), columns=['order_id','client_name','pizza_type','pizza_size','pizza_amount','toppings'])
+				# print (df)
+				conn.commit()
 				dispatcher.utter_message(response='utter_anything_else')
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
 			else:
