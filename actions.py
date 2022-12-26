@@ -35,7 +35,7 @@ class ActionMenu(Action):
 	def run(self, dispatcher, tracker, domain):
 		pizza = tracker.get_slot("pizza_type")
 		if(pizza==None):
-			conn = create_connection("pizzas.db")
+			conn = create_connection("data_db/pizzas.db")
 			cur = conn.cursor()
 			cur.execute("""SELECT title FROM pizzas """)
 			rows = cur.fetchall()
@@ -57,7 +57,7 @@ class ActionPrice(Action):
 		pizza_type = tracker.get_slot("pizza_type")
 		if(pizza_type!=None):
 			pizza_type = pizza_type.lower()
-		conn = create_connection("pizzas.db")
+		conn = create_connection("data_db/pizzas.db")
 		cur = conn.cursor()
 		cur.execute(f"""SELECT price FROM pizzas WHERE title='{pizza_type}'""")
 		rows = cur.fetchall()
@@ -75,7 +75,7 @@ class ActionPizzaAvailability(Action):
 		pizza_type = tracker.get_slot("pizza_type")
 		if(pizza_type!=None):
 			pizza_type = pizza_type.lower()
-		conn = create_connection("pizzas.db")
+		conn = create_connection("data_db/pizzas.db")
 		cur = conn.cursor()
 		cur.execute(f"""SELECT title FROM pizzas WHERE EXISTS (SELECT title FROM pizzas WHERE title='{pizza_type}')""")
 		rows = cur.fetchall()
@@ -91,7 +91,7 @@ class ActionPizzaQuestionToppings(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		topping = tracker.get_slot("toppings")
-		conn = create_connection("pizzas.db")
+		conn = create_connection("data_db/pizzas.db")
 		cur = conn.cursor()
 		cur.execute("""SELECT * FROM pizzas """)
 		rows = cur.fetchall()
@@ -122,7 +122,7 @@ class ActionResponsePositive(Action):
 				pizza_size = tracker.get_slot('pizza_size')
 				pizza_amount = tracker.get_slot('pizza_amount')
 				
-				conn = create_connection("orders.db")
+				conn = create_connection("data_db/orders.db")
 				cur = conn.cursor()
 				cur.execute("""
           			CREATE TABLE IF NOT EXISTS orders
