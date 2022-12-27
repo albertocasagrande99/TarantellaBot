@@ -42,6 +42,11 @@ rules:
   - intent: pizza_question_toppings
   - action: action_pizza_question_toppings
 
+- rule: change item with entity
+  steps:
+  - intent: item_change
+  - action: utter_slots_values
+
 # - rule: start
 #   steps:
 #     - intent: init_request

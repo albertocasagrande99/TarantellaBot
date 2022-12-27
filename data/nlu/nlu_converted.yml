@@ -16,13 +16,14 @@ nlu:
     - greetings
     - long time no see 
     - hello
+
 - intent: init_request
   examples: |
     - I want pizza
     - I want to order a pizza
     - I want to order [large](pizza_size) pizza with olives
     - I want [large](pizza_size) tomatoes pizza
-    - I want a [medium](pizza_size) cheese pizza
+    - I want [a](pizza_amount) [medium](pizza_size) cheese pizza
     - want to order pizza
     - want to oder [large](pizza_size) cheese pizza
     - want to order [medium](pizza_size) tomatoes pizza
@@ -106,6 +107,7 @@ nlu:
     - price of [Pepp](pizza_type) pizza
     - What is the price for the [Pepperoni](pizza_type) pizza?
     - how much is the [funghi](pizza_type) one?
+
 - intent: pizza_question_toppings
   examples: |
     - do you have pizza with no [pepperoni](toppings)?
@@ -263,21 +265,22 @@ nlu:
 #     - [one](pizza_amount) pizza [funghi](pizza_type)
 #     - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
 #     - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
-# - intent: item_change
-#   examples: |
-#     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
-#     - I'd like a  [margherita](pizza_type) pizza instead.
-#     - can i get a [vegetarian](pizza_type) instead?
-#     - actually , can I get [margherita](pizza_type)?
-#     - actually , i 'd like [small](pizza_size) pizza.
-#     - I'd like in [small](pizza_size) instead.
-#     - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
-#     - wait, can i get  it in [large](pizza_size).
-#     - I want [funghi](pizza_type)
-#     - I want [funghi](pizza_type) instead
-#     - I want to change the size to [medium](pizza_size)
-#     - I want to change the size to [large](pizza_size)
-#     - I want my pizza in [small](pizza_size) instead
+- intent: item_change
+  examples: |
+    - I changed my mind. Can I get  a [funghi](pizza_type) instead?
+    - I'd like a  [margherita](pizza_type) pizza instead.
+    - can i get a [pepperoni](pizza_type) instead?
+    - actually , can I get [margherita](pizza_type)?
+    - actually , i 'd like [small](pizza_size) pizza.
+    - I'd like in [small](pizza_size) instead.
+    - actually, i would like a [small](pizza_size) [mushrooms](pizza_type).
+    - wait, can i get  it in [large](pizza_size).
+    - I want [funghi](pizza_type)
+    - I want [funghi](pizza_type) instead
+    - I want to change the size to [medium](pizza_size)
+    - I want to change the size to [large](pizza_size)
+    - I want my pizza in [small](pizza_size) instead
+
 - intent: response_negative
   examples: |
     - actually no
@@ -288,6 +291,11 @@ nlu:
     - Noo
     - no thanks
     - no thank you
+    - no I want to change my order
+    - actually I want to change my order
+    - oh no sorry can I make a change?
+    - ops no I need to make a change
+    - no sorry I would like to change the order
 
 - intent: response_positive
   examples: |
@@ -307,9 +315,17 @@ nlu:
     - Yes I want another [margherita](pizza_type)
     - Yes I would like to add another pizza
     - Yes another pizza please
-    - yeah can I have [a](pizza_amount) [marinara](pizza_type) pizza please
-    - yes I'd like [two](pizza_amount) [pepperoni](pizza_type) pizzas
+    - yeah can I have also [a](pizza_amount) [marinara](pizza_type) pizza please
+    - yes I'd like also [two](pizza_amount) [pepperoni](pizza_type) pizzas
     - yes I want to add another pizza
+    - can I have another [mushrooms](pizza_type) pizza?
+    - sure I want to order other pizzas
+    - sure
+    - I would like to buy a second pizza
+    - another pizza please
+    - I want to add also [a](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
+    - yes as a second pizza I would like [a](pizza_amount) [medium](pizza_size) [marinara](pizza_type)
+    - can I have also [a](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza?
 # - intent: response_name_phone
 #   examples: |
 #     - my name is [Raymond](client_name) and number is [098765432](phone_number).

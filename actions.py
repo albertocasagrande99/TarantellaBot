@@ -158,7 +158,7 @@ class ActionResponseNegative(Action):
 		try:
 			bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
 			if (bot_event['metadata']['utter_action'] == 'utter_slots_values'):
-				print("is that correct no")
+				dispatcher.utter_message(response='utter_order_confirm_negative')
 				# return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
 				dispatcher.utter_message("Let me check your order. Please wait a moment... ")

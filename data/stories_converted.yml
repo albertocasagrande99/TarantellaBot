@@ -29,9 +29,22 @@ stories:
   - action: utter_slots_values
   - intent: response_positive
   - action: action_response_positive
+  - intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
 
-- story: ask pizza
+- story: greet and ask pizza 2
   steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
   - intent: init_request
   - action: action_menu
   - action: pizza_order_form
@@ -45,6 +58,72 @@ stories:
   - action: utter_slots_values
   - intent: response_positive
   - action: action_response_positive
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_type
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
+- story: ask pizza and is not correct
+  steps:
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_negative
+  - action: action_response_negative
+  - intent: item_change
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
+- story: ask pizza and is not correct 2
+  steps:
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_negative
+  - action: action_response_negative
+  - intent: item_change
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: response_negative
+  - action: action_response_negative
+
 
 - story: ask pizza and yes anything else
   steps:

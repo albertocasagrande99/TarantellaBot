@@ -14,7 +14,7 @@ intents:
 #- item_start_generic
 #- order_confirm_negative
 #- order_confirm_positive
-#- item_change
+- item_change
 #- extra_order_negative
 #- extra_order_postive
 #- order_take_home
@@ -118,8 +118,8 @@ responses:
   - text: "Your order includes {pizza_amount} {pizza_size} {pizza_type} pizzas. Is that correct?"
   utter_anything_else:
   - text: "Great, your order is being processed! Anything else?"
-  # utter_order_confirm_negative:
-  # - text: What would you like to change?
+  utter_order_confirm_negative:
+  - text: What would you like to change?
   # utter_order_confirm_positive:
   # - text: Great. Anything else?
   # utter_item_change:
@@ -179,7 +179,7 @@ actions:
 # - utter_ask_pizza_size
 # - utter_ask_pizza_type
 # - utter_ask_pizza_amount
-# - utter_order_confirm_negative
+- utter_order_confirm_negative
 # - utter_order_confirm_positive
 # - utter_item_change
 # - utter_extra_order
@@ -213,6 +213,7 @@ forms:
 
 
 # salvare nel database l'ordine (incompleto)
-# gestire risposte no a is that correct? and anything else?
+# gestire risposte no a is that correct?
 # Chiedere nel form se l'utente vuole ingredienti aggiuntivi
 # Chiedere il nome all'utente (form apposito)
+# Nella risposta positiva a anything else, se l'utente dice 'Yes I want to order a large pepperoni pizza' --> l'intent viene classificato come init request e non come response positive. Per questo non funziona a volte
