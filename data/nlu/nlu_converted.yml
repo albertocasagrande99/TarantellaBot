@@ -365,11 +365,12 @@ nlu:
 
 - intent: provide_address
   examples: |
-    - my address is [via Torre Verde 8](address)
-    - [via Torre Verde 8](address)
-    - my home address is [Viale della Vittoria number 10](address)
-    - address is [Via Roma No. 3](address)
-    - the address is [via Roma number 6](address)
+    - my address is [via Torre Verde 8, Trento](address)
+    - [via Torre Verde 8, Trento](address)
+    - my home address is [Viale della Vittoria number 10 in Vittorio Veneto](address)
+    - address is [Via Roma No. 3 in Vicenza](address)
+    - the address is [via Roma number 6, Catania](address)
+    - I live in [Milan, via Salvatore Plateroti n 12](address)
 
 # - intent: order_take_home
 #   examples: |

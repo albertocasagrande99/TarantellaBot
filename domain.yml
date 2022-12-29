@@ -251,5 +251,6 @@ forms:
 
 
 # salvare nel database l'ordine (incompleto)
-# Chiedere il nome all'utente (form apposito)
-# anzichè chiedere il nome all'utente nel welcome greet, farlo tramite il form e poi fare validate, altrimenti l'utente può saltare questa fase e non dire il nome
+# validate address
+# implementare suggermìimenti all'utente sulla pizza
+# numero via preso come pizza_amount

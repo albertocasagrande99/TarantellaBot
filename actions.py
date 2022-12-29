@@ -14,6 +14,7 @@ from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk.types import DomainDict
 import sqlite3
 import pandas as pd
+import phonenumbers
 
 
 def create_connection(db_file):
@@ -213,10 +214,10 @@ class ValidateClientForm(FormValidationAction):
         cur.execute(f"""SELECT * FROM users WHERE client_name='{slot_value.lower()}'""")
         rows = cur.fetchall()
         if(len(list(rows))<1):
-            dispatcher.utter_message(f"Ok {slot_value}, seems you are not registered in our systems")
+            dispatcher.utter_message(f"Welcome {slot_value}, seems you are a new client")
             return {"client_name": slot_value}
         else:
-            dispatcher.utter_message(f"Welcome back {slot_value}!")
+            dispatcher.utter_message(f"Welcome back {slot_value}! How can I help you?")
             return {"client_name": slot_value, "phone_number": rows[0][1], "address": rows[0][2]}
 	
     def validate_phone_number(
@@ -226,8 +227,14 @@ class ValidateClientForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate client name value."""
-        return {}
+        """Validate client phone number value."""
+        string_phone_number = slot_value
+        phone_number = phonenumbers.parse(string_phone_number, "IT")
+        if(phonenumbers.is_valid_number(phone_number)):
+        	return {"phone_number": slot_value}
+        else:
+            dispatcher.utter_message("Not a valid number.")
+            return {"phone_number": None}
 
     def validate_address(
         self,
