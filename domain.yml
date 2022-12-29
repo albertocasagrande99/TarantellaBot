@@ -11,6 +11,7 @@ intents:
 - item_price
 - pizza_question_toppings
 - inform
+- cancel_order
 #- item_start_generic
 #- order_confirm_negative
 #- order_confirm_positive
@@ -36,6 +37,11 @@ intents:
 - pizza_availability
 # - item_type_start_positive
 - out_of_scope
+#- new_client
+#- old_client
+- provide_name
+- provide_phone_number
+- provide_address
 
 entities:
 # - anti_pizza_type
@@ -44,8 +50,9 @@ entities:
 - pizza_amount
 # - active_form_pizza_order_form
 - toppings
-# - client_name
-# - phone_number
+- client_name
+- phone_number
+- address
 # - order_number
 
 slots:
@@ -54,20 +61,25 @@ slots:
   #   mappings:
   #     - type: from_entity
   #       entity: anti_pizza_type
-  # client_name:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: client_name
+  client_name:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: client_name
   # order_number:
   #   type: any
   #   mappings:
   #     - type: custom
-  # phone_number:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: phone_number
+  phone_number:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  address:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: address
   pizza_amount:
     type: any
     mappings:
@@ -101,7 +113,7 @@ responses:
   utter_out_of_scope:
    - text: Sorry, I can't handle that request.
   utter_welcome_greet:
-  - text: Hello There! Welcome to Tarantellabot. How can I help you?
+  - text: Hello There! Welcome to Tarantellabot.
   utter_init_pizza_question/size:
   - text: The available sizes are small, medium and large.
   utter_init_pizza_question/toppings:
@@ -120,6 +132,16 @@ responses:
   - text: "Great, your order is being processed! Anything else?"
   utter_order_confirm_negative:
   - text: What would you like to change?
+  utter_order_delete:
+  - text: Ok, are you sure you want to delete your order?
+  utter_ask_client_name:
+  - text: Can you tell me your name please?
+  utter_ask_phone_number:
+  - text: Ok {client_name}, can you tell me your phone number please?
+  utter_ask_address:
+  - text: And, can you tell me your address please?
+  utter_submit_form_old_client:
+  - text: Welcome back {client_name}, what do you want to do?
   # utter_order_confirm_positive:
   # - text: Great. Anything else?
   # utter_item_change:
@@ -180,6 +202,13 @@ actions:
 # - utter_ask_pizza_type
 # - utter_ask_pizza_amount
 - utter_order_confirm_negative
+- utter_order_delete
+- utter_ask_client_name
+- utter_ask_phone_number
+- utter_ask_address
+- check_client_name
+- validate_client_form
+- action_save_client
 # - utter_order_confirm_positive
 # - utter_item_change
 # - utter_extra_order
@@ -210,10 +239,17 @@ forms:
     - pizza_type
     - pizza_size
     - pizza_amount
+  # old_client_form:
+  #   required_slots:
+  #   - client_name
+  client_form:
+    required_slots:
+    - client_name
+    - phone_number
+    - address
+
 
 
 # salvare nel database l'ordine (incompleto)
-# gestire risposte no a is that correct?
-# Chiedere nel form se l'utente vuole ingredienti aggiuntivi
 # Chiedere il nome all'utente (form apposito)
-# Nella risposta positiva a anything else, se l'utente dice 'Yes I want to order a large pepperoni pizza' --> l'intent viene classificato come init request e non come response positive. Per questo non funziona a volte
+# anzichè chiedere il nome all'utente nel welcome greet, farlo tramite il form e poi fare validate, altrimenti l'utente può saltare questa fase e non dire il nome

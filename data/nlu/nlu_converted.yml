@@ -17,6 +17,16 @@ nlu:
     - long time no see 
     - hello
 
+# - intent: old_client
+#   examples: |
+#     - I'm already registered
+#     - already registered
+#     - I have already ordered a pizza from you
+#     - I should be registered
+#     - I have already taken a pizza from
+#     - not first time I order a pizza from you
+#     - not first time
+
 - intent: init_request
   examples: |
     - I want pizza
@@ -326,12 +336,41 @@ nlu:
     - I want to add also [a](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
     - yes as a second pizza I would like [a](pizza_amount) [medium](pizza_size) [marinara](pizza_type)
     - can I have also [a](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza?
-# - intent: response_name_phone
-#   examples: |
-#     - my name is [Raymond](client_name) and number is [098765432](phone_number).
-#     - [Raymond](client_name) and [098765432](phone_number)
-#     - [Raymond](client_name) [098765432](phone_number)
-#     - [Raymond](client_name) and my number is [098765432](phone_number)
+
+- intent: cancel_order
+  examples: |
+    - I want to delete my order
+    - is it possible to cancel my order?
+    - cancel my order
+    - I don't want anymore to order
+    - delete my order
+    - can I cancel my order please?
+
+- intent: provide_name
+  examples: |
+    - my name is [Alberto](client_name)
+    - I'm [Alessio](client_name)
+    - [Matteo](client_name)
+    - [Stefano](client_name)
+    - i'm [Giovanni](client_name)
+    - my name is [Laura](client_name)
+
+- intent: provide_phone_number
+  examples: |
+    - my phone number is [0438442901](phone_number)
+    - [0438128945](phone_number)
+    - my mobile phone number is [3567359934](phone_number)
+    - phone number is [3469353368](phone_number)
+    - the number is [2664337759](phone_number)
+
+- intent: provide_address
+  examples: |
+    - my address is [via Torre Verde 8](address)
+    - [via Torre Verde 8](address)
+    - my home address is [Viale della Vittoria number 10](address)
+    - address is [Via Roma No. 3](address)
+    - the address is [via Roma number 6](address)
+
 # - intent: order_take_home
 #   examples: |
 #     - take away
@@ -342,23 +381,6 @@ nlu:
 #     - delivery please
 #     - delivery
 #     - i prefer delivery
-# - intent: order_delivery_address
-#   examples: |
-#     - my address is #46, 655 avenue du techno pole
-#     - #46, 655 avenue du techno pole
-#     - house number 46 street 655 avenue du technopole
-#     - house num 46  655 avenue du techno pole street
-#     - House No 46  655 avenue du techno pole street
-#     - House No. 46  655 avenue du techno pole street
-#     - my address is house number 46 street 655 avenue du techno pole
-#     - my address is house num 46  655 avenue du techno pole street
-#     - my address is No 46  655 avenue du techno pole street
-#     - my address is No. 46  655 avenue du techno pole street
-# - intent: item_change_request_without_entity
-#   examples: |
-#     - Actually i want to modify pizza type.
-#     - Actually i want to modify pizza size.
-#     - i want to change my order.
 # - intent: item_type_start_negative
 #   examples: |
 #     - do you have [Americana](pizza_type)

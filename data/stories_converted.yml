@@ -4,18 +4,19 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - checkpoint: start_questions_on_pizza
-
-- story: greeting
-  steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
-  - checkpoint: start_order
+  - action: client_form
+  - active_loop: client_form
+  - slot_was_set:
+    - client_name
+    - phone_number
+    - address
+  - active_loop: null
+  - action: action_save_client
+  - checkpoint: check_user
 
 - story: greet and ask pizza
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: init_request
   - action: action_menu
   - action: pizza_order_form
@@ -43,8 +44,7 @@ stories:
 
 - story: greet and ask pizza 2
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: init_request
   - action: action_menu
   - action: pizza_order_form
@@ -215,6 +215,47 @@ stories:
   - intent: response_negative
   - action: action_response_negative
 
+- story: order pizza and delete order
+  steps:
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: cancel_order
+  - action: utter_order_delete
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: order pizza and delete order 2
+  steps:
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - intent: cancel_order
+  - action: utter_order_delete
+  - intent: response_negative
+  - action: action_response_negative
+
+
 - story: ask information pizza and yes anything else and then no anything else
   steps:
   - intent: init_pizza_question
@@ -251,8 +292,7 @@ stories:
 
 - story: greet and ask information
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: init_pizza_question
   - action: utter_init_pizza_question
 
@@ -263,8 +303,7 @@ stories:
 
 - story: greet and ask price information
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: item_price
   - action: action_price
 
@@ -280,8 +319,7 @@ stories:
 
 - story: greet and ask pizza availability
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: pizza_availability
   - action: action_pizza_availability
 
@@ -292,15 +330,23 @@ stories:
 
 - story: greet and ask pizza without toppings
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: pizza_question_toppings
   - action: action_pizza_question_toppings
 
+- story: greet, ask pizza without toppings and cancel order
+  steps:
+  - checkpoint: check_user
+  - intent: pizza_question_toppings
+  - action: action_pizza_question_toppings
+  - intent: cancel_order
+  - action: utter_order_delete
+  - intent: response_positive
+  - action: action_response_positive
+
 - story: greet, ask pizza without toppings and ask price
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - checkpoint: check_user
   - intent: pizza_question_toppings
   - action: action_pizza_question_toppings
   - intent: item_price

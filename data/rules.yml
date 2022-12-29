@@ -1,10 +1,20 @@
 version: "3.1"
 
 rules:
-- rule: Welcome user
+- rule: Welcome user and client form
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+
+- rule: submit client form
+  condition:
+  - active_loop: client_form
+  steps:
+  - action: client_form      
+  - active_loop: null
+  - action: action_save_client
 
 - rule: say menu
   steps:
@@ -46,6 +56,31 @@ rules:
   steps:
   - intent: item_change
   - action: utter_slots_values
+
+- rule: delete order
+  steps:
+  - intent: cancel_order
+  - action: utter_order_delete
+  - active_loop: null
+
+# - rule: check client name
+#   steps:
+#   - intent: provide_name
+#   - action: check_client_name
+
+# - rule: old client form
+#   steps:
+#   - intent: old_client
+#   - action: old_client_form
+#   - active_loop: old_client_form
+
+# - rule: submit old client form
+#   condition:
+#   - active_loop: old_client_form
+#   steps:
+#   - action: old_client_form      
+#   - active_loop: null    
+#   - action: utter_submit_form_old_client
 
 # - rule: start
 #   steps:

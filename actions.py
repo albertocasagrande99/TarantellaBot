@@ -8,12 +8,12 @@
 # This is a simple example for a custom action which utters "Hello World!"
 
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction
+from rasa_sdk.types import DomainDict
 import sqlite3
 import pandas as pd
-import time
 
 
 def create_connection(db_file):
@@ -144,6 +144,20 @@ class ActionResponsePositive(Action):
 			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
 				#dispatcher.utter_message(response='pizza_order_form')
 				print("The user wants something else")
+			elif(bot_event['metadata']['utter_action'] == 'utter_order_delete'):
+				conn = create_connection("data_db/orders.db")
+				cur = conn.cursor()
+				rows = cur.execute(f"""SELECT * FROM orders WHERE order_id='{tracker.sender_id}'""")
+				if(len(list(rows))<1):
+					dispatcher.utter_message("Your order is already empty.")
+				else:
+					cur.execute(f"""
+						DELETE FROM orders
+						WHERE order_id='{tracker.sender_id}'
+					""")
+					dispatcher.utter_message("Ok, I have deleted your order")
+				conn.commit()
+				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -174,10 +188,82 @@ class ActionResponseNegative(Action):
 						order = order + str(i[4]) + " " + i[3] + " " + i[2] + ", "	
 					order = order[:-2]
 				dispatcher.utter_message("Ok, your total order includes: " + order)
+			elif(bot_event['metadata']['utter_action'] == 'utter_order_delete'):
+				dispatcher.utter_message("Ok, I don't delete your order.")
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
 			dispatcher.utter_message("Sorry, can you repeat that?")
+		return[]
+
+class ValidateClientForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_client_form"
+
+    def validate_client_name(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate client name value."""
+        conn = create_connection("data_db/users.db")
+        cur = conn.cursor()
+        cur.execute(f"""SELECT * FROM users WHERE client_name='{slot_value.lower()}'""")
+        rows = cur.fetchall()
+        if(len(list(rows))<1):
+            dispatcher.utter_message(f"Ok {slot_value}, seems you are not registered in our systems")
+            return {"client_name": slot_value}
+        else:
+            dispatcher.utter_message(f"Welcome back {slot_value}!")
+            return {"client_name": slot_value, "phone_number": rows[0][1], "address": rows[0][2]}
+	
+    def validate_phone_number(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate client name value."""
+        return {}
+
+    def validate_address(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        return {}
+
+class ActionSaveClient(Action):
+	def name(self):
+		return 'action_save_client'
+
+	def run(self, dispatcher, tracker, domain):
+		try:
+			conn = create_connection("data_db/users.db")
+			cur = conn.cursor()
+			cur.execute("""
+				CREATE TABLE IF NOT EXISTS users
+				([client_name] TEXT, [phone_number] INTEGER, [address] TEXT, UNIQUE(client_name))
+			""")
+			cur.execute(f"""
+				SELECT * FROM users WHERE client_name='{tracker.get_slot("client_name").lower()}'
+			""")
+			rows = cur.fetchall()
+			if(len(list(rows))<1):
+				cur.execute(f"""
+					INSERT INTO users (client_name, phone_number, address)
+						VALUES
+						('{tracker.get_slot("client_name").lower()}','{tracker.get_slot("phone_number")}', '{tracker.get_slot("address")}')
+				""")
+			conn.commit()
+			conn.close()
+		except:
+			dispatcher.utter_message("Problem while saving the information")
 		return[]
 
 class ActionChangeOrder(Action):
