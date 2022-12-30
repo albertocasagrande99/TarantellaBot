@@ -15,6 +15,7 @@ from rasa_sdk.types import DomainDict
 import sqlite3
 import pandas as pd
 import phonenumbers
+from collections import Counter
 
 
 def create_connection(db_file):
@@ -123,18 +124,18 @@ class ActionResponsePositive(Action):
 				pizza_type = tracker.get_slot('pizza_type')
 				pizza_size = tracker.get_slot('pizza_size')
 				pizza_amount = tracker.get_slot('pizza_amount')
-				toppings = tracker.get_slot('toppings')
+				client_name = tracker.get_slot('client_name')
 				
 				conn = create_connection("data_db/orders.db")
 				cur = conn.cursor()
 				cur.execute("""
           			CREATE TABLE IF NOT EXISTS orders
-          			([order_id] TEXT, [client_name] TEXT, [pizza_type] TEXT, [pizza_size] TEXT, [pizza_amount] INTEGER, [toppings] TEXT)
+          			([order_id] TEXT, [client_name] TEXT, [pizza_type] TEXT, [pizza_size] TEXT, [pizza_amount] INTEGER)
 				""")
 				cur.execute(f"""
-					INSERT INTO orders (order_id, client_name, pizza_type, pizza_size, pizza_amount, toppings)
+					INSERT INTO orders (order_id, client_name, pizza_type, pizza_size, pizza_amount)
 						VALUES
-						('{tracker.sender_id}','Alberto','{pizza_type}', '{pizza_size}', '{pizza_amount}', '{toppings}')
+						('{tracker.sender_id}','{client_name.lower()}','{pizza_type}', '{pizza_size}', '{pizza_amount}')
 				""")
 				# cur.execute("""SELECT * FROM orders """)
 				# df = pd.DataFrame(cur.fetchall(), columns=['order_id','client_name','pizza_type','pizza_size','pizza_amount','toppings'])
@@ -215,10 +216,10 @@ class ValidateClientForm(FormValidationAction):
         rows = cur.fetchall()
         if(len(list(rows))<1):
             dispatcher.utter_message(f"Welcome {slot_value}, seems you are a new client")
-            return {"client_name": slot_value}
+            return {"client_name": slot_value, "new_client": True}
         else:
             dispatcher.utter_message(f"Welcome back {slot_value}! How can I help you?")
-            return {"client_name": slot_value, "phone_number": rows[0][1], "address": rows[0][2]}
+            return {"client_name": slot_value, "phone_number": rows[0][1], "address_street": rows[0][2], "address_number": rows[0][3], "address_city": rows[0][4], "new_client": False}
 	
     def validate_phone_number(
         self,
@@ -236,7 +237,29 @@ class ValidateClientForm(FormValidationAction):
             dispatcher.utter_message("Not a valid number.")
             return {"phone_number": None}
 
-    def validate_address(
+    def validate_address_street(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        return {}
+
+    def validate_address_number(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        string_address_number = slot_value
+        if(string_address_number.isnumeric()):
+            return {"address_number": slot_value}
+        else:
+            return {"address_number": None}
+
+    def validate_address_city(
         self,
         slot_value: Any,
 		dispatcher: CollectingDispatcher,
@@ -255,7 +278,7 @@ class ActionSaveClient(Action):
 			cur = conn.cursor()
 			cur.execute("""
 				CREATE TABLE IF NOT EXISTS users
-				([client_name] TEXT, [phone_number] INTEGER, [address] TEXT, UNIQUE(client_name))
+				([client_name] TEXT, [phone_number] INTEGER, [address_street] TEXT, [address_number] INTEGER, [address_city] TEXT)
 			""")
 			cur.execute(f"""
 				SELECT * FROM users WHERE client_name='{tracker.get_slot("client_name").lower()}'
@@ -263,15 +286,43 @@ class ActionSaveClient(Action):
 			rows = cur.fetchall()
 			if(len(list(rows))<1):
 				cur.execute(f"""
-					INSERT INTO users (client_name, phone_number, address)
+					INSERT INTO users (client_name, phone_number, address_street, address_number, address_city)
 						VALUES
-						('{tracker.get_slot("client_name").lower()}','{tracker.get_slot("phone_number")}', '{tracker.get_slot("address")}')
+						('{tracker.get_slot("client_name").lower()}','{tracker.get_slot("phone_number")}', '{tracker.get_slot("address_street")}', '{tracker.get_slot("address_number")}', '{tracker.get_slot("address_city")}')
 				""")
+				dispatcher.utter_message(f"Perfect {tracker.get_slot('client_name')}. How can I help you?")
 			conn.commit()
 			conn.close()
 		except:
 			dispatcher.utter_message("Problem while saving the information")
+		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
+
+class ActionSuggestPizza(Action):
+	def name(self):
+		return 'action_suggest_pizza'
+
+	def run(self, dispatcher, tracker, domain):
+		try:
+			conn = create_connection("data_db/orders.db")
+			cur = conn.cursor()
+			cur.execute(f"""
+				SELECT * FROM orders WHERE client_name='{tracker.get_slot("client_name").lower()}'
+			""")
+			rows = cur.fetchall()
+			pizzas = []
+			if(len(list(rows))>1):
+				for pizza in rows:
+					pizzas.append(pizza[2])
+				occurence_count = Counter(pizzas)
+				most_ordered_pizza = occurence_count.most_common(1)[0][0]
+			conn.commit()
+			conn.close()
+			dispatcher.utter_message(f"Do you want to order the usual {most_ordered_pizza}?")
+			return[SlotSet("pizza_type", most_ordered_pizza)]
+		except:
+			dispatcher.utter_message("Problem")
 		return[]
+
 
 class ActionChangeOrder(Action):
 	def name(self):

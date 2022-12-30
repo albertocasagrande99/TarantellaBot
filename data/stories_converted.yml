@@ -9,14 +9,58 @@ stories:
   - slot_was_set:
     - client_name
     - phone_number
-    - address
+    - address_street
+    - address_number
+    - address_city
   - active_loop: null
   - action: action_save_client
   - checkpoint: check_user
 
-- story: greet and ask pizza
+- story: new client
   steps:
   - checkpoint: check_user
+  - slot_was_set:
+    - new_client: true
+  - checkpoint: new_client
+
+- story: suggest pizza to old client who accepts
+  steps:
+  - checkpoint: check_user
+  - slot_was_set:
+    - new_client: false
+  - intent: init_request_without_entity
+  - action: action_suggest_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - checkpoint: suggest_pizza_positive
+
+- story: suggest pizza to old client who does not accept
+  steps:
+  - checkpoint: check_user
+  - slot_was_set:
+    - new_client: false
+  - intent: init_request_without_entity
+  - action: action_suggest_pizza
+  - intent: response_negative
+  - action: action_response_negative
+  - checkpoint: suggest_pizza_negative
+
+- story: greet, suggest pizza to old client and order pizza
+  steps:
+  - checkpoint: suggest_pizza_positive
+  - action: pizza_order_form 
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
+- story: greet and ask pizza
+  steps:
+  - checkpoint: new_client
   - intent: init_request
   - action: action_menu
   - action: pizza_order_form
@@ -44,7 +88,7 @@ stories:
 
 - story: greet and ask pizza 2
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: init_request
   - action: action_menu
   - action: pizza_order_form
@@ -292,7 +336,7 @@ stories:
 
 - story: greet and ask information
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: init_pizza_question
   - action: utter_init_pizza_question
 
@@ -303,7 +347,7 @@ stories:
 
 - story: greet and ask price information
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: item_price
   - action: action_price
 
@@ -319,7 +363,7 @@ stories:
 
 - story: greet and ask pizza availability
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: pizza_availability
   - action: action_pizza_availability
 
@@ -330,13 +374,13 @@ stories:
 
 - story: greet and ask pizza without toppings
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: pizza_question_toppings
   - action: action_pizza_question_toppings
 
 - story: greet, ask pizza without toppings and cancel order
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: pizza_question_toppings
   - action: action_pizza_question_toppings
   - intent: cancel_order
@@ -346,7 +390,7 @@ stories:
 
 - story: greet, ask pizza without toppings and ask price
   steps:
-  - checkpoint: check_user
+  - checkpoint: new_client
   - intent: pizza_question_toppings
   - action: action_pizza_question_toppings
   - intent: item_price

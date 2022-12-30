@@ -7,6 +7,7 @@ version: "3.1"
 intents:
 - welcome_greet
 - init_request
+- init_request_without_entity
 - init_pizza_question
 - item_price
 - pizza_question_toppings
@@ -41,7 +42,9 @@ intents:
 #- old_client
 - provide_name
 - provide_phone_number
-- provide_address
+- provide_address_street
+- provide_address_number
+- provide_address_city
 
 entities:
 # - anti_pizza_type
@@ -52,34 +55,52 @@ entities:
 - toppings
 - client_name
 - phone_number
-- address
+- address_street
+- address_number
+- address_city
 # - order_number
 
 slots:
-  # anti_pizza_type:
-  #   type: any
-  #   mappings:
-  #     - type: from_entity
-  #       entity: anti_pizza_type
   client_name:
     type: any
     mappings:
       - type: from_entity
         entity: client_name
-  # order_number:
-  #   type: any
-  #   mappings:
-  #     - type: custom
+        conditions:
+        - active_loop: client_form
+          requested_slot: client_name
   phone_number:
     type: any
     mappings:
       - type: from_entity
         entity: phone_number
-  address:
+        conditions:
+        - active_loop: client_form
+          requested_slot: phone_number
+  address_street:
     type: any
     mappings:
       - type: from_entity
-        entity: address
+        entity: address_street
+        conditions:
+        - active_loop: client_form
+          requested_slot: address_street
+  address_number:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: address_number
+        conditions:
+        - active_loop: client_form
+          requested_slot: address_number
+  address_city:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: address_city
+        conditions:
+        - active_loop: client_form
+          requested_slot: address_city
   pizza_amount:
     type: any
     mappings:
@@ -95,6 +116,11 @@ slots:
     mappings:
       - type: from_entity
         entity: pizza_type
+  new_client:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: custom
   # requested_slot:
   #   type: any
   #   mappings:
@@ -137,9 +163,13 @@ responses:
   utter_ask_client_name:
   - text: Can you tell me your name please?
   utter_ask_phone_number:
-  - text: Ok {client_name}, can you tell me your phone number please?
-  utter_ask_address:
-  - text: And, can you tell me your address please?
+  - text: Can you tell me your phone number please?
+  utter_ask_address_street:
+  - text: And, can you tell me your street name?
+  utter_ask_address_number:
+  - text: And, can you tell me your address number?
+  utter_ask_address_city:
+  - text: And, can you tell me your city?
   utter_submit_form_old_client:
   - text: Welcome back {client_name}, what do you want to do?
   # utter_order_confirm_positive:
@@ -198,17 +228,20 @@ actions:
 - utter_anything_else
 - utter_out_of_scope
 - action_response_negative
-# - utter_ask_pizza_size
-# - utter_ask_pizza_type
-# - utter_ask_pizza_amount
+- utter_ask_pizza_size
+- utter_ask_pizza_type
+- utter_ask_pizza_amount
 - utter_order_confirm_negative
 - utter_order_delete
 - utter_ask_client_name
 - utter_ask_phone_number
-- utter_ask_address
+- utter_ask_address_street
+- utter_ask_address_number
+- utter_ask_address_city
 - check_client_name
 - validate_client_form
 - action_save_client
+- action_suggest_pizza
 # - utter_order_confirm_positive
 # - utter_item_change
 # - utter_extra_order
@@ -246,11 +279,12 @@ forms:
     required_slots:
     - client_name
     - phone_number
-    - address
+    - address_street
+    - address_number
+    - address_city
 
 
 
-# salvare nel database l'ordine (incompleto)
-# validate address
 # implementare suggermìimenti all'utente sulla pizza
 # numero via preso come pizza_amount
+# ricordiamoci di mettere l'OR per gli intent init request

@@ -15,6 +15,8 @@ rules:
   - action: client_form      
   - active_loop: null
   - action: action_save_client
+  - slot_was_set:
+    - new_client
 
 - rule: say menu
   steps:

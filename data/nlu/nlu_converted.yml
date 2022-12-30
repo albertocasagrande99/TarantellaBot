@@ -63,6 +63,22 @@ nlu:
     - I want to order [one](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza please
     - I want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas please
 
+- intent: init_request_without_entity
+  examples: |
+    - I want pizza
+    - I want to order a pizza
+    - pizza
+    - pizza please
+    - Pizza please
+    - Pizza will do
+    - pizza will do
+    - Pizza
+    - want to order pizza
+    - can I order a pizza
+    - I want to buy a pizza
+    - a pizza please
+    - I'd like a pizza
+
 - intent: init_pizza_question/size
   examples: |
     - What are the sizes?
@@ -363,14 +379,32 @@ nlu:
     - phone number is [3469353368](phone_number)
     - the number is [2664337759](phone_number)
 
-- intent: provide_address
+- intent: provide_address_street
   examples: |
-    - my address is [via Torre Verde 8, Trento](address)
-    - [via Torre Verde 8, Trento](address)
-    - my home address is [Viale della Vittoria number 10 in Vittorio Veneto](address)
-    - address is [Via Roma No. 3 in Vicenza](address)
-    - the address is [via Roma number 6, Catania](address)
-    - I live in [Milan, via Salvatore Plateroti n 12](address)
+    - my street address is [via Torre Verde](address_street)
+    - [via Torre Verde](address_street)
+    - my street name is [Viale della Vittoria](address_street)
+    - street address is [Via Roma](address_street)
+    - the street name is [via Roma](address_street)
+    - I live in [via Salvatore Plateroti](address_street)
+
+- intent: provide_address_number
+  examples: |
+    - my address number is [8](address_number)
+    - number [8](address_number)
+    - my home address number is [10](address_number)
+    - No. [3](address_number)
+    - the address number is number [6](address_number)
+    - n [12](address_number)
+
+- intent: provide_address_city
+  examples: |
+    - I live in [Trento](address_city)
+    - [Milano](address_city)
+    - my city is [Roma](address_city)
+    - [Vittorio Veneto](address_city)
+    - [Trento](address_city)
+    - I live in [Torino](address_city)
 
 # - intent: order_take_home
 #   examples: |
