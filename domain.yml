@@ -45,20 +45,21 @@ intents:
 - provide_address_street
 - provide_address_number
 - provide_address_city
+- pay_cash
+- pay_credit_card
+- provide_credit_card_number
 
 entities:
-# - anti_pizza_type
 - pizza_size
 - pizza_type
 - pizza_amount
-# - active_form_pizza_order_form
 - toppings
 - client_name
 - phone_number
 - address_street
 - address_number
 - address_city
-# - order_number
+- credit-card-number
 
 slots:
   client_name:
@@ -130,10 +131,11 @@ slots:
     mappings:
       - type: from_entity
         entity: toppings
-  # total_order:
-  #   type: any
-  #   mappings:
-  #     - type: custom
+  credit-card-number:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: credit-card-number
 
 responses:
   utter_out_of_scope:
@@ -172,6 +174,12 @@ responses:
   - text: And, can you tell me your city?
   utter_submit_form_old_client:
   - text: Welcome back {client_name}, what do you want to do?
+  utter_suggested_pizza:
+  - text: Do you want to order the usual {pizza}?
+  utter_total_cost:
+  - text: It will be {cost} euros. Do you want to pay cash on delivery or by credit card?
+  utter_ask_credit-card-number:
+  - text: What is your credit card's number?
   # utter_order_confirm_positive:
   # - text: Great. Anything else?
   # utter_item_change:
@@ -242,6 +250,8 @@ actions:
 - validate_client_form
 - action_save_client
 - action_suggest_pizza
+- utter_suggested_pizza
+- utter_ask_credit_card_number
 # - utter_order_confirm_positive
 # - utter_item_change
 # - utter_extra_order
@@ -272,9 +282,6 @@ forms:
     - pizza_type
     - pizza_size
     - pizza_amount
-  # old_client_form:
-  #   required_slots:
-  #   - client_name
   client_form:
     required_slots:
     - client_name
@@ -282,9 +289,11 @@ forms:
     - address_street
     - address_number
     - address_city
+  credit_card_form:
+    required_slots:
+    - credit-card-number
 
 
 
 # implementare suggermìimenti all'utente sulla pizza
 # numero via preso come pizza_amount
-# ricordiamoci di mettere l'OR per gli intent init request

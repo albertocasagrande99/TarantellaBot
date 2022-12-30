@@ -125,7 +125,6 @@ class ActionResponsePositive(Action):
 				pizza_size = tracker.get_slot('pizza_size')
 				pizza_amount = tracker.get_slot('pizza_amount')
 				client_name = tracker.get_slot('client_name')
-				
 				conn = create_connection("data_db/orders.db")
 				cur = conn.cursor()
 				cur.execute("""
@@ -160,6 +159,8 @@ class ActionResponsePositive(Action):
 					dispatcher.utter_message("Ok, I have deleted your order")
 				conn.commit()
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
+			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_pizza'):
+				print("The user wants the usual pizza")
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -189,9 +190,25 @@ class ActionResponseNegative(Action):
 					for i in rows:
 						order = order + str(i[4]) + " " + i[3] + " " + i[2] + ", "	
 					order = order[:-2]
-				dispatcher.utter_message("Ok, your total order includes: " + order)
+					conn.commit()
+					conn.close()
+
+					#connection to db pizzas
+					total_cost = 0
+					conn = create_connection("data_db/pizzas.db")
+					cur = conn.cursor()
+					for pizza in rows:
+						cur.execute(f"""SELECT price FROM pizzas WHERE title='{pizza[2]}'""")
+						row = cur.fetchone()
+						total_cost = total_cost + float(row[0])*int(pizza[4])
+					conn.commit()
+					conn.close()
+					dispatcher.utter_message("Ok, your total order includes: " + order + ".")
+					dispatcher.utter_message(response='utter_total_cost', cost=total_cost)
 			elif(bot_event['metadata']['utter_action'] == 'utter_order_delete'):
 				dispatcher.utter_message("Ok, I don't delete your order.")
+			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_pizza'):
+				return[SlotSet("pizza_type", None)]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -317,7 +334,7 @@ class ActionSuggestPizza(Action):
 				most_ordered_pizza = occurence_count.most_common(1)[0][0]
 			conn.commit()
 			conn.close()
-			dispatcher.utter_message(f"Do you want to order the usual {most_ordered_pizza}?")
+			dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
 			return[SlotSet("pizza_type", most_ordered_pizza)]
 		except:
 			dispatcher.utter_message("Problem")

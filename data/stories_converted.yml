@@ -45,9 +45,22 @@ stories:
   - action: action_response_negative
   - checkpoint: suggest_pizza_negative
 
-- story: greet, suggest pizza to old client and order pizza
+- story: greet, suggest pizza to old client and order pizza (positive)
   steps:
   - checkpoint: suggest_pizza_positive
+  - action: pizza_order_form 
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+
+- story: greet, suggest pizza to old client and order pizza (negative)
+  steps:
+  - checkpoint: suggest_pizza_negative
   - action: pizza_order_form 
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -61,7 +74,9 @@ stories:
 - story: greet and ask pizza
   steps:
   - checkpoint: new_client
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -89,7 +104,9 @@ stories:
 - story: greet and ask pizza 2
   steps:
   - checkpoint: new_client
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -117,7 +134,9 @@ stories:
 
 - story: ask pizza and is not correct
   steps:
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -148,7 +167,9 @@ stories:
 
 - story: ask pizza and is not correct 2
   steps:
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -171,7 +192,9 @@ stories:
 
 - story: ask pizza and yes anything else
   steps:
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -200,7 +223,9 @@ stories:
   steps:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -243,7 +268,9 @@ stories:
   steps:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -261,7 +288,9 @@ stories:
 
 - story: order pizza and delete order
   steps:
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -281,7 +310,9 @@ stories:
 
 - story: order pizza and delete order 2
   steps:
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -304,7 +335,9 @@ stories:
   steps:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
-  - intent: init_request
+  - or: 
+    - intent: init_request
+    - intent: init_request_without_entities
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form

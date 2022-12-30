@@ -29,24 +29,15 @@ nlu:
 
 - intent: init_request
   examples: |
-    - I want pizza
-    - I want to order a pizza
     - I want to order [large](pizza_size) pizza with olives
     - I want [large](pizza_size) tomatoes pizza
     - I want [a](pizza_amount) [medium](pizza_size) cheese pizza
-    - want to order pizza
     - want to oder [large](pizza_size) cheese pizza
     - want to order [medium](pizza_size) tomatoes pizza
     - want to order least carnivore pizza
     - need [large](pizza_size) pepperoni pizza
     - want [small](pizza_size) onions pizza
     - want [large](pizza_size) pepper pizza
-    - pizza
-    - pizza please
-    - Pizza please
-    - Pizza will do
-    - pizza will do
-    - Pizza
     - I like [small](pizza_size) olives pizza
     - pepperoni [small](pizza_size) pizza
     - [large](pizza_size) onions
@@ -406,6 +397,43 @@ nlu:
     - [Trento](address_city)
     - I live in [Torino](address_city)
 
+- intent: pay_cash
+  examples: |
+    - I want to pay cash
+    - cash
+    - pay cash
+    - cash thanks
+    - possibly pay cash on delivery
+    - on delivery
+    - Cash
+    - I'd like cash
+    - I would like to pay cash
+    - I want to pay cash on delivery
+    - cash on delivery
+
+- intent: pay_credit_card
+  examples: |
+    - I want to pay through credit card
+    - credit card
+    - pay credit card
+    - credit card thanks
+    - possibly pay credit card
+    - credit card
+    - Credit card
+    - I'd like credit card
+    - I would like to pay via credit card
+    - I want to pay via credit card
+    - visa credit card thanks
+    - through visa card
+
+# - intent: provide_credit_card_number
+#   examples: |
+#     - the credit card number is [4491504146769269](credit-card-number)
+#     - visa card number is [4693318184026698](credit-card-number)
+#     - visa is [4029648883660735](credit-card-number)
+#     - the credit card number is [4687402125346551](credit-card-number)
+#     - visa card number is [4862362019536435](credit-card-number)
+#     - visa is [4440642940131500](credit-card-number)
 # - intent: order_take_home
 #   examples: |
 #     - take away

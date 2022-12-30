@@ -65,6 +65,19 @@ rules:
   - action: utter_order_delete
   - active_loop: null
 
+- rule: activate credit card form
+  steps:
+  - intent: pay_credit_card
+  - action: credit_card_form
+  - active_loop: credit_card_form
+
+- rule: submit credit card form
+  condition:
+  - active_loop: credit_card_form
+  steps:
+  - action: credit_card_form      
+  - active_loop: null
+
 # - rule: check client name
 #   steps:
 #   - intent: provide_name
