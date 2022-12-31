@@ -140,10 +140,10 @@ class ActionResponsePositive(Action):
 				# df = pd.DataFrame(cur.fetchall(), columns=['order_id','client_name','pizza_type','pizza_size','pizza_amount','toppings'])
 				# print (df)
 				conn.commit()
+				conn.close()
 				dispatcher.utter_message(response='utter_anything_else')
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
-				#dispatcher.utter_message(response='pizza_order_form')
 				print("The user wants something else")
 			elif(bot_event['metadata']['utter_action'] == 'utter_order_delete'):
 				conn = create_connection("data_db/orders.db")
@@ -158,6 +158,7 @@ class ActionResponsePositive(Action):
 					""")
 					dispatcher.utter_message("Ok, I have deleted your order")
 				conn.commit()
+				conn.close()
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_pizza'):
 				print("The user wants the usual pizza")
@@ -176,7 +177,6 @@ class ActionResponseNegative(Action):
 			bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
 			if (bot_event['metadata']['utter_action'] == 'utter_slots_values'):
 				dispatcher.utter_message(response='utter_order_confirm_negative')
-				# return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
 				dispatcher.utter_message("Let me check your order. Please wait a moment... ")
 				conn = create_connection("data_db/orders.db")
@@ -327,19 +327,19 @@ class ActionSuggestPizza(Action):
 			""")
 			rows = cur.fetchall()
 			pizzas = []
-			if(len(list(rows))>1):
+			most_ordered_pizza = None
+			if(len(list(rows))>=1):
 				for pizza in rows:
 					pizzas.append(pizza[2])
 				occurence_count = Counter(pizzas)
 				most_ordered_pizza = occurence_count.most_common(1)[0][0]
+				dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
 			conn.commit()
 			conn.close()
-			dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
 			return[SlotSet("pizza_type", most_ordered_pizza)]
 		except:
 			dispatcher.utter_message("Problem")
 		return[]
-
 
 class ActionChangeOrder(Action):
 	def name(self):

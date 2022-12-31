@@ -294,6 +294,4 @@ forms:
     - credit-card-number
 
 
-
-# implementare suggermìimenti all'utente sulla pizza
-# numero via preso come pizza_amount
+# validare credit-card-number (duckling lo prende solo se è valido, ma se non è valido il form non viene riattivato). Non si può validare perchè non si può usare - nei nomi delle funzioni
