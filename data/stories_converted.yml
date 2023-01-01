@@ -9,9 +9,6 @@ stories:
   - slot_was_set:
     - client_name
     - phone_number
-    - address_street
-    - address_number
-    - address_city
   - active_loop: null
   - action: action_save_client
   - checkpoint: check_user
@@ -428,6 +425,28 @@ stories:
   - action: action_pizza_question_toppings
   - intent: item_price
   - action: action_price
+
+# - story: ask credit card number and delivery information
+#   steps:
+#   - action: utter_total_cost
+#   - intent: pay_credit_card
+#   - action: credit_card_form
+#   - active_loop: credit_card_form
+#   - slot_was_set:
+#     - credit-card-number
+#   - active_loop: null
+#   - action: utter_modality
+#   - intent: order_delivery
+#   - action: delivery_form
+#   - active_loop: delivery_form
+#   - slot_was_set:
+#     - address_street
+#     - address_number
+#     - address_city
+#   - active_loop: null
+#   - checkpoint: delivery
+
+
 # - story: questions_on_pizza
 #   steps:
 #   - checkpoint: start_questions_on_pizza

@@ -19,9 +19,9 @@ intents:
 - item_change
 #- extra_order_negative
 #- extra_order_postive
-#- order_take_home
+- order_take_away
 #- order_delivery_address
-#- order_delivery
+- order_delivery
 #- order_confirm_final
 # - item_confirm_no
 # - item_confirm_yes
@@ -47,7 +47,7 @@ intents:
 - provide_address_city
 - pay_cash
 - pay_credit_card
-- provide_credit_card_number
+#- provide_credit_card_number
 
 entities:
 - pizza_size
@@ -84,7 +84,7 @@ slots:
       - type: from_entity
         entity: address_street
         conditions:
-        - active_loop: client_form
+        - active_loop: delivery_form
           requested_slot: address_street
   address_number:
     type: any
@@ -92,7 +92,7 @@ slots:
       - type: from_entity
         entity: address_number
         conditions:
-        - active_loop: client_form
+        - active_loop: delivery_form
           requested_slot: address_number
   address_city:
     type: any
@@ -100,7 +100,7 @@ slots:
       - type: from_entity
         entity: address_city
         conditions:
-        - active_loop: client_form
+        - active_loop: delivery_form
           requested_slot: address_city
   pizza_amount:
     type: any
@@ -166,8 +166,10 @@ responses:
   - text: Can you tell me your name please?
   utter_ask_phone_number:
   - text: Can you tell me your phone number please?
+  utter_check_address:
+  - text: "Ok {client_name}, the delivery address of the last order was: {address_street} number {address_number}, {address_city}. Is that correct?"
   utter_ask_address_street:
-  - text: And, can you tell me your street name?
+  - text: Ok {client_name}, now I need some information for the delivery. Can you tell me your street name?
   utter_ask_address_number:
   - text: And, can you tell me your address number?
   utter_ask_address_city:
@@ -180,6 +182,8 @@ responses:
   - text: It will be {cost} euros. Do you want to pay cash on delivery or by credit card?
   utter_ask_credit-card-number:
   - text: What is your credit card's number?
+  utter_modality:
+  - text: Do you prefer take away or home delivery?
   # utter_order_confirm_positive:
   # - text: Great. Anything else?
   # utter_item_change:
@@ -251,7 +255,10 @@ actions:
 - action_save_client
 - action_suggest_pizza
 - utter_suggested_pizza
-- utter_ask_credit_card_number
+- utter_ask_credit-card-number
+- utter_modality
+- utter_check_address
+- action_check_address
 # - utter_order_confirm_positive
 # - utter_item_change
 # - utter_extra_order
@@ -286,6 +293,8 @@ forms:
     required_slots:
     - client_name
     - phone_number
+  delivery_form:
+    required_slots:
     - address_street
     - address_number
     - address_city

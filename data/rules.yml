@@ -77,6 +77,24 @@ rules:
   steps:
   - action: credit_card_form      
   - active_loop: null
+  - action: utter_modality
+
+- rule: check user for the delivery
+  steps:
+  - intent: order_delivery
+  - action: action_check_address
+
+- rule: activate delivery form
+  steps:
+  - action: delivery_form
+  - active_loop: delivery_form
+
+- rule: submit delivery form
+  condition:
+  - active_loop: delivery_form
+  steps:
+  - action: delivery_form      
+  - active_loop: null
 
 # - rule: check client name
 #   steps:

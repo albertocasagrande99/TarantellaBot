@@ -434,16 +434,16 @@ nlu:
 #     - the credit card number is [4687402125346551](credit-card-number)
 #     - visa card number is [4862362019536435](credit-card-number)
 #     - visa is [4440642940131500](credit-card-number)
-# - intent: order_take_home
-#   examples: |
-#     - take away
-#     - i prefer take away
-#     - take away please
-# - intent: order_delivery
-#   examples: |
-#     - delivery please
-#     - delivery
-#     - i prefer delivery
+- intent: order_take_away
+  examples: |
+    - take away
+    - i prefer take away
+    - take away please
+- intent: order_delivery
+  examples: |
+    - delivery please
+    - delivery
+    - i prefer delivery
 # - intent: item_type_start_negative
 #   examples: |
 #     - do you have [Americana](pizza_type)

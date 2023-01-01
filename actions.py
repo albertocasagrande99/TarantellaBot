@@ -209,6 +209,8 @@ class ActionResponseNegative(Action):
 				dispatcher.utter_message("Ok, I don't delete your order.")
 			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_pizza'):
 				return[SlotSet("pizza_type", None)]
+			elif(bot_event['metadata']['utter_action'] == 'utter_check_address'):
+				return[SlotSet("address_street", None), SlotSet("address_number", None), SlotSet("address_city", None), FollowupAction("delivery_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -253,6 +255,10 @@ class ValidateClientForm(FormValidationAction):
         else:
             dispatcher.utter_message("Not a valid number.")
             return {"phone_number": None}
+
+class ValidateDeliveryForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_delivery_form"
 
     def validate_address_street(
         self,
@@ -305,7 +311,7 @@ class ActionSaveClient(Action):
 				cur.execute(f"""
 					INSERT INTO users (client_name, phone_number, address_street, address_number, address_city)
 						VALUES
-						('{tracker.get_slot("client_name").lower()}','{tracker.get_slot("phone_number")}', '{tracker.get_slot("address_street")}', '{tracker.get_slot("address_number")}', '{tracker.get_slot("address_city")}')
+						('{tracker.get_slot("client_name").lower()}','{tracker.get_slot("phone_number")}', '', '', '')
 				""")
 				dispatcher.utter_message(f"Perfect {tracker.get_slot('client_name')}. How can I help you?")
 			conn.commit()
@@ -313,6 +319,17 @@ class ActionSaveClient(Action):
 		except:
 			dispatcher.utter_message("Problem while saving the information")
 		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
+
+class ActionCheckAddress(Action):
+	def name(self):
+		return 'action_check_address'
+
+	def run(self, dispatcher, tracker, domain):
+		if(tracker.get_slot("new_client")):
+			return[FollowupAction("delivery_form")]
+		else:
+			dispatcher.utter_message(response='utter_check_address')
+		return[]
 
 class ActionSuggestPizza(Action):
 	def name(self):
@@ -334,6 +351,8 @@ class ActionSuggestPizza(Action):
 				occurence_count = Counter(pizzas)
 				most_ordered_pizza = occurence_count.most_common(1)[0][0]
 				dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
+			else:
+				return[FollowupAction("pizza_order_form")]
 			conn.commit()
 			conn.close()
 			return[SlotSet("pizza_type", most_ordered_pizza)]
