@@ -199,10 +199,17 @@ class ActionResponseNegative(Action):
 					total_cost = 0
 					conn = create_connection("data_db/pizzas.db")
 					cur = conn.cursor()
+					l = 0
 					for pizza in rows:
 						cur.execute(f"""SELECT price FROM pizzas WHERE title='{pizza[2]}'""")
 						row = cur.fetchone()
-						total_cost = total_cost + float(row[0])*int(pizza[4])
+						if rows[l][3] == "large":
+							total_cost = total_cost + (float(row[0])+10)*int(pizza[4])
+						elif rows[l][3] == "small":
+							total_cost = total_cost + (float(row[0])-2)*int(pizza[4])
+						else:
+							total_cost = total_cost + (float(row[0]))*int(pizza[4])
+						l = l+1
 					conn.commit()
 					conn.close()
 					dispatcher.utter_message("Ok, your total order includes: " + order + ".")
@@ -375,8 +382,8 @@ class ActionSuggestPizza(Action):
 				occurence_count = Counter(pizzas)
 				most_ordered_pizza = occurence_count.most_common(1)[0][0]
 				dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
-			else:
-				return[FollowupAction("pizza_order_form")]
+			# else:
+			# 	return[FollowupAction("pizza_order_form")]
 			conn.commit()
 			conn.close()
 			return[SlotSet("pizza_type", most_ordered_pizza)]

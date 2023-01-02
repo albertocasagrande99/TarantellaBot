@@ -20,11 +20,16 @@ stories:
     - new_client: true
   - checkpoint: new_client
 
+# - story: old client
+#   steps:
+#   - checkpoint: check_user
+#   - slot_was_set:
+#     - new_client: false
+#   - checkpoint: old_client
+
 - story: suggest pizza to old client who accepts
   steps:
   - checkpoint: check_user
-  - slot_was_set:
-    - new_client: false
   - intent: init_request_without_entity
   - action: action_suggest_pizza
   - intent: response_positive
@@ -34,8 +39,6 @@ stories:
 - story: suggest pizza to old client who does not accept
   steps:
   - checkpoint: check_user
-  - slot_was_set:
-    - new_client: false
   - intent: init_request_without_entity
   - action: action_suggest_pizza
   - intent: response_negative
@@ -68,12 +71,24 @@ stories:
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
 
+- story: greet and ask pizza (new client)
+  steps:
+  - intent: init_request
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - pizza_amount
+  - active_loop: null
+  - action: utter_submit_form_pizza         
+  - action: utter_slots_values
+  - checkpoint: pizza_form
+
 - story: greet and ask pizza
   steps:
-  - checkpoint: new_client
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
+  - intent: init_request
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -84,6 +99,11 @@ stories:
   - active_loop: null
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
+  - checkpoint: pizza_form_generic
+
+- story: greet ask pizza and yes anything else
+  steps:
+  - checkpoint: pizza_form
   - intent: response_positive
   - action: action_response_positive
   - intent: response_positive
@@ -98,22 +118,9 @@ stories:
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
 
-- story: greet and ask pizza 2
+- story: greet ask pizza yes anything else with entity inside intent (pizza_type)
   steps:
-  - checkpoint: new_client
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
-  - action: action_menu
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-    - pizza_amount
-  - active_loop: null
-  - action: utter_submit_form_pizza         
-  - action: utter_slots_values
+  - checkpoint: pizza_form
   - intent: response_positive
   - action: action_response_positive
   - intent: response_positive
@@ -129,21 +136,9 @@ stories:
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
 
-- story: ask pizza and is not correct
+- story: ask pizza and order not correct and anything else
   steps:
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
-  - action: action_menu
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-    - pizza_amount
-  - active_loop: null
-  - action: utter_submit_form_pizza         
-  - action: utter_slots_values
+  - checkpoint: pizza_form_generic
   - intent: response_negative
   - action: action_response_negative
   - intent: item_change
@@ -162,21 +157,9 @@ stories:
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
 
-- story: ask pizza and is not correct 2
+- story: ask pizza and order is not correct and not anything else
   steps:
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
-  - action: action_menu
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-    - pizza_amount
-  - active_loop: null
-  - action: utter_submit_form_pizza         
-  - action: utter_slots_values
+  - checkpoint: pizza_form_generic
   - intent: response_negative
   - action: action_response_negative
   - intent: item_change
@@ -187,21 +170,9 @@ stories:
   - action: action_response_negative
 
 
-- story: ask pizza and yes anything else
+- story: ask pizza and yes anything else generic client
   steps:
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
-  - action: action_menu
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-    - pizza_amount
-  - active_loop: null
-  - action: utter_submit_form_pizza         
-  - action: utter_slots_values
+  - checkpoint: pizza_form_generic
   - intent: response_positive
   - action: action_response_positive
   - intent: response_positive
@@ -218,11 +189,8 @@ stories:
 
 - story: ask information pizza and yes anything else
   steps:
-  - intent: init_pizza_question
-  - action: utter_init_pizza_question
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
+  - checkpoint: pizza_question 
+  - intent: init_request
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -263,11 +231,8 @@ stories:
 
 - story: ask information pizza and no anything else
   steps:
-  - intent: init_pizza_question
-  - action: utter_init_pizza_question
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
+  - checkpoint: pizza_question
+  - intent: init_request
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -285,19 +250,7 @@ stories:
 
 - story: order pizza and delete order
   steps:
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
-  - action: action_menu
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-    - pizza_amount
-  - active_loop: null
-  - action: utter_submit_form_pizza         
-  - action: utter_slots_values
+  - checkpoint: pizza_form_generic
   - intent: response_positive
   - action: action_response_positive
   - intent: cancel_order
@@ -305,21 +258,9 @@ stories:
   - intent: response_positive
   - action: action_response_positive
 
-- story: order pizza and delete order 2
+- story: order pizza and no delete order 
   steps:
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
-  - action: action_menu
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-    - pizza_amount
-  - active_loop: null
-  - action: utter_submit_form_pizza         
-  - action: utter_slots_values
+  - checkpoint: pizza_form_generic
   - intent: response_positive
   - action: action_response_positive
   - intent: cancel_order
@@ -330,11 +271,8 @@ stories:
 
 - story: ask information pizza and yes anything else and then no anything else
   steps:
-  - intent: init_pizza_question
-  - action: utter_init_pizza_question
-  - or: 
-    - intent: init_request
-    - intent: init_request_without_entities
+  - checkpoint: pizza_question
+  - intent: init_request
   - action: action_menu
   - action: pizza_order_form
   - active_loop: pizza_order_form
@@ -374,6 +312,7 @@ stories:
   steps:
   - intent: init_pizza_question 
   - action: utter_init_pizza_question
+  - checkpoint: pizza_question
 
 - story: greet and ask price information
   steps:
@@ -425,129 +364,3 @@ stories:
   - action: action_pizza_question_toppings
   - intent: item_price
   - action: action_price
-
-# - story: ask credit card number and delivery information
-#   steps:
-#   - action: utter_total_cost
-#   - intent: pay_credit_card
-#   - action: credit_card_form
-#   - active_loop: credit_card_form
-#   - slot_was_set:
-#     - credit-card-number
-#   - active_loop: null
-#   - action: utter_modality
-#   - intent: order_delivery
-#   - action: delivery_form
-#   - active_loop: delivery_form
-#   - slot_was_set:
-#     - address_street
-#     - address_number
-#     - address_city
-#   - active_loop: null
-#   - checkpoint: delivery
-
-
-# - story: questions_on_pizza
-#   steps:
-#   - checkpoint: start_questions_on_pizza
-#   - intent: init_pizza_question
-#   - action: utter_init_pizza_question
-#   - checkpoint: start_order
-# - story: order pizza vague
-#   steps:
-#   - checkpoint: start_order
-#   - intent: init_request
-#   - action: utter_init_request
-#   - intent: item_start_generic
-#   - action: pizza_order_form
-#   - active_loop: pizza_order_form
-#   - checkpoint: confirm_order
-# - story: order pizza vague
-#   steps:
-#   - checkpoint: start_order
-#   - intent: init_request
-#   - action: utter_init_request
-#   - intent: item_start_generic
-#   - action: pizza_order_form
-#   - active_loop: pizza_order_form
-#   - checkpoint: confirm_order_pre_question
-# - story: order pizza precise
-#   steps:
-#   - checkpoint: start_order
-#   - checkpoint: new_order
-#   - intent: item_start_generic
-#   - action: pizza_order_form
-#   - active_loop: pizza_order_form
-#   - checkpoint: confirm_order
-# - story: order pizza precise
-#   steps:
-#   - checkpoint: start_order
-#   - checkpoint: new_order
-#   - intent: item_start_generic
-#   - action: pizza_order_form
-#   - active_loop: pizza_order_form
-#   - checkpoint: confirm_order_pre_question
-# - story: story_to_modify_order
-#   steps:
-#   - checkpoint: confirm_order
-#   - intent: response_negative
-#   - action: action_change_order
-#   - action: utter_item_change
-#   - checkpoint: confirm_order
-# - story: story_to_modify_order_2
-#   steps:
-#   - checkpoint: confirm_order
-#   - intent: item_change
-#   - action: action_change_order
-#   - action: utter_item_change
-#   - checkpoint: confirm_order
-# - story: story_to_modify_order_3
-#   steps:
-#   - checkpoint: confirm_order
-#   - intent: response_negative
-#   - action: utter_order_confirm_negative
-#   - intent: item_change
-#   - action: action_change_order
-#   - action: utter_item_change
-#   - checkpoint: confirm_order
-# - story: story_to_proceed_furthur
-#   steps:
-#   - checkpoint: confirm_order
-#   - intent: response_positive
-#   - action: action_pizza_order_add
-#   - action: utter_extra_order
-#   - checkpoint: confirmed_order_proceed
-# - story: story_to_add_new_order
-#   steps:
-#   - checkpoint: confirmed_order_proceed
-#   - intent: response_positive
-#   - action: action_reset_pizza_form
-#   - action: utter_order_add
-#   - checkpoint: new_order
-# - story: story_to_proceed_with_confirm_order
-#   steps:
-#   - checkpoint: confirmed_order_proceed
-#   - intent: response_negative
-#   - action: utter_name_phone
-#   - intent: response_name_phone
-#   - action: action_order_number
-#   - action: utter_total_order_final
-#   - checkpoint: order_proceed
-# - story: order take home
-#   steps:
-#   - checkpoint: order_proceed
-#   - intent: order_take_home
-#   - action: utter_order_complete
-# - story: order delivery
-#   steps:
-#   - checkpoint: order_proceed
-#   - intent: order_delivery
-#   - action: utter_delivery_address
-#   - intent: order_delivery_address
-#   - action: utter_order_complete
-# - story: story_modify_prerequest
-#   steps:
-#   - checkpoint: confirm_order_pre_question
-#   - intent: item_change_request_without_entity
-#   - action: utter_item_type
-#   - checkpoint: confirm_order
