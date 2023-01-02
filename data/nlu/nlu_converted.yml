@@ -329,6 +329,7 @@ nlu:
     - Yeah
     - right
     - that sounds good
+    - yes I want the usual pizza
     - Yes I want another [margherita](pizza_type)
     - Yes I would like to add another pizza
     - Yes another pizza please
