@@ -383,6 +383,32 @@ nlu:
     - [Stefano](client_name)
     - i'm [Giovanni](client_name)
     - my name is [Laura](client_name)
+    - [Giovanni Bevilacqua](client_name)
+    - [Alberto Sperandio](client_name)
+    - [Alberto Angela](client_name)
+    - [Luca Genori](client_name)
+    - [Andrea Casapiccola](client_name)
+    - [Mario Giordano](client_name)
+    - my name is [Vincenzo Caputo](client_name)
+    - [Alessio Brutti](client_name)
+    - [Checco Zalone](client_name)
+    - my name is [Alberto Sordi](client_name)
+    - [Carlo Mazzone](client_name)
+    - [Federico Brumotti](client_name)
+    - [Ezio Greggio](client_name)
+    - [Luca Laurenti](client_name)
+    - [Paolo Bonolis](client_name)
+    - [Carlo Vanzini](client_name)
+    - [Deniele Gandino](client_name) is my name
+    - [Silvio Berluscona](client_name) is my name
+    - [Giorgia Melona](client_name) is my name
+    - [Gabriele](client_name)
+    - [Antonio Conte](client_name) is my name
+    - [Alessandro Scarabello](client_name) is my name
+    - [Matteo De Sciglio](client_name)
+    - [Sara Cinesca](client_name)
+    - [Matteo De Sciglio](client_name)
+    - [Marco Amistani](client_name)
 
 - intent: provide_phone_number
   examples: |
