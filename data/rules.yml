@@ -95,6 +95,17 @@ rules:
   steps:
   - action: delivery_form      
   - active_loop: null
+  - action: action_save_address
+
+- rule: take away order
+  steps:
+  - intent: order_take_away
+  - action: utter_summarize_order_take_away
+
+- rule: pay cash
+  steps:
+  - intent: pay_cash
+  - action: utter_modality
 
 # - rule: check client name
 #   steps:

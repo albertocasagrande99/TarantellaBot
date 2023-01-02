@@ -179,11 +179,15 @@ responses:
   utter_suggested_pizza:
   - text: Do you want to order the usual {pizza}?
   utter_total_cost:
-  - text: It will be {cost} euros. Do you want to pay cash on delivery or by credit card?
+  - text: It will be {cost} euros. Do you want to pay cash or by credit card?
   utter_ask_credit-card-number:
   - text: What is your credit card's number?
   utter_modality:
   - text: Do you prefer take away or home delivery?
+  utter_summarize_order_delivery:
+  - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
+  utter_summarize_order_take_away:
+  - text: Great. Your order will be ready in 30 minutes. See you later!
   # utter_order_confirm_positive:
   # - text: Great. Anything else?
   # utter_item_change:
@@ -259,6 +263,9 @@ actions:
 - utter_modality
 - utter_check_address
 - action_check_address
+- action_save_address
+- utter_summarize_order_delivery
+- utter_summarize_order_take_away
 # - utter_order_confirm_positive
 # - utter_item_change
 # - utter_extra_order

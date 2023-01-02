@@ -162,6 +162,8 @@ class ActionResponsePositive(Action):
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_pizza'):
 				print("The user wants the usual pizza")
+			elif(bot_event['metadata']['utter_action'] == 'utter_check_address'):
+				dispatcher.utter_message(response="utter_summarize_order_delivery")
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -325,11 +327,33 @@ class ActionCheckAddress(Action):
 		return 'action_check_address'
 
 	def run(self, dispatcher, tracker, domain):
-		if(tracker.get_slot("new_client")):
-			return[FollowupAction("delivery_form")]
+		if(tracker.get_slot("new_client") or tracker.get_slot("address_street")==""):
+			return[SlotSet("address_street", None),SlotSet("address_number", None),SlotSet("address_city", None), FollowupAction("delivery_form")]
 		else:
 			dispatcher.utter_message(response='utter_check_address')
 		return[]
+
+class ActionSaveAddress(Action):
+	def name(self):
+		return 'action_save_address'
+
+	def run(self, dispatcher, tracker, domain):
+		try:
+			conn = create_connection("data_db/users.db")
+			cur = conn.cursor()
+			cur.execute(f"""
+				UPDATE users
+				SET address_street = '{tracker.get_slot('address_street')}' ,
+					address_number = '{tracker.get_slot('address_number')}' ,
+					address_city = '{tracker.get_slot('address_city')}'
+				WHERE client_name = '{tracker.get_slot('client_name')}'
+			""")
+			conn.commit()
+			conn.close()
+			dispatcher.utter_message(response='utter_summarize_order_delivery')
+		except:
+			dispatcher.utter_message("I encountered a problem while saving the information")
+		return[SlotSet("pizza_amount", None)]
 
 class ActionSuggestPizza(Action):
 	def name(self):
