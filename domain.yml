@@ -11,8 +11,10 @@ intents:
 - init_pizza_question
 - item_price
 - pizza_question_toppings
-- inform
 - cancel_order
+- provide_pizza_type
+- provide_pizza_size
+- provide_pizza_amount
 #- item_start_generic
 #- order_confirm_negative
 #- order_confirm_positive
