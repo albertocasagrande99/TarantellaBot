@@ -17,16 +17,6 @@ nlu:
     - long time no see 
     - hello
 
-# - intent: old_client
-#   examples: |
-#     - I'm already registered
-#     - already registered
-#     - I have already ordered a pizza from you
-#     - I should be registered
-#     - I have already taken a pizza from
-#     - not first time I order a pizza from you
-#     - not first time
-
 - intent: init_request
   examples: |
     - I want to order [large](pizza_size) pizza with olives
@@ -197,24 +187,51 @@ nlu:
     - I want a pizza with no [peppers](toppings) please
     - I want a pizza with no [mushrooms](toppings) please
 
-- intent: inform
+- intent: provide_pizza_type
   examples: |
     - a [margherita](pizza_type) pizza please
     - [funghi](pizza_type) please
     - a [pepperoni](pizza_type), thanks
+    - a [funghi](pizza_type) pizza
+
+- intent: provide_pizza_size
+  examples: |
+    - [small](pizza_size)
+    - [large](pizza_size)
+    - I want to order [large](pizza_size) pizza
+    - I want a [large](pizza_size) pizza
+    - I think its [large](pizza_size)
+    - [medium](pizza_size) pizza
+    - [huge](pizza_size) pizza
+    - [Little](pizza_size) pizza
+    - [regular](pizza_size)
+    - [small](pizza_size)
+    - [large](pizza_size)
+    - [medium](pizza_size)
     - [large](pizza_size)
     - [small](pizza_size)
     - [medium](pizza_size)
-    - [large](pizza_size) please
-    - [small](pizza_size) please
-    - [medium](pizza_size) please
+    - [little](pizza_size) please
+    - [big](pizza_size) please
+    - [regular](pizza_size) please
+    - [normal](pizza_size) please
+    - [tiny](pizza_size)
+
+- intent: provide_pizza_amount
+  examples: |
+    - [3](pizza_amount)
+    - [2](pizza_amount)
     - just [one](pizza_amount) please
+    - just [1](pizza_amount) please
     - [2](pizza_amount) please
     - [two](pizza_amount) thanks
     - [3](pizza_amount)
     - [4](pizza_amount)
     - [1](pizza_amount)
-    - a [funghi](pizza_type) pizza
+    - [5](pizza_amount)
+    - [a](pizza_amount) pizza
+    - [A](pizza_amount) pizza
+
 # - intent: item_start_generic
 #   examples: |
 #     - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
@@ -313,6 +330,9 @@ nlu:
     - oh no sorry can I make a change?
     - ops no I need to make a change
     - no sorry I would like to change the order
+    - no Actually I want to change the address
+    - no it is not right
+    - no it is not correct
 
 - intent: response_positive
   examples: |
@@ -452,24 +472,6 @@ nlu:
 #   examples: |
 #     - do you have [hawaii](pizza_type)
 #     - do you offer pizza [margherita](pizza_type)
-# - intent: item_type
-#   examples: |
-#     - [hawaii](pizza_type)
-#     - [margherita](pizza_type)
-# - intent: item_size
-#   examples: |
-#     - [small](pizza_size)
-#     - [large](pizza_size)
-#     - I want to order [large](pizza_size) pizza
-#     - I want a [large](pizza_size) pizza
-#     - I think its [large](pizza_size)
-#     - [medium](pizza_size) pizza
-#     - huge pizza
-#     - Little pizza
-#     - Probably avg
-#     - [small](pizza_size)
-#     - [large](pizza_size)
-#     - [medium](pizza_size)
 # - intent: item_topping
 #   examples: |
 #     - I want to order pizza with OLIVES
@@ -486,10 +488,6 @@ nlu:
 #     - tomatoes
 #     - Onions
 #     - Corn
-# - intent: item_amount
-#   examples: |
-#     - [3](pizza_amount)
-#     - [2](pizza_amount)
 - intent: pizza_availability
   examples: |
     - do you have [pepperoni](pizza_type) pizza?
@@ -618,6 +616,7 @@ nlu:
     - One
     - a
     - an
+    - A
 
 - synonym: '2'
   examples: |
@@ -628,6 +627,33 @@ nlu:
   examples: |
     - three
     - Three
+
+- synonym: 'small'
+  examples: |
+    - Small
+    - small
+    - little
+    - tiny
+    - Little
+    - Tiny
+
+- synonym: 'medium'
+  examples: |
+    - medium
+    - Medium
+    - normal
+    - regular
+    - Regular
+    - Normal
+
+- synonym: 'large'
+  examples: |
+    - large
+    - Large
+    - huge
+    - Huge
+    - big
+    - Big
 
 # - synonym: Vegetarian
 #   examples: |
