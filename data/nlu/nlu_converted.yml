@@ -44,11 +44,11 @@ nlu:
     - [large](pizza_size) corns
     - I want to order [1](pizza_amount) [large](pizza_size) [margherita](pizza_type) pizza please
     - I want to order [2](pizza_amount) [medium](pizza_size) [marinara](pizza_type) pizzas please
-    - I want [a](pizza_amount)[large](pizza_size) pizza
-    - I want [two](pizza_amount)[large](pizza_size) pizza
-    - I want [3](pizza_amount)[huge](pizza_size) pizza
-    - I want [four](pizza_amount)[tiny](pizza_size) pizza
-    - I want [five](pizza_amount)[normal](pizza_size) pizza
+    - I want [a](pizza_amount) [large](pizza_size) pizza
+    - I want [two](pizza_amount) [large](pizza_size) pizza
+    - I want [3](pizza_amount) [huge](pizza_size) pizza
+    - I want [four](pizza_amount) [tiny](pizza_size) pizza
+    - I want [five](pizza_amount) [normal](pizza_size) pizza
     - I want to order [one](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza please
     - I want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas please
 
@@ -481,42 +481,42 @@ nlu:
     - street address is [Via Roma](address_street)
     - the street name is [via Roma](address_street)
     - I live in [via Salvatore Plateroti](address_street)
-    - my street name is[Via della Posta](address_street)
+    - my street name is [Via della Posta](address_street)
     - [Via del Comune](address_street)
-    - my street name is[Via del Porticato](address_street)
+    - my street name is [Via del Porticato](address_street)
     - [Via del Municipio antico](address_street)
     - [Via dei Ciliegi](address_street)
-    - I live in[Via Filemon](address_street)
+    - I live in [Via Filemon](address_street)
     - [Via degli Olmi](address_street)
-    - I live in[Via Alfredo Renzi](address_street)
-    - the street name is[Via XVII ottobre](address_street)
+    - I live in [Via Alfredo Renzi](address_street)
+    - the street name is [Via XVII ottobre](address_street)
     - [via Largo Ercole e Anteo](address_street)
-    - the street name is[Via delle Stelle](address_street)
+    - the street name is [Via delle Stelle](address_street)
     - [Viale Affori](address_street)
     - [Largo Africa](address_street)
-    - my street name is[Piazza Adrigat](address_street)
-    - I live in[Via del Lago](address_street)
+    - my street name is [Piazza Adrigat](address_street)
+    - I live in [Via del Lago](address_street)
     - [Via Piccolo Quarto](address_street)
     - [Via Polledrana](address_street)
     - [Via Aia Nuova](address_street)
     - [via Ponte Prati Giuliani](address_street)
-    - my street name is[Viale Francia](address_street)
+    - my street name is [Viale Francia](address_street)
     - [viale Danimarca](address_street)
     - [Via Fontana Tazi](address_street)
     - [Via piano](address_street)
-    - I live in[Via delle Vigne](address_street)
-    - my street name is[Via degli Olivieri](address_street)
-    - the street name is[Via dei Tigli](address_street)
+    - I live in [Via delle Vigne](address_street)
+    - my street name is [Via degli Olivieri](address_street)
+    - the street name is [Via dei Tigli](address_street)
     - [via del topo](address_street)
-    - my street name is[via corvine](address_street)
+    - my street name is [via corvine](address_street)
     - [Via Pignano](address_street)
-    - I live in[Via Collefaro](address_street)
+    - I live in [Via Collefaro](address_street)
     - [via Basciano](address_street)
     - [Via Ponte dell'Allegra](address_street)
-    - I live in[via Capranica](address_street)
+    - I live in [via Capranica](address_street)
     - [Corso Cavour](address_street)
-    - the street name is[Via Aldo Moro](address_street)
-    - I live in[Via delle Felci](address_street)
+    - the street name is [Via Aldo Moro](address_street)
+    - I live in [Via delle Felci](address_street)
     - [Via Serra Alta](address_street)
     - my street address is [via Dalmazia](address_street)
     - [via Dante Alighieri](address_street)
@@ -549,22 +549,22 @@ nlu:
     - my address number is [2](address_number)
     - [3](address_number)
     - [4](address_number)
-    - [5](address_number)is my address number
+    - [5](address_number) is my address number
     - [6](address_number)
-    - [7](address_number)is my address number
+    - [7](address_number) is my address number
     - [8](address_number)
     - my address number is [9](address_number)
-    - [10](address_number)is my address number
+    - [10](address_number) is my address number
     - [11](address_number)
     - [12](address_number)
     - my address number is [13](address_number)
     - [14](address_number)
     - [15](address_number)
-    - [16](address_number)is my address number
+    - [16](address_number) is my address number
     - [17](address_number)
     - my address number is [18](address_number)
     - [19](address_number)
-    - [20](address_number)is my address number
+    - [20](address_number) is my address number
     - number [1](address_number) 
     - number [2](address_number)
     - number [3](address_number)
