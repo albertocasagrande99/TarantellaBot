@@ -413,11 +413,15 @@ class ValidateReservationForm(FormValidationAction):
                 datetime_obj = dateutil.parser.parse(date_str)
 				#humanDate = datetime_obj.strftime('%Y-%m-%d %H:%M:%S')
                 date = datetime_obj.date()
-            print(date)
+            day = datetime_obj.strftime("%d")
+            month = datetime_obj.strftime("%B")
+            day_word = datetime_obj.strftime("%A")
+
+            date_new = day_word + " " + day + " of " + month
 			#print(humanDate)
-            return {"date", date}
+            return {"date": date_new}
         except:
-            return {"date", None}
+            return {"date": None}
 
     def validate_time_slot(
         self,
