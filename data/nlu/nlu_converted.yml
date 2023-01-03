@@ -16,6 +16,9 @@ nlu:
     - greetings
     - long time no see 
     - hello
+    - Goodmorning
+    - Goodevening
+    - Halo
 
 - intent: init_request
   examples: |
@@ -41,6 +44,11 @@ nlu:
     - [large](pizza_size) corns
     - I want to order [1](pizza_amount) [large](pizza_size) [margherita](pizza_type) pizza please
     - I want to order [2](pizza_amount) [medium](pizza_size) [marinara](pizza_type) pizzas please
+    - I want [a](pizza_amount)[large](pizza_size) pizza
+    - I want [two](pizza_amount)[large](pizza_size) pizza
+    - I want [3](pizza_amount)[huge](pizza_size) pizza
+    - I want [four](pizza_amount)[tiny](pizza_size) pizza
+    - I want [five](pizza_amount)[normal](pizza_size) pizza
     - I want to order [one](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza please
     - I want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas please
 
@@ -59,6 +67,13 @@ nlu:
     - I want to buy a pizza
     - a pizza please
     - I'd like a pizza
+    - I love pizza
+    - I'm hungry
+    - Is it possible to have a pizza?
+    - I need a pizza
+    - I like very much pizza
+    - Is there a way to order a pizza?
+    - I want a good pizza
 
 - intent: init_pizza_question/size
   examples: |
@@ -231,6 +246,12 @@ nlu:
     - [5](pizza_amount)
     - [a](pizza_amount) pizza
     - [A](pizza_amount) pizza
+    - [two](pizza_amount) pizzas
+    - [three](pizza_amount) pizzas
+    - [four](pizza_amount)
+    - [five](pizza_amount)
+    - I want [three](pizza_amount) pizzas
+    - I want [a](pizza_amount) pizza
 
 # - intent: item_start_generic
 #   examples: |
@@ -374,6 +395,12 @@ nlu:
     - I don't want anymore to order
     - delete my order
     - can I cancel my order please?
+    - I want to delete my order
+    - cancel
+    - I don't want nothing anymore
+    - I don't want nothing
+    - Is it possible to delete my order
+    - Delete my order
 
 - intent: provide_name
   examples: |
@@ -778,6 +805,16 @@ nlu:
   examples: |
     - three
     - Three
+
+- synonym: '4'
+  examples: |
+    - four
+    - Four
+
+- synonym: '5'
+  examples: |
+    - five
+    - Five
 
 - synonym: 'small'
   examples: |
