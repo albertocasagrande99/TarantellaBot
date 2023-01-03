@@ -107,6 +107,20 @@ rules:
   - intent: pay_cash
   - action: utter_modality
 
+- rule: activate reservation form
+  steps:
+  - intent: init_request_table
+  - action: reservation_form
+  - active_loop: reservation_form
+
+- rule: submit reservation form
+  condition:
+  - active_loop: reservation_form
+  steps:
+  - action: reservation_form      
+  - active_loop: null
+  - action: utter_summarize_reservation
+
 # - rule: check client name
 #   steps:
 #   - intent: provide_name

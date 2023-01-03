@@ -15,33 +15,13 @@ intents:
 - provide_pizza_type
 - provide_pizza_size
 - provide_pizza_amount
-#- item_start_generic
-#- order_confirm_negative
-#- order_confirm_positive
 - item_change
-#- extra_order_negative
-#- extra_order_postive
 - order_take_away
-#- order_delivery_address
 - order_delivery
-#- order_confirm_final
-# - item_confirm_no
-# - item_confirm_yes
 - response_negative
 - response_positive
-# - response_name_phone
-# - item_change_request_without_entity
-# - item_type_start_negative
-# - item_type_start_postive
-# - item_type
-# - item_size
-# - item_topping
-# - item_amount
 - pizza_availability
-# - item_type_start_positive
 - out_of_scope
-#- new_client
-#- old_client
 - provide_name
 - provide_phone_number
 - provide_address_street
@@ -49,7 +29,9 @@ intents:
 - provide_address_city
 - pay_cash
 - pay_credit_card
-#- provide_credit_card_number
+- init_request_table
+- inform_time_slot
+- inform_people_amount
 
 entities:
 - pizza_size
@@ -62,6 +44,9 @@ entities:
 - address_number
 - address_city
 - credit-card-number
+- people_amount
+- time
+- time_slot
 
 slots:
   client_name:
@@ -138,6 +123,24 @@ slots:
     mappings:
       - type: from_entity
         entity: credit-card-number
+  people_amount:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: people_amount
+  date:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: time
+  time_slot:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: time_slot
+        conditions:
+        - active_loop: reservation_form
+          requested_slot: time_slot
 
 responses:
   utter_out_of_scope:
@@ -190,53 +193,18 @@ responses:
   - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
   utter_summarize_order_take_away:
   - text: Great. Your order will be ready in 30 minutes. See you later!
-  # utter_order_confirm_positive:
-  # - text: Great. Anything else?
-  # utter_item_change:
-  # - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that
-  #     correct?
-  # utter_extra_order:
-  # - text: Would you like to order anything else?
-  # utter_final_order:
-  # - text: Your total order is {pizza_amount} {pizza_type} pizzas in {pizza_size}.
-  #     Do you prefer take away or home delivery?
-  # utter_total_order_final:
-  # - text: Do you prefer takeaway or home delivery
-  # utter_name_phone:
-  # - text: Here is your total order, {total_order} . what is your name and phone number?
-  # utter_order_complete:
-  # - text: Here is your order number {order_number}. Your order will be ready in 15
-  #     minutes. Thanks for the opportunity to serve you
-  # utter_delivery_address:
-  # - text: Please provide us with your home/ office address
-  # utter_order_add:
-  # - text: which pizza like to add in your order?
-  # utter_default:
-  # - text: Sorry, I didn’t understand that. Can you please retype it?
-  # utter_item_type_start_negative:
-  # - text: sadly , we don't offer {pizza_type}
-  # utter_item_type_start_postive:
-  # - text: yes, we do offer {pizza_type} would you like to order one?
-  # utter_item_type:
-  # - text: what pizza type would you like?
-  # utter_item_size:
-  # - text: what size do you want your {pizza_type} in
-  # utter_item_amount:
-  # - text: how many would like?
-  # utter_pizza_questions:
-  # - text: what would you like on your pizza?
-  # utter_order_processing_positive:
-  # - text: Great. Your order is being processed. Please wait. We will get back to your
-  #     shortly?
-  # utter_order_processing_negative:
-  # - text: Sorry, there is a problem with your order
+  utter_ask_people_amount:
+  - text: Of course {client_name}, how many people will you need the reservation for?
+  utter_ask_date:
+  - text: Ok, and what evening will you be joining us on?
+  utter_ask_time_slot:
+  - text: And, what time would you like the reservation for? The slots available are at 7pm and 9pm.
+  utter_summarize_reservation:
+  - text: Great Mr. {client_name}, we will be expecting you {date} at {time_slot}. Can you confirm?
 
-  # utter_summarize_order:
-  # - text: "Okay Great. Your order is {} {} pizzas in {}. Can you confirm please"
 actions:
 - utter_welcome_greet
 - action_menu
-#- utter_init_request
 - utter_init_pizza_question/size
 - utter_init_pizza_question/toppings
 - action_price
@@ -268,29 +236,10 @@ actions:
 - action_save_address
 - utter_summarize_order_delivery
 - utter_summarize_order_take_away
-# - utter_order_confirm_positive
-# - utter_item_change
-# - utter_extra_order
-# - utter_final_order
-# - utter_total_order_final
-# - utter_name_phone
-# - utter_order_complete
-# - utter_delivery_address
-# - action_change_order
-# - action_pizza_order_add
-# - action_reset_pizza_form
-# - action_order_number
-# - utter_item_type_start_negative
-# - utter_item_type_start_postive
-# - utter_item_type
-# - utter_item_size
-# - utter_item_amount
-# - utter_pizza_questions
-# - utter_order_processing_positive
-# - utter_order_processing_negative
-# - utter_order_add
-# - utter_default
-# - utter_summarize_order
+- utter_ask_people_amount
+- utter_ask_date
+- utter_ask_time_slot
+- utter_summarize_reservation
 
 forms:
   pizza_order_form:
@@ -310,6 +259,8 @@ forms:
   credit_card_form:
     required_slots:
     - credit-card-number
-
-
-# validare credit-card-number (duckling lo prende solo se è valido, ma se non è valido il form non viene riattivato). Non si può validare perchè non si può usare - nei nomi delle funzioni
+  reservation_form:
+    required_slots:
+    - people_amount
+    - date
+    - time_slot

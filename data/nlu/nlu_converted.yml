@@ -701,6 +701,46 @@ nlu:
     - is [margherita](pizza_type) available?
     - is [marghe](pizza_type) available?
     - is [marinara](pizza_type) available?
+
+- intent: init_request_table
+  examples: |
+    - I want to reserve a table for tomorrow for [5](people_amount) people
+    - table for tonight
+    - want a table for today
+    - Can I reserve a table for [3](people_amount) people
+    - I wanna reserve a table for the day after tomorrow
+    - Is it possible to book a table for tonight?
+    - is a table for [2](people_amount) people available tonight?
+
+- intent: inform_time_slot
+  examples: |
+    - [first](time_slot) slot please
+    - [second](time_slot) slot please
+    - I prefer the [first](time_slot) one
+    - I prefer the [second](time_slot) one
+    - I prefer the [7pm](time_slot) slot
+    - I think I will go for the [9pm](time_slot) slot
+    - [7pm](time_slot)
+    - [9pm](time_slot)
+    - better [7pm](time_slot)
+    - better [9pm](time_slot)
+    - better [first](time_slot) one
+  
+- intent: inform_people_amount
+  examples: |
+    - [1](people_amount)
+    - [2](people_amount)
+    - [3](people_amount)
+    - [4](people_amount)
+    - [5](people_amount)
+    - [one](people_amount) please
+    - for [two](people_amount) people
+    - we are [three](people_amount)
+    - [4](people_amount) people
+    - There will be [5](people_amount) of us
+    - [4](people_amount) of us will be coming.
+    - for [6](people_amount)
+
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -709,7 +749,6 @@ nlu:
     - what is your name
     - are you real
     - do you have a sister
-    - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
     - do you have a dog?
@@ -769,7 +808,6 @@ nlu:
     - are you sick
     - are you vegan
     - better than you
-    - book a ticket
     - but I just told you that :(
     - but if rasa is open source why do you have a sales team
     - buy one please
@@ -795,7 +833,6 @@ nlu:
     - cr
     - custom service
     - did i break you
-    - dinner
     - do you believe in god?
     - do you have a phone number?
     - do you have your photo?
@@ -1009,6 +1046,20 @@ nlu:
     - Huge
     - big
     - Big
+
+- synonym: '7pm'
+  examples: |
+    - first
+    - First
+    - 7 pm
+    - 7pm
+
+- synonym: '9pm'
+  examples: |
+    - second
+    - Second
+    - 9 pm
+    - 9pm
 
 # - synonym: Vegetarian
 #   examples: |

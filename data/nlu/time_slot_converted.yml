@@ -1,0 +1,6 @@
+version: "3.1"
+nlu:
+- lookup: time_slot
+  examples: |
+    - 7pm
+    - 9pm
