@@ -165,6 +165,25 @@ class ActionResponsePositive(Action):
 				print("The user wants the usual pizza")
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_address'):
 				dispatcher.utter_message(response="utter_summarize_order_delivery")
+			elif(bot_event['metadata']['utter_action'] == 'utter_summarize_reservation'):
+				print("SI")
+				client_name = tracker.get_slot('client_name')
+				people_amount = tracker.get_slot('people_amount')
+				date = tracker.get_slot('date')
+				time_slot = tracker.get_slot('time_slot')
+				conn = create_connection("data_db/reservations.db")
+				cur = conn.cursor()
+				cur.execute("""
+          			CREATE TABLE IF NOT EXISTS reservations
+          			([client_name] TEXT, [people_amount] INTEGER, [date] TEXT, [time_slot] TEXT)
+				""")
+				cur.execute(f"""
+					INSERT INTO reservations (client_name, people_amount, date, time_slot)
+						VALUES
+						('{client_name.lower()}','{people_amount}', '{date}', '{time_slot}')
+				""")
+				conn.commit()
+				conn.close()
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -221,6 +240,8 @@ class ActionResponseNegative(Action):
 				return[SlotSet("pizza_type", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_address'):
 				return[SlotSet("address_street", None), SlotSet("address_number", None), SlotSet("address_city", None), FollowupAction("delivery_form")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_summarize_reservation'):
+				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -418,6 +439,7 @@ class ValidateReservationForm(FormValidationAction):
             day_word = datetime_obj.strftime("%A")
 
             date_new = day_word + " " + day + " of " + month
+            print(date_new)
 			#print(humanDate)
             return {"date": date_new}
         except:
@@ -430,7 +452,10 @@ class ValidateReservationForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        return {}
+        if(slot_value == "7pm" or slot_value == "9pm"):
+            return {"time_slot": slot_value}
+        else:
+            return {"time_slot": None}
 
     def validate_people_amount(
         self,

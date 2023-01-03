@@ -18,7 +18,7 @@ pipeline:
     epochs: 30
     constrain_similarities: yes
   - name: DucklingEntityExtractor
-    dimensions: ["credit-card-number", "time"]
+    dimensions: ["credit-card-number", "time", "number"]
     url: "http://localhost:8000"  #docker run -p 8000:8000 rasa/duckling
   - name: RegexEntityExtractor
     # text will be processed with case insensitive as default

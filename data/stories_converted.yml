@@ -364,3 +364,40 @@ stories:
   - action: action_pizza_question_toppings
   - intent: item_price
   - action: action_price
+
+- story: greet, ask table reservation and yes correct
+  steps:
+  - checkpoint: check_user
+  - intent: init_request_table
+  - action: reservation_form
+  - active_loop: reservation_form
+  - slot_was_set:
+    - date
+    - time_slot
+    - people_amount
+  - active_loop: null
+  - action: utter_summarize_reservation
+  - intent: response_positive
+
+- story: greet, ask table reservation and no correct
+  steps:
+  - checkpoint: check_user
+  - intent: init_request_table
+  - action: reservation_form
+  - active_loop: reservation_form
+  - slot_was_set:
+    - date
+    - time_slot
+    - people_amount
+  - active_loop: null
+  - action: utter_summarize_reservation
+  - intent: response_negative
+  - action: reservation_form
+  - active_loop: reservation_form
+  - slot_was_set:
+    - date
+    - time_slot
+    - people_amount
+  - active_loop: null
+  - action: utter_summarize_reservation
+  - intent: response_positive

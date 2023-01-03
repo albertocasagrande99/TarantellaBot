@@ -704,13 +704,13 @@ nlu:
 
 - intent: init_request_table
   examples: |
-    - I want to reserve a table for tomorrow for [5](people_amount) people
+    - I want to reserve a table for tomorrow for 5 people
     - table for tonight
     - want a table for today
-    - Can I reserve a table for [3](people_amount) people
+    - Can I reserve a table for 3 people
     - I wanna reserve a table for the day after tomorrow
     - Is it possible to book a table for tonight?
-    - is a table for [2](people_amount) people available tonight?
+    - is a table for 2 people available tonight?
 
 - intent: inform_time_slot
   examples: |
@@ -725,21 +725,6 @@ nlu:
     - better [7pm](time_slot)
     - better [9pm](time_slot)
     - better [first](time_slot) one
-  
-- intent: inform_people_amount
-  examples: |
-    - [1](people_amount)
-    - [2](people_amount)
-    - [3](people_amount)
-    - [4](people_amount)
-    - [5](people_amount)
-    - [one](people_amount) please
-    - for [two](people_amount) people
-    - we are [three](people_amount)
-    - [4](people_amount) people
-    - There will be [5](people_amount) of us
-    - [4](people_amount) of us will be coming.
-    - for [6](people_amount)
 
 - intent: out_of_scope
   examples: |

@@ -31,7 +31,6 @@ intents:
 - pay_credit_card
 - init_request_table
 - inform_time_slot
-- inform_people_amount
 
 entities:
 - pizza_size
@@ -44,7 +43,7 @@ entities:
 - address_number
 - address_city
 - credit-card-number
-- people_amount
+- number
 - time
 - time_slot
 
@@ -127,12 +126,18 @@ slots:
     type: any
     mappings:
       - type: from_entity
-        entity: people_amount
+        entity: number
+        conditions:
+        - active_loop: reservation_form
+          requested_slot: people_amount
   date:
     type: any
     mappings:
       - type: from_entity
         entity: time
+        conditions:
+        - active_loop: reservation_form
+          requested_slot: date
   time_slot:
     type: any
     mappings:
@@ -200,7 +205,7 @@ responses:
   utter_ask_time_slot:
   - text: And, what time would you like the reservation for? The slots available are at 7pm and 9pm.
   utter_summarize_reservation:
-  - text: Great Mr. {client_name}, we will be expecting you {date} at {time_slot}. Can you confirm?
+  - text: Great Mr. {client_name}, we will be expecting you {date} at {time_slot} for {people_amount} people. Can you confirm?
 
 actions:
 - utter_welcome_greet
