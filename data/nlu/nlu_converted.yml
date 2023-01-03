@@ -698,6 +698,154 @@ nlu:
     - where are my glasses?
     - how old are you?
     - where do you come from?
+    - I am asking you an out of scope question
+    - 4 + 2 = ?
+    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
+    - Are you ready?
+    - But you're an english site :(
+    - Can I ask you questions first?
+    - Can I die
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - Do I have to accept?
+    - Recharge
+    - SEL ME SOMETHING
+    - The Try it out is not working
+    - The weather is good
+    - Today
+    - Try it out broken
+    - What day is it today?
+    - What did you eat yesterday?
+    - What do you prefer?
+    - What is todays date
+    - What is your hobbies?
+    - What makes you better than a human?
+    - What's 1 + 1?
+    - What's do YouTube do
+    - What's your backend system?
+    - Where am I right now?
+    - Where am I?
+    - Who ?
+    - Who are your customers
+    - Why don't you answer?
+    - Why is my TRUST score set to 50 after I completed the registration process?
+    - Won't you ask me how I am?
+    - You'r blue.
+    - a tamed mouse will arrive at your doorstep in the next couple of days
+    - aRE YOU SINGLE
+    - again?
+    - alexa, order 5 tons of natrium chloride
+    - and make chicken noises into the phone
+    - are the newsletter worth the subscription?
+    - are u facebook
+    - are u, facebook?
+    - are you single?
+    - are you dev?
+    - are you russian?
+    - are you sick
+    - are you vegan
+    - better than you
+    - book a ticket
+    - but I just told you that :(
+    - but if rasa is open source why do you have a sales team
+    - buy one please
+    - buy groceries
+    - call me father
+    - can we keep chatting?
+    - can you book dinner
+    - can you cheer me up
+    - can you cook dinner
+    - can you give me a cup of coffee
+    - can you help me with the docs?
+    - can you help me with your docs
+    - can you help me with your docs?
+    - can you learn from our conversation?
+    - can you speak about politic ?
+    - can you understand ?
+    - cannot see
+    - chgfhgh
+    - chinese ok?
+    - colder
+    - common, just try
+    - connect to alexa
+    - cr
+    - custom service
+    - did i break you
+    - dinner
+    - do you believe in god?
+    - do you have a phone number?
+    - do you have your photo?
+    - do you know me
+    - do you know ras
+    - do you liek cheese?
+    - do you like football
+    - do you like movies
+    - do you sell vacuum robots?
+    - do you want to marry me?
+    - docs
+    - doctor
+    - everything
+    - example of a chatbot
+    - genocide
+    - get me a club mate
+    - give me a girl friend
+    - give me food
+    - go back
+    - google?
+    - great, I'd like to buy a house
+    - hang on let me find it
+    - i can't deal with _your_ request
+    - i do not care how are you
+    - i hope you will be better
+    - i immediately need help with implementing the coolest bot you can imagine
+    - i m looking for job
+    - i told you already
+    - i wanna party
+    - i want a non dripping ice cream
+    - i want caffe
+    - i want food
+    - i want good flycam
+    - i want more of you in my life!
+    - contextual
+    - talk to me about voulette
+    - voulette voulette
+    - Do you have a demo?
+    - Cars
+    - please voulette
+    - Out of scope question.
+    - i need money
+    - no, i need cash, money! Do you have it ?
+    - the beatles
+    - Hi i want to go palghar
+    - I want to go palghar
+    - your contry name
+    - you girl
+    - gsaf
+    - expert of rasa
+    - i want play ball
+    - flight catch up
+    - how do you like your coffee
+    - Can you get analytics on who I'm chatting with when I use Rasa
+    - coronavirus
+    - have you heard of corona?
+    - where do i type in commandy
+    - where to type in commands
+    - kiss me
+    - you have to
+    - what type of bot?
+    - sfasd
+    - asdkjasdhjkasd
+    - j  bhbhj
+    - eshdtjfjfyk
+    - drhdtjfjfyj
+    - sudo reboot
+    - asdfgasd
+
 # - synonym: Americana
 #   examples: |
 #     - Americana
