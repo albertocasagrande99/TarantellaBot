@@ -16,6 +16,7 @@ import sqlite3
 import pandas as pd
 import phonenumbers
 from collections import Counter
+import dateutil.parser
 
 
 def create_connection(db_file):
@@ -391,56 +392,47 @@ class ActionSuggestPizza(Action):
 			dispatcher.utter_message("Problem")
 		return[]
 
-class ActionChangeOrder(Action):
-	def name(self):
-		return 'action_change_order'
+class ValidateReservationForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_reservation_form"
 
-	def run(self, dispatcher, tracker, domain):
-		pizza_size = tracker.get_slot("pizza_size")
-		pizza_type = tracker.get_slot("pizza_type")
-		pizza_amount = tracker.get_slot("pizza_amount")
-		SlotSet("pizza_type", pizza_type)
-		SlotSet("pizza_size", pizza_size)
-		SlotSet("pizza_amount", pizza_amount)
-		return[]
+    def validate_date(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        try:
+            if(isinstance(slot_value, str)):
+                datetime_obj = dateutil.parser.parse(slot_value)
+				#humanDate = datetime_obj.strftime('%Y-%m-%d %H:%M:%S')
+                date = datetime_obj.date()
+            else:
+                date_str = slot_value['from']
+                datetime_obj = dateutil.parser.parse(date_str)
+				#humanDate = datetime_obj.strftime('%Y-%m-%d %H:%M:%S')
+                date = datetime_obj.date()
+            print(date)
+			#print(humanDate)
+            return {"date", date}
+        except:
+            return {"date", None}
 
-class ActionPizzaOrderAdd(Action):
-	def name(self):
-		return 'action_pizza_order_add'
+    def validate_time_slot(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        return {}
 
-	def run(self, dispatcher, tracker, domain):
-		pizza_size = tracker.get_slot("pizza_size")
-		pizza_type = tracker.get_slot("pizza_type")
-		pizza_amount = tracker.get_slot("pizza_amount")
-		if pizza_size is None:
-			pizza_size = "standard"
-		order_details =  str(pizza_amount + " "+pizza_type + " is of "+pizza_size )
-		old_order = tracker.get_slot("total_order")
-		return[SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' and '+order_details])]
-
-class ActionResetPizzaForm(Action):
-	def name(self):
-		return 'action_reset_pizza_form'
-
-	def run(self, dispatcher, tracker, domain):
-
-		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
-
-class ActionOrderNumber(Action):
-	def name(self):
-		return 'action_order_number'
-
-	def run(self, dispatcher, tracker, domain):
-		name_person = tracker.get_slot("client_name")
-		number_person = tracker.get_slot("phone_number")
-		order_number =  str(name_person + "_"+number_person)
-		print(order_number)
-		return[SlotSet("order_number", order_number)]
-
-
-class ActionPizzaQuestions(Action):
-	def name(self):
-		return 'action_pizza_questions'
-
-	def run(self, dispatcher, tracker, domain):
-		return[]
+    def validate_people_amount(
+        self,
+        slot_value: Any,
+		dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        return {}

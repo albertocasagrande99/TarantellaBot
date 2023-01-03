@@ -194,9 +194,9 @@ responses:
   utter_summarize_order_take_away:
   - text: Great. Your order will be ready in 30 minutes. See you later!
   utter_ask_people_amount:
-  - text: Of course {client_name}, how many people will you need the reservation for?
+  - text: And, how many people will you need the reservation for?
   utter_ask_date:
-  - text: Ok, and what evening will you be joining us on?
+  - text: Of course {client_name}, what evening will you be joining us on?
   utter_ask_time_slot:
   - text: And, what time would you like the reservation for? The slots available are at 7pm and 9pm.
   utter_summarize_reservation:
@@ -240,6 +240,7 @@ actions:
 - utter_ask_date
 - utter_ask_time_slot
 - utter_summarize_reservation
+- validate_reservation_form
 
 forms:
   pizza_order_form:
@@ -261,6 +262,6 @@ forms:
     - credit-card-number
   reservation_form:
     required_slots:
-    - people_amount
     - date
     - time_slot
+    - people_amount
