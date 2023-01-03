@@ -623,6 +623,17 @@ nlu:
     - I want to pay via credit card
     - visa credit card thanks
     - through visa card
+    - I want to use the credit card
+    - Credit card please
+    - I want to use the card
+    - card please
+    - Cashless
+    - I want to pay online
+    - Online please
+    - I'd like paying online
+    - By credit card
+    - I want to pay now
+    - Online
 
 # - intent: provide_credit_card_number
 #   examples: |
@@ -637,6 +648,14 @@ nlu:
     - take away
     - i prefer take away
     - take away please
+    - I will come 
+    - I shall come
+    - I'll come
+    - I want to pick up the order
+    - I'll take the pizza by myself
+    - I'll come to your pizzeria
+
+  
 - intent: order_delivery
   examples: |
     - delivery please
