@@ -19,6 +19,9 @@ nlu:
     - Goodmorning
     - Goodevening
     - Halo
+    - I'm back
+    - Hello there
+    - Is there anyone?
 
 - intent: init_request
   examples: |
@@ -529,6 +532,24 @@ nlu:
     - my mobile phone number is [3567359934](phone_number)
     - phone number is [3469353368](phone_number)
     - the number is [2664337759](phone_number)
+    - my telephone number is [3399957060](phone_number)
+    - my telephone number is [3399957061](phone_number)
+    - my mobile phone number is [3399957062](phone_number)
+    - [3399947063](phone_number)
+    - my mobile phone number is [3399965060](phone_number)
+    - my telephone number is [3399902450](phone_number)
+    - [3469567060](phone_number)
+    - [3479967860](phone_number)
+    - [3489957060](phone_number)
+    - my telephone number is [3519436060](phone_number)
+    - [3349876060](phone_number)
+    - my mobile phone number is [3099657860](phone_number)
+    - my telephone number is [3253437370](phone_number)
+    - [3759995670](phone_number)
+    - my telephone number is [3269957060](phone_number)
+    - [3939957060](phone_number)
+    - my mobile phone number is [3569957060](phone_number)
+    
 
 - intent: provide_address_street
   examples: |
