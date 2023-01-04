@@ -357,6 +357,16 @@ nlu:
     - no Actually I want to change the address
     - no it is not right
     - no it is not correct
+    - no I don't want the table as last time
+    - No I don't want that table
+    - No that table
+    - No I want another table
+    - no as last time
+    - Is not ok
+    - No is not ok
+    - I don't confirm the reservation
+    - I don't confirm
+    - No I want to do a different reservation
 
 - intent: response_positive
   examples: |
@@ -389,6 +399,20 @@ nlu:
     - I want to add also [a](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
     - yes as a second pizza I would like [a](pizza_amount) [medium](pizza_size) [marinara](pizza_type)
     - can I have also [a](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza?
+    - Yes I want that reservation
+    - Yes I want the last reservation
+    - Yes last reservation
+    - The same as the last reservation
+    - yes the same
+    - the same
+    - yes I confirm what you said
+    - yes I totally confirm
+    - I confirm the reservation
+    - yes is ok for me
+    - it is ok
+    - ok
+    - I agree
+    - Yes as last time
 
 - intent: cancel_order
   examples: |
