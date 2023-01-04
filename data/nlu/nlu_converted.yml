@@ -594,26 +594,35 @@ nlu:
     - I live in [via Capranica](address_street)
     - [Corso Cavour](address_street)
     - the street name is [Via Aldo Moro](address_street)
-    - I live in [Via delle Felci](address_street)
+    - I live in [Broadway Avenue](address_street)
     - [Via Serra Alta](address_street)
     - my street address is [via Dalmazia](address_street)
     - [via Dante Alighieri](address_street)
     - my street name is [Via Giulio Salvadoretti](address_street)
-    - street address is [Via Alcide De Gasperi](address_street)
+    - street address is [Sun Valley Road](address_street)
     - the street name is [via Brando Brandolini](address_street)
     - I live in [via Virgilio](address_street)
     - my street address is [via Ettore Fenderl](address_street)
-    - [viale Trento e Trieste](address_street)
-    - my street name is [Via San Gottardo](address_street)
+    - [Liberty Street](address_street)
+    - my street name is [Ersel Street](address_street)
     - street address is [Via leonardo da vinci](address_street)
     - the street name is [via dei furlani](address_street)
     - I live in [via Sansovino](address_street)
-    - my street address is [via luigino de nadai](address_street)
+    - my street address is [Mudlick Road](address_street)
     - [viale verona](address_street)
     - my street name is [via giovanni verga](address_street)
-    - street address is [via del brennero](address_street)
+    - street address is [Walton Street](address_street)
     - the street name is [via carso](address_street)
     - I live in [via zara](address_street)
+    - my street address is [font street](address_street)
+    - I live in [Webster Street](address_street)
+    - my street address is [Carriage Court](address_street)
+    - [Fidler Drive](address_street)
+    - my street name is [Walkers Ridge Way](address_street)
+    - street address is [Baker Avenue](address_street)
+    - the street name is [Calico Drive](address_street)
+    - I live in [Peck Court](address_street)
+    - my street address is [Reynolds Alley](address_street)
 
 - intent: provide_address_number
   examples: |
@@ -829,7 +838,6 @@ nlu:
     - delivery please
     - delivery
     - i prefer delivery
-
     - I prefer delivery
     - better delivery
     - delivery thanks
