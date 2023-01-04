@@ -975,6 +975,20 @@ nlu:
     - is a table for 2 people available tonight?
     - I need a table for 2 people for tomorrow
     - I necessitate a table for 3 peple
+    - I want a table
+    - I want to eat at your pizzeria the 1 of June
+    - I want to eat at your restaurant
+    - I want to seat at your restaurant next Friday
+    - I'd like to make a booking for tonight
+    - I'd like to make a reservation for tuesday
+    - I would like to reserve a table for monday
+    - I need to make a booking for 23 people
+    - We want a table
+    - We would like to be seated in your restaurant
+    - Can you reserve one table for us?
+    - Do you have any tables available?
+    - Do you have any tables available this afternoon?
+    
 
 - intent: inform_time_slot
   examples: |
