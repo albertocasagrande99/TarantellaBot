@@ -514,7 +514,6 @@ nlu:
     - my name is [Dakota Lane](client_name)
     - [Mary Bayliss](client_name)
     - [Kate Lee](client_name) is my name
-
     - my name is [Terry Hunter](client_name)
     - I'm [Michael Burnett](client_name)
     - [William Porter](client_name)
