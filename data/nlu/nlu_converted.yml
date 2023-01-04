@@ -671,7 +671,7 @@ nlu:
     - my street name is [Adonais Way](address_street)
     - my street name is [Pleasant Hill Road](address_street)
     - my street name is [Pringle Drive](address_street)
-        - my street address is [font street](address_street)
+    - my street address is [font street](address_street)
     - I live in [Webster Street](address_street)
     - my street address is [Carriage Court](address_street)
     - [Fidler Drive](address_street)
