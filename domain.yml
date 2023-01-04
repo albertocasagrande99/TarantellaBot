@@ -198,6 +198,8 @@ responses:
   - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
   utter_summarize_order_take_away:
   - text: Great. Your order will be ready in 30 minutes. See you later!
+  - text: Great. Your order will be ready in 15 minutes. See you later!
+  - text: Great. Your order will be ready in 20 minutes. See you later!
   utter_ask_people_amount:
   - text: And, how many people will you need the reservation for?
   utter_ask_date:
