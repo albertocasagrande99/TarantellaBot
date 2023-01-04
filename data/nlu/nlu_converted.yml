@@ -1011,6 +1011,40 @@ nlu:
     - [9 pm](time_slot)
     - [7 pm](time_slot) is the time slot that I want
     - [9 pm](time_slot) is the time slot that I want
+    - the [first](time_slot) slot
+    - the [second](time_slot) slot
+    - [first](time_slot) slot
+    - [second](time_slot) slot
+    - I'd like the [7 pm](time_slot) slot
+    - I'd like the [9 pm](time_slot) slot
+    - I'd like the [7pm](time_slot) slot
+    - I'd like the [9pm](time_slot) slot
+    - I'd like the [first](time_slot) slot
+    - I'd like the [second](time_slot) slot
+    - I want the [7 pm](time_slot) slot
+    - I want the [9 pm](time_slot) slot
+    - I want the [7pm](time_slot) slot
+    - I want the [9pm](time_slot) slot
+    - I want the [first](time_slot) slot
+    - I want the [second](time_slot) slot
+    - I prefer the [7 pm](time_slot) slot
+    - I prefer the [9 pm](time_slot) slot
+    - I prefer the [7pm](time_slot) slot
+    - I prefer the [9pm](time_slot) slot
+    - I prefer the [first](time_slot) slot
+    - I prefer the [second](time_slot) slot
+    - Usually I want [7 pm](time_slot) slot please
+    - Usually I want [9 pm](time_slot) slot please
+    - Usually I want [7pm](time_slot) slot please
+    - Usually I want [7pm](time_slot) slot please
+    - Usually I want [first](time_slot) slot please
+    - Usually I want [second](time_slot) slot please
+    - For me is better [7 pm](time_slot) slot please
+    - For me is better [9 pm](time_slot) slot please
+    - For me is better [7pm](time_slot) slot please
+    - For me is better [9pm](time_slot) slot please
+    - For me is better [first](time_slot) slot please
+    - For me is better [second](time_slot) slot please
 
 - intent: out_of_scope
   examples: |
