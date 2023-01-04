@@ -109,9 +109,13 @@ rules:
 
 - rule: activate reservation form
   steps:
-  - intent: init_request_table
   - action: reservation_form
   - active_loop: reservation_form
+
+- rule: suggest table reservation
+  steps:
+  - intent: init_request_table
+  - action: action_suggest_table
 
 - rule: submit reservation form
   condition:
@@ -120,35 +124,6 @@ rules:
   - action: reservation_form      
   - active_loop: null
   - action: utter_check_reservation
-
-# - rule: check client name
-#   steps:
-#   - intent: provide_name
-#   - action: check_client_name
-
-# - rule: old client form
-#   steps:
-#   - intent: old_client
-#   - action: old_client_form
-#   - active_loop: old_client_form
-
-# - rule: submit old client form
-#   condition:
-#   - active_loop: old_client_form
-#   steps:
-#   - action: old_client_form      
-#   - active_loop: null    
-#   - action: utter_submit_form_old_client
-
-# - rule: start
-#   steps:
-#     - intent: init_request
-#     - action: utter_init_request
-# - rule: Activate form
-#   steps:
-#   - intent: item_start_generic
-#   - action: pizza_order_form
-#   - active_loop: pizza_order_form
 
 - rule: out-of-scope
   steps:

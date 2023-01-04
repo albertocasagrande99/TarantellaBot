@@ -15,7 +15,7 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 30
+    epochs: 50
     constrain_similarities: yes
   - name: DucklingEntityExtractor
     dimensions: ["credit-card-number", "time", "number"]
@@ -31,12 +31,12 @@ pipeline:
     use_word_boundaries: True
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    epochs: 30
+    epochs: 50
 
 policies:
   - name: TEDPolicy
     max_history: 7
-    epochs: 30
+    epochs: 50
     constrain_similarities: yes
   - name: AugmentedMemoizationPolicy
     max_history: 4

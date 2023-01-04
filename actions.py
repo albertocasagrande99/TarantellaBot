@@ -228,6 +228,9 @@ class ActionResponsePositive(Action):
 				dispatcher.utter_message(response="utter_summarize_reservation")
 				conn.commit()
 				conn.close()
+			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_table'):
+				print("The user wants to reserve the last table")
+				return[FollowupAction("reservation_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -287,6 +290,8 @@ class ActionResponseNegative(Action):
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_reservation'):
 				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
 			elif(bot_event['metadata']['utter_action'] == 'utter_propose_time'):
+				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_table'):
 				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
@@ -511,3 +516,29 @@ class ValidateReservationForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         return {}
+
+class ActionSuggestTable(Action):
+	def name(self):
+		return 'action_suggest_table'
+
+	def run(self, dispatcher, tracker, domain):
+		try:
+			print("Action suggest table")
+			conn = create_connection("data_db/reservations.db")
+			cur = conn.cursor()
+			cur.execute(f"""
+				SELECT * FROM reservations WHERE client_name='{tracker.get_slot("client_name").lower()}'
+			""")
+			rows = cur.fetchall()
+			conn.commit()
+			conn.close()
+			if(len(list(rows))>=1):
+				num_people = rows[len(list(rows))-1][1]
+				timeslot = rows[len(list(rows))-1][3]
+				dispatcher.utter_message(response='utter_suggested_table', seats=num_people, timeslot=timeslot)
+				return[SlotSet("people_amount", num_people), SlotSet("time_slot", timeslot)]
+			else:
+				return[FollowupAction("reservation_form")]
+		except:
+			dispatcher.utter_message("Problem")
+		return[]

@@ -369,6 +369,9 @@ stories:
   steps:
   - checkpoint: check_user
   - intent: init_request_table
+  - action: action_suggest_table
+  - intent: response_negative
+  - action: action_response_negative
   - action: reservation_form
   - active_loop: reservation_form
   - slot_was_set:
@@ -384,6 +387,9 @@ stories:
   steps:
   - checkpoint: check_user
   - intent: init_request_table
+  - action: action_suggest_table
+  - intent: response_negative
+  - action: action_response_negative
   - action: reservation_form
   - active_loop: reservation_form
   - slot_was_set:
@@ -414,5 +420,41 @@ stories:
 - story: accept proposed time for reservation
   steps:
   - action: utter_propose_time
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: suggest table reservation to old client who accepts
+  steps:
+  - checkpoint: check_user
+  - intent: init_request_table
+  - action: action_suggest_table
+  - intent: response_positive
+  - action: action_response_positive
+  - action: reservation_form
+  - active_loop: reservation_form
+  - slot_was_set:
+    - date
+    - time_slot
+    - people_amount
+  - active_loop: null
+  - action: utter_check_reservation
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: suggest table reservation to old client who does not accept
+  steps:
+  - checkpoint: check_user
+  - intent: init_request_table
+  - action: action_suggest_table
+  - intent: response_negative
+  - action: action_response_negative
+  - action: reservation_form
+  - active_loop: reservation_form
+  - slot_was_set:
+    - date
+    - time_slot
+    - people_amount
+  - active_loop: null
+  - action: utter_check_reservation
   - intent: response_positive
   - action: action_response_positive
