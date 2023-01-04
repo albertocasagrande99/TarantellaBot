@@ -651,6 +651,55 @@ nlu:
     - [Vittorio Veneto](address_city)
     - [Trento](address_city)
     - I live in [Torino](address_city)
+    - [Toledo](address_city)
+    - my city is [Orlando](address_city)
+    - [Buffalo](address_city)
+    - the name of my city is [Durham](address_city)
+    - [Modesto](address_city)
+    - the name of my city is [Birmingham](address_city)
+    - [Rochester](address_city)
+    - [Fontana](address_city)
+    - my city is [Brownsville](address_city)
+    - [Springfield](address_city)
+    - [Eugene](address_city)
+    - [Fort Collins](address_city)
+    - [Alexandria](address_city)
+    - [Sunnyvale](address_city)
+    - my city is [Warren](address_city)
+    - [Thornton](address_city)
+    - the name of my city is [Denton](address_city)
+    - my city is [Concord](address_city)
+    - [Kent](address_city)
+    - [Allentown](address_city)
+    - [Beaumont](address_city)
+    - my city is [Costa Mesa](address_city)
+    - [Richmond](address_city)
+    - the name of my city is [Waterbury](address_city)
+    - [Clovis](address_city)
+    - the name of my city is [Atlanta](address_city)
+    - the name of my city is [Barre](address_city)
+    - [Berlin](address_city)
+    - [Cormons](address_city)
+    - I live in [Corniglio](address_city)
+    - I live in [Cossano Canavese](address_city)
+    - [Costa di Rovigo](address_city)
+    - I live in [Costa Valle Imagna](address_city)
+    - [Costabissara](address_city)
+    - [Corvino San Quirico](address_city)
+    - [New York](address_city)
+    - [Costacciaro](address_city)
+    - [Cortina d'Ampezzo](address_city)
+    - [Cortandone](address_city)
+    - I live in [Montaldo Torinese](address_city)
+    - I live in [Monte Castello di Vibio](address_city)
+    - [Montano Lucino](address_city)
+    - [Montanaro](address_city)
+    - I live in [Dernice](address_city)
+    - [Dignano](address_city)
+    - I live in [Diano d'Alba](address_city)
+    - [Divignano](address_city)
+    - [Doberdò del Lago](address_city)
+    - [Dolo](address_city)
 
 - intent: pay_cash
   examples: |
@@ -718,6 +767,7 @@ nlu:
     - delivery please
     - delivery
     - i prefer delivery
+    
 # - intent: item_type_start_negative
 #   examples: |
 #     - do you have [Americana](pizza_type)
@@ -768,6 +818,8 @@ nlu:
     - I wanna reserve a table for the day after tomorrow
     - Is it possible to book a table for tonight?
     - is a table for 2 people available tonight?
+    - I need a table for 2 people for tomorrow
+    - I necessitate a table for 3 peple
 
 - intent: inform_time_slot
   examples: |
@@ -776,12 +828,20 @@ nlu:
     - I prefer the [first](time_slot) one
     - I prefer the [second](time_slot) one
     - I prefer the [7pm](time_slot) slot
+    - I prefer the [7 pm](time_slot) slot
+    - I prefer the [9 pm](time_slot) slot
     - I think I will go for the [9pm](time_slot) slot
     - [7pm](time_slot)
     - [9pm](time_slot)
     - better [7pm](time_slot)
     - better [9pm](time_slot)
     - better [first](time_slot) one
+    - better [7 pm](time_slot)
+    - better [9 pm](time_slot)
+    - [7 pm](time_slot)
+    - [9 pm](time_slot)
+    - [7 pm](time_slot) is the time slot that I want
+    - [9 pm](time_slot) is the time slot that I want
 
 - intent: out_of_scope
   examples: |
