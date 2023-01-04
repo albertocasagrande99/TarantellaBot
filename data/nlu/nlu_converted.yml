@@ -404,6 +404,13 @@ nlu:
     - I don't want nothing
     - Is it possible to delete my order
     - Delete my order
+    - is it possible to cancel the order
+    - Is it possible to reset the order?
+    - I would like to delete the order and make a new one
+    - I would like to go back and cancel the order
+    - I want to delete the order altogether
+    - can you delete my order?
+    - delete my order please
 
 - intent: provide_name
   examples: |
@@ -549,6 +556,11 @@ nlu:
     - my telephone number is [3269957060](phone_number)
     - [3939957060](phone_number)
     - my mobile phone number is [3569957060](phone_number)
+    - phone number is [5747845596](phone_number)
+    - the number is [2327352620](phone_number)
+    - my telephone number is [2713601804](phone_number)
+    - my telephone number is [3023403649](phone_number)
+    - my mobile phone number is [6366298134](phone_number)
     
 
 - intent: provide_address_street
@@ -647,7 +659,7 @@ nlu:
     - my street name is [Adonais Way](address_street)
     - my street name is [Pleasant Hill Road](address_street)
     - my street name is [Pringle Drive](address_street)
-        - my street address is [font street](address_street)
+    - my street address is [font street](address_street)
     - I live in [Webster Street](address_street)
     - my street address is [Carriage Court](address_street)
     - [Fidler Drive](address_street)
@@ -832,6 +844,7 @@ nlu:
     - cash payment
     - I want to pay on delivery
     - by cash
+    - cash please
 
 - intent: pay_credit_card
   examples: |
@@ -951,6 +964,13 @@ nlu:
     - is a table for 2 people available tonight?
     - I need a table for 2 people for tomorrow
     - I necessitate a table for 3 peple
+    - Can I book a table for next Sunday?
+    - I want to book a table for saturday evening please
+    - I would like to book a table for Sunday evening
+    - I would like to make a reservation
+    - I’d like to reserve a table for four people, today at 5 p.m
+    - I would like to make a dinner reservation
+    - I need to make a dinner reservation
 
 - intent: inform_time_slot
   examples: |
@@ -967,6 +987,7 @@ nlu:
     - better [7pm](time_slot)
     - better [9pm](time_slot)
     - better [first](time_slot) one
+    - better [second](time_slot) one
     - better [7 pm](time_slot)
     - better [9 pm](time_slot)
     - [7 pm](time_slot)
