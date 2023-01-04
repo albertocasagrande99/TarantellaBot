@@ -376,8 +376,9 @@ stories:
     - time_slot
     - people_amount
   - active_loop: null
-  - action: utter_summarize_reservation
+  - action: utter_check_reservation
   - intent: response_positive
+  - action: action_response_positive
 
 - story: greet, ask table reservation and no correct
   steps:
@@ -390,8 +391,9 @@ stories:
     - time_slot
     - people_amount
   - active_loop: null
-  - action: utter_summarize_reservation
+  - action: utter_check_reservation
   - intent: response_negative
+  - action: action_response_negative
   - action: reservation_form
   - active_loop: reservation_form
   - slot_was_set:
@@ -399,5 +401,24 @@ stories:
     - time_slot
     - people_amount
   - active_loop: null
-  - action: utter_summarize_reservation
+  - action: utter_check_reservation
   - intent: response_positive
+  - action: action_response_positive
+
+# - story: greet, ask table reservation, full, no proposed change
+#   steps:
+#   - checkpoint: check_user
+#   - intent: init_request_table
+#   - action: reservation_form
+#   - active_loop: reservation_form
+#   - slot_was_set:
+#     - date
+#     - time_slot
+#     - people_amount
+#   - active_loop: null
+#   - action: utter_check_reservation
+#   - intent: response_positive
+#   - action: action_response_positive
+#   - action: utter_propose_time
+#   - intent: response_negative
+#   - action: action_response_negative

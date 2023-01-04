@@ -119,7 +119,7 @@ rules:
   steps:
   - action: reservation_form      
   - active_loop: null
-  - action: utter_summarize_reservation
+  - action: utter_check_reservation
 
 # - rule: check client name
 #   steps:

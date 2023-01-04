@@ -201,11 +201,15 @@ responses:
   utter_ask_people_amount:
   - text: And, how many people will you need the reservation for?
   utter_ask_date:
-  - text: Of course {client_name}, what evening will you be joining us on?
+  - text: Ok {client_name}, what evening will you be joining us on?
   utter_ask_time_slot:
   - text: And, what time would you like the reservation for? The slots available are at 7pm and 9pm.
+  utter_check_reservation:
+  - text: Ok {client_name}, so you want to reserve a table on {date} at {time_slot} for {people_amount} people. Can you confirm?
+  utter_propose_time:
+  - text: But, if you want, there are tables available for the same date at {time_slot}. Is it ok for you?
   utter_summarize_reservation:
-  - text: Great Mr. {client_name}, we will be expecting you {date} at {time_slot} for {people_amount} people. Can you confirm?
+  - text: Great Mr. {client_name}, we will be expecting you on {date} at {time_slot}.
 
 actions:
 - utter_welcome_greet

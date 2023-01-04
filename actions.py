@@ -18,6 +18,7 @@ import phonenumbers
 from collections import Counter
 import dateutil.parser
 
+MAX_SEATS_NUMBER = 20
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database specified by the db_file
@@ -165,8 +166,50 @@ class ActionResponsePositive(Action):
 				print("The user wants the usual pizza")
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_address'):
 				dispatcher.utter_message(response="utter_summarize_order_delivery")
-			elif(bot_event['metadata']['utter_action'] == 'utter_summarize_reservation'):
-				print("SI")
+			elif(bot_event['metadata']['utter_action'] == 'utter_check_reservation'):
+				client_name = tracker.get_slot('client_name')
+				people_amount = tracker.get_slot('people_amount')
+				date = tracker.get_slot('date')
+				time_slot = tracker.get_slot('time_slot')
+				conn = create_connection("data_db/reservations.db")
+				cur = conn.cursor()
+				cur.execute(f"""SELECT people_amount FROM reservations WHERE date='{date}' AND time_slot='{time_slot}'""")
+				rows = cur.fetchall()
+				tot_people = 0
+				for row in rows:
+					tot_people = tot_people + int(row[0])
+				tot_people = tot_people + int(people_amount)
+				if(tot_people<=MAX_SEATS_NUMBER):
+					cur.execute("""
+						CREATE TABLE IF NOT EXISTS reservations
+						([client_name] TEXT, [people_amount] INTEGER, [date] TEXT, [time_slot] TEXT)
+					""")
+					cur.execute(f"""
+						INSERT INTO reservations (client_name, people_amount, date, time_slot)
+							VALUES
+							('{client_name.lower()}','{people_amount}', '{date}', '{time_slot}')
+					""")
+					dispatcher.utter_message(response="utter_summarize_reservation")
+				else:
+					dispatcher.utter_message("Unfortunately all the tables are already booked for the indicated time.")
+					if(time_slot=="7pm"):
+						time_slot = "9pm"
+					else:
+						time_slot = "7pm"
+					cur.execute(f"""SELECT people_amount FROM reservations WHERE date='{date}' AND time_slot='{time_slot}'""")
+					rows = cur.fetchall()
+					tot_people = 0
+					for row in rows:
+						tot_people = tot_people + int(row[0])
+					tot_people = tot_people + int(people_amount)
+					if(tot_people <= MAX_SEATS_NUMBER):
+						#dispatcher.utter_message(response="utter_propose_time")
+						return[SlotSet("time_slot", time_slot), FollowupAction("utter_propose_time")]
+					else:
+						return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
+				conn.commit()
+				conn.close()
+			elif(bot_event['metadata']['utter_action'] == 'utter_propose_time'):
 				client_name = tracker.get_slot('client_name')
 				people_amount = tracker.get_slot('people_amount')
 				date = tracker.get_slot('date')
@@ -174,14 +217,15 @@ class ActionResponsePositive(Action):
 				conn = create_connection("data_db/reservations.db")
 				cur = conn.cursor()
 				cur.execute("""
-          			CREATE TABLE IF NOT EXISTS reservations
-          			([client_name] TEXT, [people_amount] INTEGER, [date] TEXT, [time_slot] TEXT)
+					CREATE TABLE IF NOT EXISTS reservations
+					([client_name] TEXT, [people_amount] INTEGER, [date] TEXT, [time_slot] TEXT)
 				""")
 				cur.execute(f"""
 					INSERT INTO reservations (client_name, people_amount, date, time_slot)
 						VALUES
 						('{client_name.lower()}','{people_amount}', '{date}', '{time_slot}')
 				""")
+				dispatcher.utter_message(response="utter_summarize_reservation")
 				conn.commit()
 				conn.close()
 			else:
@@ -240,7 +284,9 @@ class ActionResponseNegative(Action):
 				return[SlotSet("pizza_type", None)]
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_address'):
 				return[SlotSet("address_street", None), SlotSet("address_number", None), SlotSet("address_city", None), FollowupAction("delivery_form")]
-			elif(bot_event['metadata']['utter_action'] == 'utter_summarize_reservation'):
+			elif(bot_event['metadata']['utter_action'] == 'utter_check_reservation'):
+				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_propose_time'):
 				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
