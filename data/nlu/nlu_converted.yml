@@ -683,7 +683,7 @@ nlu:
     - my street name is [Adonais Way](address_street)
     - my street name is [Pleasant Hill Road](address_street)
     - my street name is [Pringle Drive](address_street)
-        - my street address is [font street](address_street)
+    - my street address is [font street](address_street)
     - I live in [Webster Street](address_street)
     - my street address is [Carriage Court](address_street)
     - [Fidler Drive](address_street)
@@ -1001,7 +1001,6 @@ nlu:
     - Can you reserve one table for us?
     - Do you have any tables available?
     - Do you have any tables available this afternoon?
-    
     - Can I book a table for next Sunday?
     - I want to book a table for saturday evening please
     - I would like to book a table for Sunday evening
