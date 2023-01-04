@@ -1016,10 +1016,12 @@ nlu:
     - I prefer the [first](time_slot) one
     - I prefer the [second](time_slot) one
     - I prefer the [7pm](time_slot) slot
+    - I prefer the [7 p.m.](time_slot) slot
     - I prefer the [7 pm](time_slot) slot
     - I prefer the [9 pm](time_slot) slot
     - I think I will go for the [9pm](time_slot) slot
     - [7pm](time_slot)
+    - [seven pm](time_slot)
     - [9pm](time_slot)
     - better [7pm](time_slot)
     - better [9pm](time_slot)
@@ -1029,11 +1031,13 @@ nlu:
     - better [9 pm](time_slot)
     - [7 pm](time_slot)
     - [9 pm](time_slot)
+    - [9 p.m.](time_slot)
     - [7 pm](time_slot) is the time slot that I want
     - [9 pm](time_slot) is the time slot that I want
     - the [first](time_slot) slot
     - the [second](time_slot) slot
     - [first](time_slot) slot
+    - [seven pm](time_slot) slot
     - [second](time_slot) slot
     - I'd like the [7 pm](time_slot) slot
     - I'd like the [9 pm](time_slot) slot
@@ -1045,6 +1049,7 @@ nlu:
     - I want the [9 pm](time_slot) slot
     - I want the [7pm](time_slot) slot
     - I want the [9pm](time_slot) slot
+    - I want the [9 p.m.](time_slot) slot
     - I want the [first](time_slot) slot
     - I want the [second](time_slot) slot
     - I prefer the [7 pm](time_slot) slot
@@ -1055,6 +1060,7 @@ nlu:
     - I prefer the [second](time_slot) slot
     - Usually I want [7 pm](time_slot) slot please
     - Usually I want [9 pm](time_slot) slot please
+    - Usually I want [9 p.m.](time_slot) slot please
     - Usually I want [7pm](time_slot) slot please
     - Usually I want [7pm](time_slot) slot please
     - Usually I want [first](time_slot) slot please
@@ -1063,8 +1069,10 @@ nlu:
     - For me is better [9 pm](time_slot) slot please
     - For me is better [7pm](time_slot) slot please
     - For me is better [9pm](time_slot) slot please
+    - For me is better [9 p.m.](time_slot) slot please
     - For me is better [first](time_slot) slot please
     - For me is better [second](time_slot) slot please
+    - For me is better [seven pm](time_slot) slot please
 
 - intent: out_of_scope
   examples: |
@@ -1378,6 +1386,8 @@ nlu:
     - First
     - 7 pm
     - 7pm
+    - seven pm
+    - 7 p.m.
 
 - synonym: '9pm'
   examples: |
@@ -1385,6 +1395,7 @@ nlu:
     - Second
     - 9 pm
     - 9pm
+    - 9 p.m.
 
 # - synonym: Vegetarian
 #   examples: |

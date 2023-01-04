@@ -211,7 +211,7 @@ responses:
   utter_propose_time:
   - text: But, if you want, there are tables available for the same date at {time_slot}. Is it ok for you?
   utter_summarize_reservation:
-  - text: Great Mr. {client_name}, we will be expecting you on {date} at {time_slot}.
+  - text: Great {client_name}, we will be expecting you on {date} at {time_slot}.
   utter_suggested_table:
   - text: Do you want to reserve the same table for {seats} people at {timeslot} as last time?
 
