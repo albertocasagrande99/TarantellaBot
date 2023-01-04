@@ -696,6 +696,11 @@ nlu:
     - I would like to pay cash
     - I want to pay cash on delivery
     - cash on delivery
+    - money
+    - coins
+    - cash payment
+    - I want to pay on delivery
+    - by cash
 
 - intent: pay_credit_card
   examples: |
@@ -722,6 +727,7 @@ nlu:
     - By credit card
     - I want to pay now
     - Online
+    - pay now via credit card
 
 # - intent: provide_credit_card_number
 #   examples: |
@@ -742,13 +748,26 @@ nlu:
     - I want to pick up the order
     - I'll take the pizza by myself
     - I'll come to your pizzeria
+    - take out
+    - takeout
+    - I will pick it up
+    - better take-away
+    - take-away thanks
 
-  
 - intent: order_delivery
   examples: |
     - delivery please
     - delivery
     - i prefer delivery
+    - I prefer delivery
+    - better delivery
+    - delivery thanks
+    - use the delivery service
+    - I will go for delivery
+    - I think I will go for home delivery
+    - I will go for home delivery
+    - home delivery please
+    - home delivery thanks
 # - intent: item_type_start_negative
 #   examples: |
 #     - do you have [Americana](pizza_type)
