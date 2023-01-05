@@ -156,7 +156,7 @@ responses:
   utter_init_pizza_question/size:
   - text: The available sizes are small, medium and large.
   utter_init_pizza_question/toppings:
-  - text: The available toppings are cheese, mushrooms, sausages and potatoes.
+  - text: The available toppings are mozzarella, mushrooms, vegetables, peppers, onions, zucchini, wurstel and olives.
   utter_ask_pizza_size:
   - text: And, what size would you like your {pizza_type} pizza to be?
   utter_ask_pizza_type:
@@ -164,7 +164,7 @@ responses:
   utter_ask_pizza_amount:
   - text: Ok, how many {pizza_size} {pizza_type} pizzas do you want?
   utter_submit_form_pizza:
-  - text: All done!
+  - text: Perfect!
   utter_slots_values:
   - text: "Your order includes {pizza_amount} {pizza_size} {pizza_type} pizzas. Is that correct?"
   utter_anything_else:

@@ -302,6 +302,16 @@ nlu:
     - price of [Pepp](pizza_type) pizza
     - What is the price for the [Pepperoni](pizza_type) pizza?
     - how much is the [funghi](pizza_type) one?
+    - How much is the [veggie](pizza_type) pizza?
+    - what's the cost of [hawaii](pizza_type) pizza?
+    - price of [american](pizza_type) pizza
+    - What is the price for the [vegetarian](pizza_type) pizza?
+    - how much is the [ham and mushrooms](pizza_type) one?
+    - How much is the [capricciosa](pizza_type) pizza?
+    - what's the cost of [Hawaii](pizza_type) pizza?
+    - price of [mushrooms and ham](pizza_type) pizza
+    - What is the price for the [veggie](pizza_type) pizza?
+    - how much is the [wurstel and french fries](pizza_type) one?
 
 - intent: pizza_question_toppings
   examples: |
@@ -445,8 +455,7 @@ nlu:
     - excuse me do you have pizza without [meat](toppings)?
     - excuse me do you have pizza without [olives](toppings)?
     - Excuse me do you have pizza without [onions](toppings)?
-    - excuse me do you have pizza without [zucchini](toppings)?
-    
+    - excuse me do you have pizza without [zucchini](toppings)? 
 
 - intent: provide_pizza_type
   examples: |
@@ -475,7 +484,11 @@ nlu:
     - a [margherita](pizza_type)
     - a [mushrooms and ham](pizza_type) please
     - a [ham and mushrooms](pizza_type)
-
+    - I want a pizza with [wurstel and french fries](pizza_type)
+    - I want a [veggie](pizza_type) pizza
+    - I want a [vegetarian](pizza_type) pizza
+    - I want a [capricciosa](pizza_type) pizza
+    - I want an [hawaii](pizza_type) pizza
 
 - intent: provide_pizza_size
   examples: |
@@ -559,6 +572,14 @@ nlu:
     - actually i would like [2](pizza_amount) [tiny](pizza_size) [margherita](pizza_type)
     - actually i would like a [small](pizza_size) [hawaii](pizza_type)
     - actually i would like a [small](pizza_size) [big]](pizza_size) [capricciosa](pizza_type)
+    - actually , can I get [capricciosa](pizza_type)?
+    - actually , i 'd like [small](pizza_size) pizza.
+    - I'd like in [large](pizza_size) size instead.
+    - actually, i would like a [regular](pizza_size) [vegetarian](pizza_type).
+    - wait, can i get  it in [big](pizza_size) size.
+    - I want [hawaii](pizza_type)
+    - I want [american](pizza_type) instead
+    - I want to change the size to [normal](pizza_size)
 
 - intent: response_negative
   examples: |
@@ -618,6 +639,9 @@ nlu:
     - right
     - that sounds good
     - yes I want the usual pizza
+    - yes the same pizza as always
+    - yes the usual pizza is fine
+    - the usual pizza is perfect
     - yes
     - Yes I want another [margherita](pizza_type)
     - Yes I would like to add another pizza
@@ -628,6 +652,8 @@ nlu:
     - can I have another [mushrooms](pizza_type) pizza?
     - sure I want to order other pizzas
     - sure
+    - Yes I am
+    - yes I'm sure
     - I would like to buy a second pizza
     - another pizza please
     - I want to add also a [large](pizza_size) [pepperoni](pizza_type) pizza
@@ -645,8 +671,15 @@ nlu:
     - yes is ok for me
     - it is ok
     - ok
+    - confirm
+    - perfect
+    - good
+    - very good
     - I agree
     - Yes as last time
+    - yes correct
+    - yes why not
+    - yes thanks
 
 - intent: cancel_order
   examples: |
@@ -1500,14 +1533,6 @@ nlu:
   examples: |
     - capricciosa
     - Capricciosa
-
-- synonym: ham
-  examples: |
-    - meat
-
-- synonym: wurstel
-  examples: |
-    - meat
 
 - synonym: '1'
   examples: |
