@@ -422,8 +422,30 @@ nlu:
   examples: |
     - a [margherita](pizza_type) pizza please
     - [funghi](pizza_type) please
+    - [marinara](pizza_type) please
+    - [margherita](pizza_type) please
+    - [veggie](pizza_type) please
+    - [vegetarian](pizza_type) please
+    - [american](pizza_type)
+    - [mushrooms and ham](pizza_type)
+    - [hawaii](pizza_type)
+    - [veggie](pizza_type)
     - a [pepperoni](pizza_type), thanks
     - a [funghi](pizza_type) pizza
+    - a [ham and mushrooms](pizza_type) pizza
+    - a [mushrooms and ham](pizza_type) pizza
+    - a [veggie](pizza_type) pizza
+    - a [vegetarian](pizza_type) pizza
+    - a [hawaii](pizza_type) pizza please
+    - a [american](pizza_type) pizza
+    - a [capricciosa](pizza_type) pizza please
+    - a [mushrooms](pizza_type) pizza
+    - a [veggie](pizza_type) please
+    - a [marinara](pizza_type)
+    - a [margherita](pizza_type)
+    - a [mushrooms and ham](pizza_type) please
+    - a [ham and mushrooms](pizza_type)
+
 
 - intent: provide_pizza_size
   examples: |
@@ -545,6 +567,10 @@ nlu:
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
     - I'd like a  [margherita](pizza_type) pizza instead.
     - can i get a [pepperoni](pizza_type) instead?
+    - can i get a [small](pizza_size) [vegerarian](pizza_type) instead?
+    - can i get a [capricciosa](pizza_type) instead?
+    - can i get a [ham and mushrooms](pizza_type) instead?
+    - can i get a [hawaii](pizza_type) instead?
     - actually , can I get [margherita](pizza_type)?
     - actually , i 'd like [small](pizza_size) pizza.
     - I'd like in [small](pizza_size) instead.
@@ -555,6 +581,21 @@ nlu:
     - I want to change the size to [medium](pizza_size)
     - I want to change the size to [large](pizza_size)
     - I want my pizza in [small](pizza_size) instead
+    - Actually I want a [funghi](pizza_type)
+    - Actually I want a [american](pizza_type)
+    - Actually I want a [pepperoni](pizza_type)
+    - Actually I want a [veggie](pizza_type)
+    - Actually I want a [hawaii](pizza_type)
+    - Actually I want a [ham and mushrooms](pizza_type)
+    - Actually I want a [mushrooms and ham](pizza_type)
+    - actually i would like a [small](pizza_size) [mushrooms](pizza_type)
+    - actually i would like  [1](pizza_amount) [small](pizza_size) [veggie](pizza_type)
+    - actually i would like a [small](pizza_size) [mushrooms and ham](pizza_type)
+    - actually i would like a [two](pizza_amount) [regular](pizza_size) [vegetarian](pizza_type)
+    - actually i would like a [small](pizza_size) [american](pizza_type)
+    - actually i would like [2](pizza_amount) [tiny](pizza_size) [margherita](pizza_type)
+    - actually i would like a [small](pizza_size) [hawaii](pizza_type)
+    - actually i would like a [small](pizza_size) [big]](pizza_size) [capricciosa](pizza_type)
 
 - intent: response_negative
   examples: |
@@ -824,25 +865,6 @@ nlu:
     - my street name is [Viale della Vittoria](address_street)
     - street address is [Via Roma](address_street)
     - the street name is [via Roma](address_street)
-    - I live in [via Salvatore Plateroti](address_street)
-    - my street name is [Via della Posta](address_street)
-    - [Via del Comune](address_street)
-    - my street name is [Via del Porticato](address_street)
-    - [Via del Municipio antico](address_street)
-    - [Via dei Ciliegi](address_street)
-    - I live in [Via Filemon](address_street)
-    - [Via degli Olmi](address_street)
-    - I live in [Via Alfredo Renzi](address_street)
-    - the street name is [Via XVII ottobre](address_street)
-    - [via Largo Ercole e Anteo](address_street)
-    - the street name is [Via delle Stelle](address_street)
-    - [Viale Affori](address_street)
-    - [Largo Africa](address_street)
-    - my street name is [Piazza Adrigat](address_street)
-    - I live in [Via del Lago](address_street)
-    - [Via Piccolo Quarto](address_street)
-    - [Via Polledrana](address_street)
-    - [Via Aia Nuova](address_street)
     - [via Ponte Prati Giuliani](address_street)
     - my street name is [Viale Francia](address_street)
     - [viale Danimarca](address_street)
