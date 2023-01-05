@@ -27,7 +27,7 @@ nlu:
   examples: |
     - I want to order [large](pizza_size) pizza with olives
     - I want [large](pizza_size) tomatoes pizza
-    - I want [a](pizza_amount) [medium](pizza_size) cheese pizza
+    - I want a [medium](pizza_size) cheese pizza
     - want to oder [large](pizza_size) cheese pizza
     - want to order [medium](pizza_size) tomatoes pizza
     - want to order least carnivore pizza
@@ -47,13 +47,68 @@ nlu:
     - [large](pizza_size) corns
     - I want to order [1](pizza_amount) [large](pizza_size) [margherita](pizza_type) pizza please
     - I want to order [2](pizza_amount) [medium](pizza_size) [marinara](pizza_type) pizzas please
-    - I want [a](pizza_amount) [large](pizza_size) pizza
+    - I want a [large](pizza_size) pizza
     - I want [two](pizza_amount) [large](pizza_size) pizza
     - I want [3](pizza_amount) [huge](pizza_size) pizza
     - I want [four](pizza_amount) [tiny](pizza_size) pizza
     - I want [five](pizza_amount) [normal](pizza_size) pizza
     - I want to order [one](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza please
     - I want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas please
+    - [two](pizza_amount) pizzas
+    - [two](pizza_amount) [medium](pizza_size) pizzas
+    - [tiny](pizza_size) pizzas
+    - [tiny](pizza_size) [mushrooms](pizza_type) pizzas
+    - [regular](pizza_size) pizzas
+    - [medium](pizza_size) [margherita](pizza_type) pizzas
+    - i would like to order [tiny](pizza_size) [marinara](pizza_type) pizza
+    - i would like to order [little](pizza_size) [american](pizza_type) pizza
+    - i would like to order [hawaii](pizza_type) pizza
+    - i would like to order [ham and mushrooms](pizza_type) pizza
+    - i would like to order [5](pizza_amount) pizzas
+    - i would like to order [5](pizza_amount) [little](pizza_size) pizzas
+    - i would like [3](pizza_amount) [vegetarian](pizza_type) pizzas
+    - i would like [small](pizza_size) [mushrooms](pizza_type) pizza
+    - i would like [3](pizza_amount) [american](pizza_type) pizzas
+    - i want to order [small](pizza_size) [vegetarian](pizza_type) pizza
+    - i want to order [3](pizza_amount) [little](pizza_size) [capricciosa](pizza_type) pizzas
+    - i want to order [1](pizza_amount) [huge](pizza_size) [american](pizza_type) pizza
+    - i want [one](pizza_amount) [tiny](pizza_size) [ham and mushrooms](pizza_type) pizza
+    - i want [one](pizza_amount) [regular](pizza_size) [mushrooms](pizza_type) pizza
+    - i want [4](pizza_amount) [large](pizza_size) [vegetarian](pizza_type) pizzas
+    - i want [2](pizza_amount) pizzas
+    - i need to order [4](pizza_amount) [normal](pizza_size) [hawaii](pizza_type) pizzas
+    - i need [big](pizza_size) [mushrooms](pizza_type) pizza
+    - i like [two](pizza_amount) [normal](pizza_size) pizza
+    - i like to order [two](pizza_amount) [capricciosa](pizza_type) pizzas
+    - i like to order a [hawaii](pizza_type) pizza
+    - i like [hawaii](pizza_type) pizza
+    - [huge](pizza_size) [american](pizza_type) pizza
+    - [ham and mushrooms](pizza_type) pizza
+    - [four](pizza_amount) [large](pizza_size) [ham and mushrooms](pizza_type) pizzas
+    - [four](pizza_amount) [big](pizza_size) [vegetarian](pizza_type) pizzas
+    - can I order [two](pizza_amount) [capricciosa](pizza_type) pizzas?
+    - can I order [two](pizza_amount) [big](pizza_size) pizzas?
+    - can I order [three](pizza_amount) [regular](pizza_size) pizzas?
+    - can I order [small](pizza_size) [vegetarian](pizza_type) pizza?
+    - can I order [one](pizza_amount) [huge](pizza_size) pizza?
+    - can I order [four](pizza_amount) [small](pizza_size) pizzas?
+    - can I order [four](pizza_amount) [small](pizza_size) pizzas?
+    - can I order a [vegetarian](pizza_type) pizza?
+    - can I order a [huge](pizza_size) [pepperoni](pizza_type) pizza?
+    - can I order [4](pizza_amount) [tiny](pizza_size) [american](pizza_type) pizzas?
+    - can I order [5](pizza_amount) [large](pizza_size) pizzas?
+    - can I order [3](pizza_amount) [normal](pizza_size) pizzas?
+    - can I order [2](pizza_amount) [vegetarian](pizza_type) pizzas?
+    - can I order [3](pizza_amount) [ham and mushrooms](pizza_type) pizzas?
+    - can I order [2](pizza_amount) [large](pizza_size) pizzas?
+    - I want [1](pizza_amount) [veggie](pizza_type) in [large](pizza_size) size
+    - I want [2](pizza_amount) [marinara](pizza_type) in [small](pizza_size) size
+    - I want [3](pizza_amount) [ham and mushrooms](pizza_type) in [large](pizza_size) size
+    - I want [two](pizza_amount) [marinara](pizza_type) in [huge](pizza_size) size
+    - [4](pizza_amount) [vegetarian](pizza_type) in [tiny](pizza_size) size
+    - I want [5](pizza_amount) [hawaii](pizza_type) in [regular](pizza_size) size
+    - a [marinara](pizza_type) in [large](pizza_size) size
+    - I want [5](pizza_amount) pizzas in [normal](pizza_size) size
 
 - intent: init_request_without_entity
   examples: |
@@ -77,6 +132,28 @@ nlu:
     - I like very much pizza
     - Is there a way to order a pizza?
     - I want a good pizza
+    - It's time for a pizza
+    - pizza is what I need
+    - It's pizza time
+    - I want to have a pizza
+    - I want a delicious pizza
+    - Is it possible to order a delicious pizza?
+    - I want pizza
+    - I need pizza
+    - I need energy
+    - I'd like to have a pizza
+    - Make me some pizzas
+    - Cook me a pizza
+    - Prepare a pizza for me
+    - Can you prepare a pizza?
+    - Can you cook some pizzas?
+    - I need something to eat
+    - I give you some money for a pizza
+    - I give you a lot of money for a pizza
+    - I want the same pizza as the last time
+    - I want the same pizza as before
+    - Is it possible to have the same pizza as last time?
+    - Same pizzas as last time
 
 - intent: init_pizza_question/size
   examples: |
@@ -98,9 +175,15 @@ nlu:
     - small pizzas?
     - how big can I order my pizza?
     - do you have pizzas with [large](pizza_size) size?
+    - do you have pizzas with [tiny](pizza_size) size?
+    - do you have pizzas with [normal](pizza_size) size?
+    - do you have pizzas with [huge](pizza_size) size?
     - do you sell [small](pizza_size) pizzas?
     - do you sell [medium](pizza_size) pizzas?
     - do you sell [large](pizza_size) pizzas?
+    - do you sell [tiny](pizza_size) pizzas?
+    - do you sell [regular](pizza_size) pizzas?
+    - do you sell [huge](pizza_size) pizzas?
 
 - intent: init_pizza_question/toppings
   examples: |
@@ -321,14 +404,14 @@ nlu:
     - [4](pizza_amount)
     - [1](pizza_amount)
     - [5](pizza_amount)
-    - [a](pizza_amount) pizza
-    - [A](pizza_amount) pizza
+    - a pizza
+    - A pizza
     - [two](pizza_amount) pizzas
     - [three](pizza_amount) pizzas
     - [four](pizza_amount)
     - [five](pizza_amount)
     - I want [three](pizza_amount) pizzas
-    - I want [a](pizza_amount) pizza
+    - I want a pizza
 
 # - intent: item_start_generic
 #   examples: |
@@ -462,7 +545,7 @@ nlu:
     - Yes I want another [margherita](pizza_type)
     - Yes I would like to add another pizza
     - Yes another pizza please
-    - yeah can I have also [a](pizza_amount) [marinara](pizza_type) pizza please
+    - yeah can I have also a [marinara](pizza_type) pizza please
     - yes I'd like also [two](pizza_amount) [pepperoni](pizza_type) pizzas
     - yes I want to add another pizza
     - can I have another [mushrooms](pizza_type) pizza?
@@ -470,9 +553,9 @@ nlu:
     - sure
     - I would like to buy a second pizza
     - another pizza please
-    - I want to add also [a](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
-    - yes as a second pizza I would like [a](pizza_amount) [medium](pizza_size) [marinara](pizza_type)
-    - can I have also [a](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza?
+    - I want to add also a [large](pizza_size) [pepperoni](pizza_type) pizza
+    - yes as a second pizza I would like a [medium](pizza_size) [marinara](pizza_type)
+    - can I have also a [small](pizza_size) [mushrooms](pizza_type) pizza?
     - Yes I want that reservation
     - Yes I want the last reservation
     - Yes last reservation
@@ -1376,6 +1459,7 @@ nlu:
     - Ham and Mushrooms
     - mushrooms and ham
     - Mushrooms and Ham
+    - ham and mushrooms
 
 - synonym: capricciosa
   examples: |
@@ -1394,9 +1478,6 @@ nlu:
   examples: |
     - one
     - One
-    - a
-    - an
-    - A
 
 - synonym: '2'
   examples: |
