@@ -192,7 +192,65 @@ nlu:
     - I want a pizza with no [funghi](toppings) please
     - I want a pizza with no [peppers](toppings) please
     - I want a pizza with no [mushrooms](toppings) please
-
+    - do you have pizza with no [zucchini](toppings)?
+    - do you have pizza with no [zucchini](toppings)?
+    - Sorry, do you have pizza with no [wurstel](toppings)?
+    - do you have pizza with no [ham](toppings)?
+    - do you have pizza with no [ham](toppings)?
+    - sorry, do you have pizza with no [meat](toppings)?
+    - Sorry, do you have pizza with no [ham](toppings)?
+    - sorry, do you have pizza with no [meat](toppings)?
+    - do you have pizza with no [meat](toppings)?
+    - sorry, do you have pizza with no [olives](toppings)?
+    - do you have pizza with no [olives](toppings)?
+    - sorry, do you have pizza with no [onions](toppings)?
+    - do you have pizza with no [onions](toppings)?
+    - do you have pizza with no [pineapple](toppings)?
+    - Sorry, do you have pizza with no [pineapple](toppings)?
+    - Sorry i'm looking for a pizza with no [onions](toppings)
+    - i'm looking for a pizza with no [pineapple](toppings)
+    - Sorry i'm looking for a pizza with no [pineapple](toppings)
+    - i'm looking for a pizza with no [wurstel](toppings)
+    - i'm looking for a pizza with no [wurstel](toppings)
+    - i'm looking for a pizza with no [zucchini](toppings)
+    - Sorry i'm looking for a pizza with no [zucchini](toppings)
+    - Sorry i'm looking for a pizza with no [zucchini](toppings)
+    - do you have pizza with no [artichokes](toppings)?
+    - Sorry, do you have pizza with no [artichokes](toppings)?
+    - do you have pizza with no [basil](toppings)?
+    - do you have pizza with no [basil](toppings)?
+    - sorry, do you have pizza with no [eggplant](toppings)?
+    - Sorry, do you have pizza with no [eggplant](toppings)?
+    - do you have pizza with no [french fries](toppings)?
+    - do you have pizza without [wurstel](toppings)?
+    - Sorry do you have pizza without [wurstel](toppings)?
+    - do you have pizza without [zucchini](toppings)?
+    - i'm looking for a pizza with no [artichokes](toppings)
+    - i'm looking for a pizza with no [artichokes](toppings)
+    - sorry i'm looking for a pizza with no [basil](toppings)
+    - i'm looking for a pizza with no [eggplant](toppings)
+    - Sorry i'm looking for a pizza with no [eggplant](toppings)
+    - i'm looking for a pizza with no [french fries](toppings)
+    - sorry i'm looking for a pizza with no [ham](toppings)
+    - i'm looking for a pizza with no [meat](toppings)
+    - sorry i'm looking for a pizza with no [olives](toppings)
+    - sorry i'm looking for a pizza with no [onions](toppings)
+    - i'm looking for a pizza with no [olives](toppings)
+    - i'm looking for a pizza with no [zucchini](toppings)
+    - I'm looking for a pizza with no [zucchini](toppings)
+    - do you have pizza without [artichokes](toppings)?
+    - Sorry do you have pizza without [artichokes](toppings)?
+    - sorry do you have pizza without [basil](toppings)?
+    - do you have pizza without [eggplant](toppings)?
+    - Which are the pizza without [eggplant](toppings)?
+    - Which are the pizza without [basil](toppings)?
+    - Which are the pizza without [wurstell](toppings)?
+    - Which are the pizza without [french fries](toppings)?
+    - Which are the pizza without [artichokes](toppings)?
+    - Which are the pizza without [olives](toppings)?
+    - Which are the pizza without [zucchini](toppings)?
+    
+    
 - intent: provide_pizza_type
   examples: |
     - a [margherita](pizza_type) pizza please
