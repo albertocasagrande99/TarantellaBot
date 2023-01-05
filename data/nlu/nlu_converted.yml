@@ -216,7 +216,7 @@ nlu:
     - can you prepare [large](pizza_size) pizzas?
     - [large](pizza_size) pizzas?
     - [medium](pizza_size) pizzas?
-    - small pizzas?
+    - [small](pizza_size) pizzas?
     - how big can I order my pizza?
     - do you have pizzas with [large](pizza_size) size?
     - do you have pizzas with [tiny](pizza_size) size?
@@ -228,6 +228,14 @@ nlu:
     - do you sell [tiny](pizza_size) pizzas?
     - do you sell [regular](pizza_size) pizzas?
     - do you sell [huge](pizza_size) pizzas?
+    - do you offer [regular](pizza_size) pizzas?
+    - do you offer [tiny](pizza_size) pizzas?
+    - do you offer [large](pizza_size) pizzas?
+    - do you offer [small](pizza_size) pizzas?
+    - do you offer [little](pizza_size) pizzas?
+    - do you offer [big](pizza_size) pizzas?
+    - do you offer [huge](pizza_size) pizzas?
+    - do you offer [medium](pizza_size) pizzas?
 
 - intent: init_pizza_question/toppings
   examples: |
@@ -242,6 +250,9 @@ nlu:
     - what toppings do you have available?
     - list of toppings
     - list of available toppings
+    - What toppings can I add on my pizzas?
+    - can you list me the available toppings?
+    - please list me the toppings
 
 - intent: item_price
   examples: |
@@ -436,6 +447,10 @@ nlu:
     - [regular](pizza_size) please
     - [normal](pizza_size) please
     - [tiny](pizza_size)
+    - maybe [big](pizza_size)
+    - maybe [huge](pizza_size)
+    - maybe [large](pizza_size)
+    - maybe [small](pizza_size)
 
 - intent: provide_pizza_amount
   examples: |
@@ -549,14 +564,26 @@ nlu:
     - Nope
     - No, I want to make a change
     - Noo
+    - no that's all
+    - no sorry I changed my mind
+    - no it isn't
+    - actually I changed my mind
+    - no I changed my mind
     - no thanks
     - no thank you
+    - actually I want to order a different pizza
+    - this time instead I want a different pizza
+    - not the usual pizza
+    - no I don't want the usual pizza
+    - no I want to change pizza this time
+    - actually I want to change pizza today
     - no I want to change my order
     - actually I want to change my order
     - oh no sorry can I make a change?
     - ops no I need to make a change
     - no sorry I would like to change the order
     - no Actually I want to change the address
+    - actually I want the pizza to be delivered to a different address
     - no it is not right
     - no it is not correct
     - no I don't want the table as last time
@@ -565,7 +592,8 @@ nlu:
     - No I want another table
     - no as last time
     - Is not ok
-    - No is not ok
+    - No it is not ok
+    - no I can't at that time
     - I don't confirm the reservation
     - I don't confirm
     - No I want to do a different reservation
