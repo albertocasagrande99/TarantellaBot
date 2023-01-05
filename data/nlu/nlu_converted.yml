@@ -240,6 +240,8 @@ nlu:
     - which toppings do you have?
     - what can i put on my pizza?
     - what toppings do you have available?
+    - list of toppings
+    - list of available toppings
 
 - intent: item_price
   examples: |
@@ -447,14 +449,14 @@ nlu:
     - [4](pizza_amount)
     - [1](pizza_amount)
     - [5](pizza_amount)
-    - a pizza
-    - A pizza
+    - [one](pizza_amount) pizza
+    - [1](pizza_amount) pizza
     - [two](pizza_amount) pizzas
     - [three](pizza_amount) pizzas
     - [four](pizza_amount)
     - [five](pizza_amount)
     - I want [three](pizza_amount) pizzas
-    - I want a pizza
+    - I want [1](pizza_amount) pizza
 
 # - intent: item_start_generic
 #   examples: |
@@ -1136,30 +1138,7 @@ nlu:
     - I will go for home delivery
     - home delivery please
     - home delivery thanks
-# - intent: item_type_start_negative
-#   examples: |
-#     - do you have [Americana](pizza_type)
-#     - do you offer pizza [Americana](pizza_type)
-# - intent: item_type_start_positive
-#   examples: |
-#     - do you have [hawaii](pizza_type)
-#     - do you offer pizza [margherita](pizza_type)
-# - intent: item_topping
-#   examples: |
-#     - I want to order pizza with OLIVES
-#     - My favourite topping is cheese
-#     - I like olive
-#     - Pepperoni is my favorite topping
-#     - Definitely onnion
-#     - I love tomatoes
-#     - favorite topping is Corns
-#     - I love cheese
-#     - cheese
-#     - Olive
-#     - pepperoni
-#     - tomatoes
-#     - Onions
-#     - Corn
+
 - intent: pizza_availability
   examples: |
     - do you have [pepperoni](pizza_type) pizza?
