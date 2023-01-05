@@ -9,6 +9,7 @@ intents:
 - init_request
 - init_request_without_entity
 - init_pizza_question
+- menu_question
 - item_price
 - pizza_question_toppings
 - cancel_order

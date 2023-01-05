@@ -199,6 +199,25 @@ nlu:
     - Is it possible to have the same pizza as last time?
     - Same pizzas as last time
 
+- intent: menu_question
+  examples: |
+    - I wanted to know the menu
+    - Can you tell me the menu please?
+    - I want to know the menu
+    - What pizzas do you offer?
+    - Available pizzas
+    - Please tell me the available pizzas
+    - What are the pizzas in the menu?
+    - Can you list me the pizzas in the menu?
+    - I would like to know more about the pizzas
+    - What pizza types do you sell?
+    - Is it possible to know the menu?
+    - It it possible to know the pizzas in the menu?
+    - What are the pizzas?
+    - Which pizzas do you offer today?
+    - Which pizzas do you suggest me?
+    - Which pizzas do you sell today?
+
 - intent: init_pizza_question/size
   examples: |
     - What are the sizes?
@@ -437,7 +456,7 @@ nlu:
     - a [veggie](pizza_type) pizza
     - a [vegetarian](pizza_type) pizza
     - a [hawaii](pizza_type) pizza please
-    - a [american](pizza_type) pizza
+    - an [american](pizza_type) pizza
     - a [capricciosa](pizza_type) pizza please
     - a [mushrooms](pizza_type) pizza
     - a [veggie](pizza_type) please

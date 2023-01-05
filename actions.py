@@ -85,9 +85,11 @@ class ActionPizzaAvailability(Action):
 		cur.execute(f"""SELECT title FROM pizzas WHERE EXISTS (SELECT title FROM pizzas WHERE title='{pizza_type}')""")
 		rows = cur.fetchall()
 		if len(list(rows)) < 1:
-			dispatcher.utter_message(f"The pizza '{pizza_type}' is not present in the menu")
+			dispatcher.utter_message(f"The pizza '{pizza_type}' is not present in the menu.")
 		else:
 			dispatcher.utter_message("Yes! The " + pizza_type + " pizza is available.")
+		conn.commit()
+		conn.close()
 		return[]
 
 class ActionPizzaQuestionToppings(Action):
@@ -136,7 +138,7 @@ class ActionResponsePositive(Action):
 				cur.execute(f"""
 					INSERT INTO orders (order_id, client_name, pizza_type, pizza_size, pizza_amount)
 						VALUES
-						('{tracker.sender_id}','{client_name.lower()}','{pizza_type}', '{pizza_size}', '{pizza_amount}')
+						('{tracker.sender_id}','{client_name.lower()}','{pizza_type.lower()}', '{pizza_size}', '{pizza_amount}')
 				""")
 				# cur.execute("""SELECT * FROM orders """)
 				# df = pd.DataFrame(cur.fetchall(), columns=['order_id','client_name','pizza_type','pizza_size','pizza_amount','toppings'])

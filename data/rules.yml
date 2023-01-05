@@ -18,6 +18,11 @@ rules:
   - slot_was_set:
     - new_client
 
+- rule: menu of the pizzas
+  steps:
+  - intent: menu_question
+  - action: action_menu
+
 - rule: say menu
   steps:
   - intent: init_request
