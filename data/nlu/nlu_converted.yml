@@ -25,35 +25,59 @@ nlu:
 
 - intent: init_request
   examples: |
-    - I want to order [large](pizza_size) pizza with olives
-    - I want [large](pizza_size) tomatoes pizza
-    - I want [a](pizza_amount) [medium](pizza_size) cheese pizza
-    - want to oder [large](pizza_size) cheese pizza
-    - want to order [medium](pizza_size) tomatoes pizza
-    - want to order least carnivore pizza
-    - need [large](pizza_size) pepperoni pizza
-    - want [small](pizza_size) onions pizza
-    - want [large](pizza_size) pepper pizza
-    - I like [small](pizza_size) olives pizza
-    - pepperoni [small](pizza_size) pizza
-    - [large](pizza_size) onions
-    - My favorite pizza is [Small](pizza_size) corn
-    - my favorite pizza is [small](pizza_size) corn
-    - cheese and [SMALL](pizza_size)
-    - [medium](pizza_size) and Olives
-    - peperoni, [large](pizza_size)
-    - [small](pizza_size) pizza with tomatoes topping
-    - [medium](pizza_size) with onion
-    - [large](pizza_size) corns
+    - I want to order [large](pizza_size) pizza with [ham and mushrooms](pizza_type)
+    - I want a [medium](pizza_size) [margherita](pizza_type) pizza
+    - need [large](pizza_size) [pepperoni](pizza_type) pizza
+    - I like [small](pizza_size) [vegetarian](pizza_type) pizza
+    - [pepperoni](pizza_type) [small](pizza_size) pizza
+    - My favorite pizza is [Small](pizza_size) [capricciosa](pizza_type)
     - I want to order [1](pizza_amount) [large](pizza_size) [margherita](pizza_type) pizza please
     - I want to order [2](pizza_amount) [medium](pizza_size) [marinara](pizza_type) pizzas please
-    - I want [a](pizza_amount) [large](pizza_size) pizza
+    - I want a [large](pizza_size) pizza
     - I want [two](pizza_amount) [large](pizza_size) pizza
     - I want [3](pizza_amount) [huge](pizza_size) pizza
     - I want [four](pizza_amount) [tiny](pizza_size) pizza
     - I want [five](pizza_amount) [normal](pizza_size) pizza
     - I want to order [one](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza please
     - I want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas please
+    - [1](pizza_amount) [pepperoni](pizza_type) pizza
+    - [2](pizza_amount) [huge](pizza_size) [margherita](pizza_type) pizzas
+    - [3](pizza_amount) [big](pizza_size) pizzas
+    - [3](pizza_amount) [big](pizza_size) [vegetarian](pizza_type) pizzas
+    - [3](pizza_amount) [medium](pizza_size) [capricciosa](pizza_type) pizzas
+    - A [huge](pizza_size) [marinara](pizza_type) pizza
+    - A [little](pizza_size) [hawaii](pizza_type) pizza
+    - [American](pizza_type) pizza
+    - [Big](pizza_size) [margherita](pizza_type) pizza
+    - Can I order [1](pizza_amount) [medium](pizza_size) [capricciosa](pizza_type) pizza?
+    - Can I order [3](pizza_amount) [mushrooms](pizza_type) pizzas?
+    - Can I order [4](pizza_amount) pizzas
+    - can I order [2](pizza_amount) [big](pizza_size) [margherita](pizza_type) pizzas
+    - Can I order [one](pizza_amount) [big](pizza_size) [vegetarian](pizza_type) pizza
+    - can I order [four](pizza_amount) [large](pizza_size) [capricciosa](pizza_type) pizzas
+    - Can I order a [large](pizza_size) [ham and mushrooms](pizza_type) pizza
+    - Can I order a [large](pizza_size) pizza
+    - can I order [two](pizza_amount) [normal](pizza_size) [hawaii](pizza_type) pizzas
+    - Can I order [three](pizza_amount) [little](pizza_size) pizzas
+    - Can I order [three](pizza_amount) [small](pizza_size) [veggie](pizza_size) pizzas
+    - can I order [two](pizza_amount) [tiny](pizza_size) [ham and mushrooms](pizza_size) pizzas"
+    - [Four](pizza_amount) [mushrooms](pizza_type) pizzas
+    - I need [three](pizza_amount) [little](pizza_size) [ham and mushrooms](pizza_type) pizzas
+    - I need to order [2](pizza_amount) pizzas
+    - I need to order [little](pizza_size) pizza
+    - I need to order a [normal](pizza_size) [ham and mushrooms](pizza_type) pizza
+    - I need to order a [regular](pizza_size) [american](pizza_type) pizza
+    - I need [two](pizza_amount) [large](pizza_size) pizzas
+    - I want to order [one](pizza_amount) [tiny](pizza_size) pizza
+    - I would like to order [three](pizza_amount) [american](pizza_type) pizzas
+    - I would like to order [two](pizza_amount) [hawaii](pizza_type) pizzas
+    - can I order [3](pizza_amount) [medium](pizza_size) [capricciosa](pizza_type) pizzas
+    - can I order [one](pizza_amount) [small](pizza_size) [vegetarian](pizza_type) pizza
+    - I would like to buy [two](pizza_amount) [capricciosa](pizza_type) pizzas in [regular](pizza_size) size
+    - I would like to buy [one](pizza_amount) [pepperoni](pizza_type) pizza in [small](pizza_size) size
+    - I need to buy [3](pizza_amount) [american](pizza_type) pizzas in [huge](pizza_size) size
+    - I need to buy [hawaii](pizza_type) pizzas in [little](pizza_size) size
+    - I have to buy [vegetarian](pizza_type) pizzas in [tiny](pizza_size) size
 
 - intent: init_request_without_entity
   examples: |
@@ -276,7 +300,6 @@ nlu:
     - excuse me do you have pizza without [olives](toppings)?
     - Excuse me do you have pizza without [onions](toppings)?
     - excuse me do you have pizza without [zucchini](toppings)?
-    
     
 
 - intent: provide_pizza_type
