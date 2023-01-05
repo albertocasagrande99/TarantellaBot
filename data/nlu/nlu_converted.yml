@@ -249,8 +249,6 @@ nlu:
     - Which are the pizza without [artichokes](toppings)?
     - Which are the pizza without [olives](toppings)?
     - Which are the pizza without [zucchini](toppings)?
-    
-    
     - do you have pizza with no [artichokes](toppings)?
     - do you have pizza with no [basil](toppings)?
     - do you have pizza with no [eggplant](toppings)?
