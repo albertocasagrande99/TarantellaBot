@@ -22,6 +22,14 @@ nlu:
     - I'm back
     - Hello there
     - Is there anyone?
+    - Ciao
+    - Nice to meet you
+    - Who are you?
+    - Enable
+    - Hi Tarantella BOt
+    - Hi Bot
+    - Hello Tarantella
+    - Hi tarantella
 
 - intent: init_request
   examples: |
@@ -266,6 +274,20 @@ nlu:
     - do you offer [big](pizza_size) pizzas?
     - do you offer [huge](pizza_size) pizzas?
     - do you offer [medium](pizza_size) pizzas?
+    - Is there the [regular](pizza_size) size available?
+    - Is there the [large](pizza_size) size available?
+    - Is there the [tiny](pizza_size) size available?
+    - Is there the [huge](pizza_size) size available?
+    - Is there the [large](pizza_size) size available?
+    - Is there the [normal](pizza_size) size available?
+    - Is there the [regular](pizza_size)?
+    - Is there the [large](pizza_size)?
+    - Is there the [tiny](pizza_size)?
+    - Is there the [huge](pizza_size)?
+    - Is there the [large](pizza_size)?
+    - Is there the [normal](pizza_size)?
+    
+    
 
 - intent: init_pizza_question/toppings
   examples: |
@@ -283,10 +305,31 @@ nlu:
     - What toppings can I add on my pizzas?
     - can you list me the available toppings?
     - please list me the toppings
+    - I want to know the available toppings?
+    - Which are the available toppings?
+    - I want to know the toppings?
+    - I want to know the list of toppings
+    - Is it possible to have a list of all the toppings?
+    - Is it possible to have a list of all the available toppings?
+    - Available toppings
+    - list toppings
+    - topping list
+    - Give me the list of available toppings
+    - Toppings available
+    - all the possible ingredients
+    - which are all the possible ingredients
+    - ingredients available
+    - What I can put on the pizza?
+    - Which ingredients I can put on my pizza?
+
 
 - intent: item_price
   examples: |
     - Can you tell me the price of the [marinara](pizza_type)?
+    - Can you tell me the price of the [margherita](pizza_type)?
+    - Can you tell me the price of the [pepperoni](pizza_type)?
+    - Can you tell me the price of the [vegetarian](pizza_type)?
+    - Can you tell me the price of the [ham and mushrooms](pizza_type)?
     - What is the price for the [margherita](pizza_type)?
     - [pepperoni](pizza_type) price?
     - How much is the [funghi](pizza_type) pizza?
@@ -312,6 +355,18 @@ nlu:
     - price of [mushrooms and ham](pizza_type) pizza
     - What is the price for the [veggie](pizza_type) pizza?
     - how much is the [wurstel and french fries](pizza_type) one?
+    - how much is the [capricciosa](pizza_type) one?
+    - how much is the [ham and mushrooms](pizza_type) one?
+    - how much is the [american](pizza_type) one?
+    - how much is the [vegerarian](pizza_type) one?
+    - how much is the [hawaii](pizza_type) one?
+    - Cost of [hawaii](pizza_type) pizza
+    - Cost of [american](pizza_type) pizza
+    - Cost of [capricciosa](pizza_type) pizza
+    - Cost of [veggie](pizza_type) pizza
+    - Cost of [mushrooms and ham](pizza_type) pizza
+    - Cost of [vegetarian](pizza_type) pizza
+    - Cost of [wurstel and french fries](pizza_type) pizza
 
 - intent: pizza_question_toppings
   examples: |
@@ -537,6 +592,10 @@ nlu:
     - [five](pizza_amount)
     - I want [three](pizza_amount) pizzas
     - I want [1](pizza_amount) pizza
+    - I need [4](pizza_amount)
+    - I need [4](pizza_amount)
+    - I need [1](pizza_amount)
+    - I need [5](pizza_amount)
 
 - intent: item_change
   examples: |
@@ -549,6 +608,11 @@ nlu:
     - can i get a [hawaii](pizza_type) instead?
     - actually , can I get [margherita](pizza_type)?
     - actually , i 'd like [small](pizza_size) pizza.
+    - actually , i 'd like [huge](pizza_size) pizza.
+    - actually , i 'd like [regular](pizza_size) pizza.
+    - actually , i 'd like [mushrooms and ham](pizza_type) pizza.
+    - actually , i 'd like [vegetarian](pizza_size) pizza.
+    - actually , i 'd like [marinara](pizza_size) pizza.
     - I'd like in [small](pizza_size) instead.
     - actually, i would like a [small](pizza_size) [mushrooms](pizza_type).
     - wait, can i get  it in [large](pizza_size).
@@ -580,6 +644,13 @@ nlu:
     - I want [hawaii](pizza_type)
     - I want [american](pizza_type) instead
     - I want to change the size to [normal](pizza_size)
+    - I don't want anymore that pizza now I want a [huge](pizza_size) [veggie](pizza_type)
+    - I don't want anymore that pizza now I want a [tiny](pizza_size) [veggie](pizza_type)
+    - I don't want anymore that pizza now I want a [veggie](pizza_type)
+    - I don't want anymore that pizza now I want a [veggie](pizza_type)
+    - I don't want anymore that pizza now I want a [veggie](pizza_type)
+    - I don't want anymore that pizza now I want a [2](pizza_amount) [capricciosa](pizza_type)
+    - I don't want anymore that pizza now I want a [large](pizza_size) [hawaii](pizza_type)
 
 - intent: response_negative
   examples: |
@@ -702,6 +773,20 @@ nlu:
     - I want to delete the order altogether
     - can you delete my order?
     - delete my order please
+    - Is it possible to cancel my order?
+    - Delete all my orders
+    - I don't want anymore
+    - Revoke all my order
+    - Abandon
+    - Abort my orders
+    - Abort my order
+    - Terminate my order
+    - Abort
+    - Revoke
+    - I don't want to order anymore
+    - I no longer want to order
+    - I don't want to order any more
+    - I do not want to order any more
 
 - intent: provide_name
   examples: |
@@ -1117,6 +1202,15 @@ nlu:
     - I want to pay on delivery
     - by cash
     - cash please
+    - I prefer cash
+    - I prefer by cash
+    - For me is better cash
+    - Actually I want to pay using cash
+    - I want to pay cash to the deliver
+    - I want to pay upon delivery
+    - I want to pay at the time of delivery
+    - I want to pay at the pizzeria
+    - I want to pay at the ristorante
 
 - intent: pay_credit_card
   examples: |
@@ -1143,7 +1237,13 @@ nlu:
     - By credit card
     - I want to pay now
     - Online
+    - I prefer to pay by credit card
+    - I prefer to pay with the credit card
+    - using the credit card
+    - credit card please
+    - I prefer to pay online
     - pay now via credit card
+    - Actually I want to pay with the credit card
 
 # - intent: provide_credit_card_number
 #   examples: |
@@ -1169,6 +1269,8 @@ nlu:
     - I will pick it up
     - better take-away
     - take-away thanks
+    - I'll come and get it
+    - I'll pick it up by myself
 
 - intent: order_delivery
   examples: |
@@ -1184,6 +1286,10 @@ nlu:
     - I will go for home delivery
     - home delivery please
     - home delivery thanks
+    - Can you bring it home for me?
+    - Can you bring it to me at home?
+    - Can you bring it to me?
+    - Can you bring it home to me?
 
 - intent: pizza_availability
   examples: |
@@ -1192,6 +1298,10 @@ nlu:
     - do you have [mushroom](pizza_type) pizza?
     - do you have [marinara](pizza_type) pizza?
     - do you offer pizza [margherita](pizza_type)
+    - do you offer pizza [veggie](pizza_type)
+    - do you offer pizza [hawaii](pizza_type)
+    - do you offer pizza [capricciosa](pizza_type)
+    - do you offer pizza [marinara](pizza_type)
     - do you offer [Pepperoni](pizza_type) pizza
     - do you offer [mushrooms](pizza_type) pizza
     - do you offer [marinara](pizza_type) pizza
@@ -1201,6 +1311,44 @@ nlu:
     - is [margherita](pizza_type) available?
     - is [marghe](pizza_type) available?
     - is [marinara](pizza_type) available?
+    - Is [marinara](pizza_type) available in your menu?
+    - Is [veggie](pizza_type) available in your menu?
+    - Is [vegetarian](pizza_type) available in your menu?
+    - Is [hawaii](pizza_type) available in your menu?
+    - Is [capricciosa](pizza_type) available in your menu?
+    - Is [american](pizza_type) available in your menu?
+    - Is [American](pizza_type) available in your menu?
+    - Is [mushrooms and ham](pizza_type) available in your menu?
+    - Do you prepare [capricciosa](pizza_type)?
+    - Do you prepare [ham and mushrooms](pizza_type)?
+    - Do you prepare [hawaii](pizza_type)?
+    - Do you prepare [wurstel and french fries](pizza_type)?
+    - Do you prepare [pepperoni](pizza_type)?
+    - Is [veggie](pizza_type) present in your menu?
+    - Is [mushrooms and ham](pizza_type) present in your menu?
+    - Is [ham and mushrooms](pizza_type) present in your menu?
+    - Is [margherita](pizza_type) present in your menu?
+    - Is [hawaii](pizza_type) present in your menu?
+    - Can you cook a [pepperoni](pizza_type) pizza?
+    - Can you cook a [mushrooms and ham](pizza_type) pizza?
+    - Can you cook a [vegetarian](pizza_type) pizza?
+    - Can you cook a [caricciosa](pizza_type) pizza?
+    - Can you cook a [american](pizza_type) pizza?
+    - Can you cook a [margherita](pizza_type) pizza?
+    - Can you cook a [marinara](pizza_type) pizza?
+    - Can you cook a [pepperoni](pizza_type) pizza?
+    - Can you make a [margherita](pizza_type) pizza?
+    - Can you make a [marinara](pizza_type) pizza?
+    - Can you make a [pepperoni](pizza_type) pizza?
+    - Can you make a [veggie](pizza_type) pizza?
+    - Can you make a [mushrooms and ham](pizza_type) pizza?
+    - [american](pizza_type) is available?
+    - [veggie](pizza_type) is available?
+    - [ham and mushrooms](pizza_type) is available?
+    - [hawaii](pizza_type) is available?
+    - [capricciosa](pizza_type) is available?
+    - [pepperoni](pizza_type) is available?
+
 
 - intent: init_request_table
   examples: |
@@ -1230,9 +1378,15 @@ nlu:
     - I want to book a table for saturday evening please
     - I would like to book a table for Sunday evening
     - I would like to make a reservation
-    - I’d like to reserve a table for four people, today at 5 p.m
+    - I'd like to reserve a table for four people, today at 5 p.m
     - I would like to make a dinner reservation
     - I need to make a dinner reservation
+    - Is it possible to seat at your restaurand tomorrow?
+    - I need a seat for the next friday
+    - I have to book a table for 20 people
+    - Is available a table for 15 persons for the next Monday?
+    - I would like to reserve some seats for tomorrow
+    - I would like to reserve 1 seats for the day after tomorrow
 
 - intent: inform_time_slot
   examples: |
