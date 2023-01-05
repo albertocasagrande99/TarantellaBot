@@ -217,6 +217,17 @@ nlu:
     - Which pizzas do you offer today?
     - Which pizzas do you suggest me?
     - Which pizzas do you sell today?
+    - Which are the available pizzas?
+    - What are the available pizzas?
+    - I want the menu
+    - Menu please
+    - What is the menu?
+    - Is it possible to have the menu
+    - Which are the pizzas?
+    - Which are all the pizzas that you have?
+    - Is is possible to have a list of the available pizzas?
+    - List of the pizzas
+    - Pizzas available
 
 - intent: init_pizza_question/size
   examples: |
