@@ -192,6 +192,35 @@ nlu:
     - I want a pizza with no [funghi](toppings) please
     - I want a pizza with no [peppers](toppings) please
     - I want a pizza with no [mushrooms](toppings) please
+    - do you have pizza with no [artichokes](toppings)?
+    - do you have pizza with no [basil](toppings)?
+    - do you have pizza with no [eggplant](toppings)?
+    - do you have pizza with no [french fries](toppings)?
+    - do you have pizza with no [ham](toppings)?
+    - do you have pizza with no [meat](toppings)?
+    - do you have pizza with no [olives](toppings)?
+    - do you have pizza with no [onions](toppings)?
+    - do you have pizza with no [pineapple](toppings)?
+    - do you have pizza with no [wurstel](toppings)?
+    - do you have pizza with no [zucchini](toppings)?
+    - do you have pizza without [artichokes](toppings)?
+    - do you have pizza without [basil](toppings)?
+    - do you have pizza without [eggplant](toppings)?
+    - do you have pizza without [french fries](toppings)?
+    - Do you have pizza without [ham](toppings)?
+    - do you have pizza without [meat](toppings)?
+    - Do you have pizza without [olives](toppings)?
+    - Do you have pizza without [onions](toppings)?
+    - Do you have pizza without [pineapple](toppings)?
+    - do you have pizza without [wurstel](toppings)?
+    - Excuse me do you have pizza without [basil](toppings)?
+    - Excuse me do you have pizza without [eggplant](toppings)?
+    - excuse me do you have pizza without [meat](toppings)?
+    - excuse me do you have pizza without [olives](toppings)?
+    - Excuse me do you have pizza without [onions](toppings)?
+    - excuse me do you have pizza without [zucchini](toppings)?
+    
+    
 
 - intent: provide_pizza_type
   examples: |
