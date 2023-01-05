@@ -140,66 +140,54 @@ nlu:
     - do you have pizza with no [funghi](toppings)?
     - do you have pizza with no [cheese](toppings)?
     - do you have pizza with no [peppers](toppings)?
-    - do you have pizza with no [vegetables](toppings)?
     - do you have pizza without [pepperoni](toppings)?
     - do you have pizza without [mozzarella](toppings)?
     - do you have pizza without [red sauce](toppings)?
     - do you have pizza without [pepper](toppings)?
-    - do you have pizza without [vegetables](toppings)?
     - do you have pizza with no [pepperoni](toppings) please?
     - do you have pizza with no [cheese](toppings) please?
     - do you have pizza with no [pepper](toppings) please?
     - do you have pizza with no [tomato sauce](toppings) please?
-    - do you have pizza with no [vegetables](toppings) please?
     - do you have pizza without [pepperoni](toppings) please?
     - do you have pizza without [mushrooms](toppings) please?
     - do you have pizza without [cheese](toppings) please?
     - do you have pizza without [peppers](toppings) please?
-    - do you have pizza without [vegetables](toppings) please?
     - pizza with no [pepperoni](toppings)?
     - pizza with no [marinara sauce](toppings)?
     - pizza with no [funghi](toppings)?
     - pizza with no [mushrooms](toppings)?
     - pizza with no [mozzarella](toppings)?
     - pizza with no [pepper](toppings)?
-    - pizza with no [vegetables](toppings)?
     - pizza without [pepperoni](toppings)?
     - pizza without [tomato sauce](toppings)?
     - pizza without [mozzarella](toppings)?
     - pizza without [peppers](toppings)?
-    - pizza without [vegetables](toppings)?
     - pizza with no [pepperoni](toppings) please?
     - pizza with no [cheese](toppings) please?
     - pizza with no [pepper](toppings) please?
-    - pizza with no [vegetables](toppings) please?
     - pizza with no [pasta sauce](toppings) please?
     - pizza without [pepperoni](toppings) please?
     - pizza without [mushrooms](toppings) please?
     - pizza without [mozzarella](toppings) please?
     - pizza without [pepper](toppings) please?
-    - pizza without [vegetables](toppings) please?
     - any pizza with no [pepperoni](toppings)?
     - any pizza with no [funghi](toppings)?
     - any pizza with no [cheese](toppings)?
     - any pizza with no [peppers](toppings)?
-    - any pizza with no [vegetables](toppings)?
     - any pizza without [pepperoni](toppings) please?
     - any pizza without [red sauce](toppings) please?
     - any pizza without [mozzarella](toppings) please?
     - any pizza without [peppers](toppings) please?
     - any pizza without [mushrooms](toppings) please?
-    - any pizza without [vegetables](toppings) please?
     - any pizza without [tomato sauce](toppings) please?
     - I want a pizza without [pepperoni](toppings) please
     - I want a pizza without [cheese](toppings) please
-    - I want a pizza without [vegetables](toppings) please
     - I want a pizza without [red sauce](toppings) please
     - I want a pizza without [funghi](toppings) please
     - I want a pizza without [peppers](toppings) please
     - I want a pizza without [mushrooms](toppings) please
     - I want a pizza with no [pepperoni](toppings) please
     - I want a pizza with no [cheese](toppings) please
-    - I want a pizza with no [vegetables](toppings) please
     - I want a pizza with no [red sauce](toppings) please
     - I want a pizza with no [funghi](toppings) please
     - I want a pizza with no [peppers](toppings) please
@@ -1235,52 +1223,6 @@ nlu:
     - sudo reboot
     - asdfgasd
 
-# - synonym: Americana
-#   examples: |
-#     - Americana
-# - synonym: Calzone
-#   examples: |
-#     - Calzone
-# - synonym: Caprese
-#   examples: |
-#     - Caprese
-# - synonym: Crudo
-#   examples: |
-#     - Crudo
-# - synonym: Chicken BBC
-#   examples: |
-#     - Chicken BBC
-# - synonym: Rustica
-#   examples: |
-#     - Rustica
-# - synonym: 10"
-#   examples: |
-#     - 10
-#     - 10 inch
-#     - small
-#     - Small
-#     - size S
-# - synonym: 12"
-#   examples: |
-#     - 12
-#     - 12 inch
-#     - Medium
-#     - [medium](pizza_size)
-#     - normal
-#     - twelve inch
-#     - size M
-# - synonym: 14"
-#   examples: |
-#     - 14
-#     - 14 inch
-#     - [large](pizza_size)
-#     - size L
-# - synonym: 18"
-#   examples: |
-#     - 18
-#     - jumbo
-#     - XXL
-#     - size XXL
 - synonym: mushrooms
   examples: |
     - Funghi
@@ -1288,14 +1230,18 @@ nlu:
     - funghi
     - mushrooms
     - mushroom
-# - synonym: Hawaii
-#   examples: |
-#     - Hawaii
+
+- synonym: Hawaii
+  examples: |
+    - Hawaii
+    - hawaii
+
 - synonym: margherita
   examples: |
     - Margherita
     - margherita
     - marghe
+
 - synonym: pepperoni
   examples: |
     - Pepp
@@ -1324,6 +1270,39 @@ nlu:
   examples: |
     - pepper
     - Peppers
+
+- synonym: vegetarian
+  examples: |
+    - Vegetarian
+    - vegetarian
+    - Vegetable
+    - veggie
+    - Veggie
+
+- synonym: american
+  examples: |
+    - American
+    - american
+    - wurstel and french fries
+
+- synonym: ham and mushrooms
+  examples: |
+    - Ham and Mushrooms
+    - mushrooms and ham
+    - Mushrooms and Ham
+
+- synonym: capricciosa
+  examples: |
+    - capricciosa
+    - Capricciosa
+
+- synonym: ham
+  examples: |
+    - meat
+
+- synonym: wurstel
+  examples: |
+    - meat
 
 - synonym: '1'
   examples: |
@@ -1396,9 +1375,3 @@ nlu:
     - 9 pm
     - 9pm
     - 9 p.m.
-
-# - synonym: Vegetarian
-#   examples: |
-#     - Vegetarian
-#     - Vegetarian
-#     - Vegetable

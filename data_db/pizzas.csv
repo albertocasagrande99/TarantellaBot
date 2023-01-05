@@ -1,5 +1,10 @@
 Title;Price;Toppings
 margherita;6;mozzarella, tomato sauce
-marinara;5;tomato sauce
+marinara;5;tomato sauce, basil
 mushrooms;7;mushrooms, mozzarella, tomato sauce
 pepperoni;7,5;pepperoni, mozzarella, tomato sauce
+hawaii;7;pineapple, ham
+vegetarian;8;zucchini, onions, eggplant, tomato sauce
+american;8;wurstel, mozzarella, french fries, tomato sauce
+ham and mushrooms;7,5;mozzarella, ham, mushrooms, tomato sauce
+capricciosa;8,5;tomato sauce, mozzarella, ham, artichokes, mushrooms, and olives
