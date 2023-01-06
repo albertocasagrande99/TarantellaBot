@@ -82,7 +82,8 @@ rules:
   steps:
   - action: credit_card_form      
   - active_loop: null
-  - action: utter_modality
+  - action: utter_check_credit_card
+  # - action: utter_modality
 
 - rule: check user for the delivery
   steps:

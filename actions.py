@@ -233,6 +233,8 @@ class ActionResponsePositive(Action):
 			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_table'):
 				print("The user wants to reserve the last table")
 				return[FollowupAction("reservation_form")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_check_credit_card'):
+				return[FollowupAction("utter_modality")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -295,6 +297,9 @@ class ActionResponseNegative(Action):
 				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
 			elif(bot_event['metadata']['utter_action'] == 'utter_suggested_table'):
 				return[SlotSet("date", None), SlotSet("time_slot", None), SlotSet("people_amount", None), FollowupAction("reservation_form")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_check_credit_card'):
+				dispatcher.utter_message("No problem.")
+				return[SlotSet("credit-card-number", None), FollowupAction("credit_card_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -443,6 +448,7 @@ class ActionSuggestPizza(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		try:
+			print("entro")
 			conn = create_connection("data_db/orders.db")
 			cur = conn.cursor()
 			cur.execute(f"""
@@ -457,8 +463,8 @@ class ActionSuggestPizza(Action):
 				occurence_count = Counter(pizzas)
 				most_ordered_pizza = occurence_count.most_common(1)[0][0]
 				dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
-			# else:
-			# 	return[FollowupAction("pizza_order_form")]
+			else:
+				return[FollowupAction("pizza_order_form")]
 			conn.commit()
 			conn.close()
 			return[SlotSet("pizza_type", most_ordered_pizza)]
