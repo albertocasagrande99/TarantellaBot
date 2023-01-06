@@ -458,3 +458,39 @@ stories:
   - action: utter_check_reservation
   - intent: response_positive
   - action: action_response_positive
+
+
+
+- story: try credit card
+  steps:
+  - intent: pay_credit_card
+  - action: credit_card_form
+  - active_loop: credit_card_form
+  - slot_was_set:
+    - credit-card-number
+  - active_loop: null
+  - action: utter_check_credit_card
+  - intent: response_positive
+  - action: action_response_positive
+  - action: utter_modality
+
+- story: try credit card 2
+  steps:
+  - intent: pay_credit_card
+  - action: credit_card_form
+  - active_loop: credit_card_form
+  - slot_was_set:
+    - credit-card-number
+  - active_loop: null
+  - action: utter_check_credit_card
+  - intent: response_negative
+  - action: action_response_negative
+  - action: credit_card_form
+  - active_loop: credit_card_form
+  - slot_was_set:
+    - credit-card-number
+  - active_loop: null
+  - action: utter_check_credit_card
+  - intent: response_positive
+  - action: action_response_positive
+  - action: utter_modality
