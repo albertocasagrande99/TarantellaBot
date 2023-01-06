@@ -457,8 +457,8 @@ class ActionSuggestPizza(Action):
 				occurence_count = Counter(pizzas)
 				most_ordered_pizza = occurence_count.most_common(1)[0][0]
 				dispatcher.utter_message(response='utter_suggested_pizza', pizza=most_ordered_pizza)
-			# else:
-			# 	return[FollowupAction("pizza_order_form")]
+			else:
+				return[FollowupAction("pizza_order_form")]
 			conn.commit()
 			conn.close()
 			return[SlotSet("pizza_type", most_ordered_pizza)]

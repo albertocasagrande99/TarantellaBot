@@ -174,7 +174,7 @@ responses:
   utter_order_delete:
   - text: Ok, are you sure you want to delete your order?
   utter_ask_client_name:
-  - text: Can you tell me your name please?
+  - text: First I need to know some information. Can you tell me your name please?
   utter_ask_phone_number:
   - text: Can you tell me your phone number please?
   utter_check_address:
@@ -194,7 +194,7 @@ responses:
   utter_ask_credit-card-number:
   - text: What is your credit card's number?
   utter_modality:
-  - text: Do you prefer take away or home delivery?
+  - text: Ok, do you prefer take away or home delivery?
   utter_summarize_order_delivery:
   - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
   utter_summarize_order_take_away:
