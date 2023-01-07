@@ -494,3 +494,43 @@ stories:
   - intent: response_positive
   - action: action_response_positive
   - action: utter_modality
+
+- story: try address
+  steps:
+  
+  - action: delivery_form
+  - active_loop: delivery_form
+  - slot_was_set:
+    - address_street
+    - address_city
+    - address_number
+  - active_loop: null
+  - action: utter_say_address
+  - intent: response_positive
+  - action: action_response_positive
+  - action: action_save_address
+
+- story: try address and is not correct
+  steps:
+  
+  - action: delivery_form
+  - active_loop: delivery_form
+  - slot_was_set:
+    - address_street
+    - address_city
+    - address_number
+  - active_loop: null
+  - action: utter_say_address
+  - intent: response_negative
+  - action: action_response_negative
+  - action: delivery_form
+  - active_loop: delivery_form
+  - slot_was_set:
+    - address_street
+    - address_city
+    - address_number
+  - active_loop: null
+  - action: utter_say_address
+  - intent: response_positive
+  - action: action_response_positive
+  - action: action_save_address

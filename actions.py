@@ -235,6 +235,8 @@ class ActionResponsePositive(Action):
 				return[FollowupAction("reservation_form")]
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_credit_card'):
 				return[FollowupAction("utter_modality")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_say_address'):
+				return[FollowupAction("action_save_address")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
@@ -300,6 +302,8 @@ class ActionResponseNegative(Action):
 			elif(bot_event['metadata']['utter_action'] == 'utter_check_credit_card'):
 				dispatcher.utter_message("No problem.")
 				return[SlotSet("credit-card-number", None), FollowupAction("credit_card_form")]
+			elif(bot_event['metadata']['utter_action'] == 'utter_say_address'):
+				return[SlotSet("address_number", None), SlotSet("address_city", None), SlotSet("address_street", None),FollowupAction("delivery_form")]
 			else:
 				dispatcher.utter_message("Sorry, can you repeat that?")
 		except:
