@@ -437,7 +437,7 @@ class ActionSaveAddress(Action):
 				SET address_street = '{tracker.get_slot('address_street')}' ,
 					address_number = '{tracker.get_slot('address_number')}' ,
 					address_city = '{tracker.get_slot('address_city')}'
-				WHERE client_name = '{tracker.get_slot('client_name')}'
+				WHERE client_name = '{tracker.get_slot('client_name').lower()}'
 			""")
 			conn.commit()
 			conn.close()
