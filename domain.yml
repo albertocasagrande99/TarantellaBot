@@ -150,7 +150,7 @@ slots:
 
 responses:
   utter_out_of_scope:
-   - text: Sorry, I can't handle that request.
+   - text: I'm sorry, I didn't quite understand that. Could you rephrase?
   utter_welcome_greet:
   - text: Hello There! Welcome to Tarantellabot.
   utter_init_pizza_question/size:

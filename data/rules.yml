@@ -2,6 +2,7 @@ version: "3.1"
 
 rules:
 - rule: Welcome user and client form
+  conversation_start: true
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
@@ -134,4 +135,9 @@ rules:
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
   - action: utter_out_of_scope
