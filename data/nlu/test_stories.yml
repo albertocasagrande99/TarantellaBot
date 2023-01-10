@@ -1,0 +1,43 @@
+stories:
+- story: table reservation
+  steps:
+  - user: |
+      hello
+    intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+  - user: |
+      My name is [Paul Johnson](client_name)
+    intent: provide_name
+  - slot_was_set:
+    - phone_number: "3669338869"
+    - address_street: ""
+    - address_number: ""
+    - address_city: ""
+    - new_client: "False"
+  - action: client_form
+  - active_loop: null
+  - action: action_save_client
+  - user: |
+      I would like to reserve a table
+    intent: init_request_table
+    action: action_suggest_table
+  - slot_was_set:
+    - people_amount: "3"
+    - time_slot: "7 p.m."
+  - user: |
+      Yes the usual table
+    intent: response_positive
+  - action: action_response_positive
+  - action: reservation_form
+  - active_loop: reservation_form
+  - user: |
+      I will come tomorrow
+  - action: reservation_form
+  - active_loop: null
+  - action: utter_check_reservation
+  - user: |
+      Yes perfect
+  - intent: response_positive
+  - action: action_response_positive

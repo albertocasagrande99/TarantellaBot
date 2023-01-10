@@ -1,0 +1,93 @@
+recipe: default.v1
+
+language: en
+
+pipeline:
+  - name: SpacyNLP
+    model: en_core_web_md
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: SklearnIntentClassifier
+    # Specifies the list of regularization values to
+    # cross-validate over for C-SVM.
+    # This is used with the ``kernel`` hyperparameter in GridSearchCV.
+    C: [1, 2, 5, 10, 20, 100]
+    # Specifies the kernel to use with C-SVM.
+    # This is used with the ``C`` hyperparameter in GridSearchCV.
+    kernels: ["linear"]
+    # Gamma parameter of the C-SVM.
+    "gamma": [0.1]
+    # We try to find a good number of cross folds to use during
+    # intent training, this specifies the max number of folds.
+    "max_cross_validation_folds": 5
+    # Scoring function used for evaluating the hyper parameters.
+    # This can be a name or a function.
+    "scoring_function": "f1_weighted"
+  - name: FallbackClassifier
+    threshold: 0.5
+  - name: CRFEntityExtractor
+    # BILOU_flag determines whether to use BILOU tagging or not.
+    "BILOU_flag": True
+    # features to extract in the sliding window
+    "features": [
+      ["low", "title", "upper"],
+      [
+        "bias",
+        "low",
+        "prefix5",
+        "prefix2",
+        "suffix5",
+        "suffix3",
+        "suffix2",
+        "upper",
+        "title",
+        "digit",
+        "pattern",
+        "text_dense_features"
+      ],
+      ["low", "title", "upper"],
+    ]
+    # The maximum number of iterations for optimization algorithms.
+    "max_iterations": 50
+    # weight of the L1 regularization
+    "L1_c": 0.1
+    # weight of the L2 regularization
+    "L2_c": 0.1
+    # Name of dense featurizers to use.
+    # If list is empty all available dense features are used.
+    "featurizers": []
+    # Indicated whether a list of extracted entities should be split into individual entities for a given entity type
+    "split_entities_by_comma":
+        address: False
+        email: True
+  - name: DucklingEntityExtractor
+    dimensions: ["credit-card-number", "time", "number"]
+    url: "http://localhost:8000"  #docker run -p 8000:8000 rasa/duckling
+  - name: RegexEntityExtractor
+    # text will be processed with case insensitive as default
+    case_sensitive: False
+    # use lookup tables to extract entities
+    use_lookup_tables: True
+    # use regexes to extract entities
+    use_regexes: True
+    # use match word boundaries for lookup table
+    use_word_boundaries: True
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 50
+
+policies:
+  - name: TEDPolicy
+    max_history: 7
+    epochs: 50
+    constrain_similarities: yes
+  - name: AugmentedMemoizationPolicy
+    max_history: 4
+  - name: RulePolicy
