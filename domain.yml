@@ -182,7 +182,7 @@ responses:
   utter_check_address:
   - text: "Ok {client_name}, the delivery address of the last order was: {address_street} number {address_number}, {address_city}. Is that correct?"
   utter_say_address:
-  - text: "The address that you inserted is {address_street} number {address_number}, {address_city}. Is that correct?"
+  - text: "Okay {client_name}, your delivery address is {address_street} number {address_number}, {address_city}. Is that correct?"
   utter_ask_address_street:
   - text: Ok {client_name}, now I need some information for the delivery. Can you tell me your street name?
   utter_ask_address_number:
