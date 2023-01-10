@@ -298,13 +298,13 @@ stories:
 - story: greet and ask information
   steps:
   - checkpoint: new_client
-  - intent: init_pizza_question
-  - action: utter_init_pizza_question
+  - intent: init_pizza_question_size
+  - action: utter_init_pizza_question_size
 
 - story: ask information
   steps:
-  - intent: init_pizza_question 
-  - action: utter_init_pizza_question
+  - intent: init_pizza_question_toppings
+  - action: utter_init_pizza_question_toppings
   - checkpoint: pizza_question
 
 - story: greet and ask price information

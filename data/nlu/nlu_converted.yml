@@ -237,7 +237,7 @@ nlu:
     - List of the pizzas
     - Pizzas available
 
-- intent: init_pizza_question/size
+- intent: init_pizza_question_size
   examples: |
     - What are the sizes?
     - sizes?
@@ -289,7 +289,7 @@ nlu:
     
     
 
-- intent: init_pizza_question/toppings
+- intent: init_pizza_question_toppings
   examples: |
     - What are the toppings?
     - toppings?

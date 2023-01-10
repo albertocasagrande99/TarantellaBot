@@ -8,7 +8,8 @@ intents:
 - welcome_greet
 - init_request
 - init_request_without_entity
-- init_pizza_question
+- init_pizza_question_size
+- init_pizza_question_toppings
 - menu_question
 - item_price
 - pizza_question_toppings
@@ -153,11 +154,11 @@ responses:
    - text: I'm sorry, I didn't quite understand that. Could you rephrase?
   utter_welcome_greet:
   - text: Hello There! Welcome to Tarantellabot.
-  utter_init_pizza_question/size:
+  utter_init_pizza_question_size:
   - text: The available sizes are small, medium and large.
   utter_check_credit_card:
   - text: Your credit card numer is {credit-card-number}, is that correct?
-  utter_init_pizza_question/toppings:
+  utter_init_pizza_question_toppings:
   - text: The available toppings are mozzarella, mushrooms, vegetables, peppers, onions, zucchini, wurstel and olives.
   utter_ask_pizza_size:
   - text: And, what size would you like your {pizza_type} pizza to be?
@@ -189,8 +190,6 @@ responses:
   - text: And, can you tell me your address number?
   utter_ask_address_city:
   - text: And, can you tell me your city?
-  utter_submit_form_old_client:
-  - text: Welcome back {client_name}, what do you want to do?
   utter_suggested_pizza:
   - text: Do you want to order the usual {pizza}?
   utter_total_cost:
@@ -199,7 +198,6 @@ responses:
   - text: What is your credit card's number?
   utter_modality:
   - text: Ok, do you prefer take away or home delivery?
-
   utter_summarize_order_delivery:
   - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
   utter_summarize_order_take_away:

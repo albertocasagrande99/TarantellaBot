@@ -40,10 +40,15 @@ rules:
   - action: utter_submit_form_pizza         
   - action: utter_slots_values
 
-- rule: tell pizzas information
+- rule: tell size information
   steps:
-  - intent: init_pizza_question
-  - action: utter_init_pizza_question
+  - intent: init_pizza_question_size
+  - action: utter_init_pizza_question_size
+
+- rule: tell toppings information
+  steps:
+  - intent: init_pizza_question_toppings
+  - action: utter_init_pizza_question_toppings
 
 - rule: tell pizza price
   steps:
