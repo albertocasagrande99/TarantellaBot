@@ -181,6 +181,8 @@ responses:
   - text: Can you tell me your phone number please?
   utter_check_address:
   - text: "Ok {client_name}, the delivery address of the last order was: {address_street} number {address_number}, {address_city}. Is that correct?"
+  utter_say_address:
+  - text: "Okay {client_name}, your delivery address is {address_street} number {address_number}, {address_city}. Is that correct?"
   utter_ask_address_street:
   - text: Ok {client_name}, now I need some information for the delivery. Can you tell me your street name?
   utter_ask_address_number:
@@ -197,6 +199,7 @@ responses:
   - text: What is your credit card's number?
   utter_modality:
   - text: Ok, do you prefer take away or home delivery?
+
   utter_summarize_order_delivery:
   - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
   utter_summarize_order_take_away:
