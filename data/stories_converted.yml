@@ -490,7 +490,6 @@ stories:
 
 - story: try address
   steps:
-  
   - action: delivery_form
   - active_loop: delivery_form
   - slot_was_set:
@@ -505,7 +504,6 @@ stories:
 
 - story: try address and is not correct
   steps:
-  
   - action: delivery_form
   - active_loop: delivery_form
   - slot_was_set:
