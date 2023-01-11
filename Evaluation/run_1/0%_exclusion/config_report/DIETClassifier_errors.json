@@ -1,0 +1,692 @@
+[
+  {
+    "text": "just one please",
+    "entities": [
+      {
+        "start": 5,
+        "end": 8,
+        "value": "one",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I necessitate a table for 3 peple",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 26,
+        "end": 33,
+        "confidence_entity": 0.48961779475212097,
+        "value": "3 peple",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 26,
+        "end": 27,
+        "value": "3",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I want to reserve a table for tomorrow for 5 people",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 43,
+        "end": 44,
+        "confidence_entity": 0.5787937045097351,
+        "value": "5",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 43,
+        "end": 44,
+        "value": "5",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I want to eat at your pizzeria the 1 of June",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 35,
+        "end": 36,
+        "confidence_entity": 0.48087137937545776,
+        "value": "1",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 35,
+        "end": 36,
+        "value": "1",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "yes as a second pizza I would like a medium marinara",
+    "entities": [
+      {
+        "start": 37,
+        "end": 43,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 44,
+        "end": 52,
+        "value": "marinara",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "time_slot",
+        "start": 9,
+        "end": 15,
+        "confidence_entity": 0.8584039211273193,
+        "value": "9pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 37,
+        "end": 43,
+        "confidence_entity": 0.9974586367607117,
+        "value": "medium",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 44,
+        "end": 52,
+        "confidence_entity": 0.9858109951019287,
+        "value": "marinara",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 37,
+        "end": 43,
+        "value": "medium",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 44,
+        "end": 52,
+        "value": "marinara",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Number 1357",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "1357",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "7 is my address number",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "7",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "time_slot",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.8288182020187378,
+        "value": "7",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 1,
+        "value": "7",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "number 2",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "2",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.5881383419036865,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 7,
+        "end": 8,
+        "value": "2",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "the name of my city is Barre",
+    "entities": [
+      {
+        "start": 23,
+        "end": 28,
+        "value": "Barre",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.6685130000114441,
+        "value": "Barre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my city is Costa Mesa",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "value": "Costa Mesa",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 11,
+        "end": 21,
+        "confidence_entity": 0.4197225570678711,
+        "value": "Costa Mesa",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Clovis",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Clovis",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.3317145109176636,
+        "value": "Clovis",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Allentown",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Allentown",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.4019276201725006,
+        "value": "Allentown",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Fort Collins",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Fort Collins",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 12,
+        "confidence_entity": 0.3187201917171478,
+        "value": "Fort Collins",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Emery Cadman",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Emery Cadman",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 6,
+        "end": 12,
+        "confidence_entity": 0.5318974852561951,
+        "value": "Cadman",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Willow Todd",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "Willow Todd",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.724427342414856,
+        "value": "Willow",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name is Dakota Lane",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Dakota Lane",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 11,
+        "end": 22,
+        "confidence_entity": 0.6853739619255066,
+        "value": "Dakota Lane",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'm Dahlia Watson",
+    "entities": [
+      {
+        "start": 4,
+        "end": 17,
+        "value": "Dahlia Watson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.955389142036438,
+        "value": "Watson",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Matt James",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Matt James",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 5,
+        "end": 10,
+        "confidence_entity": 0.44431638717651367,
+        "value": "James",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Wade Squire",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "Wade Squire",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my street address is font street",
+    "entities": [
+      {
+        "start": 21,
+        "end": 32,
+        "value": "font street",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 21,
+        "end": 25,
+        "confidence_entity": 0.7189199924468994,
+        "value": "font",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I live in Peck Court",
+    "entities": [
+      {
+        "start": 10,
+        "end": 20,
+        "value": "Peck Court",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.8976929783821106,
+        "value": "Court",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Can I order three small veggie pizzas",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "three",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 30,
+        "value": "veggie",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.978184163570404,
+        "value": "3",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 18,
+        "end": 23,
+        "confidence_entity": 0.9998468160629272,
+        "value": "small",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 24,
+        "end": 30,
+        "confidence_entity": 0.9982007741928101,
+        "value": "vegetarian",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 18,
+        "end": 23,
+        "value": "small",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "cheese and SMALL",
+    "entities": [
+      {
+        "start": 11,
+        "end": 16,
+        "value": "SMALL",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 7,
+        "end": 10,
+        "confidence_entity": 0.9383824467658997,
+        "value": "and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 16,
+        "confidence_entity": 0.9994078874588013,
+        "value": "small",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 16,
+        "value": "small",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "alexa, order 5 tons of natrium chloride",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.5332501530647278,
+        "value": "5",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "client_name",
+        "start": 23,
+        "end": 30,
+        "confidence_entity": 0.869696319103241,
+        "value": "natrium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 13,
+        "end": 14,
+        "value": "5",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "4 + 2 = ?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.6371530294418335,
+        "value": "4",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 4,
+        "end": 5,
+        "confidence_entity": 0.6617346405982971,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 1,
+        "value": "4",
+        "extractor": "RegexEntityExtractor"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 4,
+        "end": 5,
+        "value": "2",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "What is 2 + 2?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.5908458828926086,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.5926213264465332,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 8,
+        "end": 9,
+        "value": "2",
+        "extractor": "RegexEntityExtractor"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 12,
+        "end": 13,
+        "value": "2",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  }
+]

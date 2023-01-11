@@ -1,0 +1,272 @@
+{
+  "provide_name": {
+    "precision": 0.7083333333333334,
+    "recall": 0.85,
+    "f1-score": 0.7727272727272727,
+    "support": 20,
+    "confused_with": {
+      "out_of_scope": 3
+    }
+  },
+  "response_positive": {
+    "precision": 1.0,
+    "recall": 0.9090909090909091,
+    "f1-score": 0.9523809523809523,
+    "support": 11,
+    "confused_with": {
+      "out_of_scope": 1
+    }
+  },
+  "welcome_greet": {
+    "precision": 1.0,
+    "recall": 0.2,
+    "f1-score": 0.33333333333333337,
+    "support": 5,
+    "confused_with": {
+      "out_of_scope": 3,
+      "provide_address_street": 1
+    }
+  },
+  "pizza_availability": {
+    "precision": 0.9090909090909091,
+    "recall": 0.9090909090909091,
+    "f1-score": 0.9090909090909091,
+    "support": 11,
+    "confused_with": {
+      "out_of_scope": 1
+    }
+  },
+  "init_pizza_question_size": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 9,
+    "confused_with": {
+      "out_of_scope": 2,
+      "pizza_availability": 1
+    }
+  },
+  "pay_cash": {
+    "precision": 0.8,
+    "recall": 0.8,
+    "f1-score": 0.8000000000000002,
+    "support": 5,
+    "confused_with": {
+      "provide_name": 1
+    }
+  },
+  "out_of_scope": {
+    "precision": 0.5681818181818182,
+    "recall": 0.78125,
+    "f1-score": 0.6578947368421052,
+    "support": 32,
+    "confused_with": {
+      "provide_address_street": 1,
+      "provide_phone_number": 1
+    }
+  },
+  "provide_pizza_amount": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.5714285714285715,
+    "support": 4,
+    "confused_with": {
+      "out_of_scope": 1,
+      "provide_address_number": 1
+    }
+  },
+  "menu_question": {
+    "precision": 0.75,
+    "recall": 0.6,
+    "f1-score": 0.6666666666666665,
+    "support": 5,
+    "confused_with": {
+      "init_pizza_question_size": 2
+    }
+  },
+  "pay_credit_card": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 6,
+    "confused_with": {
+      "pay_cash": 1,
+      "out_of_scope": 1
+    }
+  },
+  "order_delivery": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "item_price": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "provide_pizza_size": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.5714285714285715,
+    "support": 4,
+    "confused_with": {
+      "init_request": 2
+    }
+  },
+  "init_request_without_entity": {
+    "precision": 0.75,
+    "recall": 0.375,
+    "f1-score": 0.5,
+    "support": 8,
+    "confused_with": {
+      "out_of_scope": 1,
+      "init_request": 1
+    }
+  },
+  "cancel_order": {
+    "precision": 0.625,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.7142857142857143,
+    "support": 6,
+    "confused_with": {
+      "out_of_scope": 1
+    }
+  },
+  "provide_phone_number": {
+    "precision": 0.8571428571428571,
+    "recall": 1.0,
+    "f1-score": 0.923076923076923,
+    "support": 6,
+    "confused_with": {}
+  },
+  "pizza_question_toppings": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 24,
+    "confused_with": {}
+  },
+  "response_negative": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 8,
+    "confused_with": {
+      "cancel_order": 3,
+      "provide_name": 1
+    }
+  },
+  "item_change": {
+    "precision": 0.8,
+    "recall": 0.8,
+    "f1-score": 0.8000000000000002,
+    "support": 10,
+    "confused_with": {
+      "init_request": 1,
+      "out_of_scope": 1
+    }
+  },
+  "init_request": {
+    "precision": 0.8518518518518519,
+    "recall": 0.92,
+    "f1-score": 0.8846153846153846,
+    "support": 25,
+    "confused_with": {
+      "provide_pizza_type": 1,
+      "provide_pizza_amount": 1
+    }
+  },
+  "init_request_table": {
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "f1-score": 0.7272727272727273,
+    "support": 7,
+    "confused_with": {
+      "init_request_without_entity": 1,
+      "item_change": 1
+    }
+  },
+  "order_take_away": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.5714285714285715,
+    "support": 4,
+    "confused_with": {
+      "out_of_scope": 2
+    }
+  },
+  "init_pizza_question_toppings": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6,
+    "confused_with": {}
+  },
+  "inform_time_slot": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 11,
+    "confused_with": {}
+  },
+  "provide_address_number": {
+    "precision": 0.8461538461538461,
+    "recall": 0.9166666666666666,
+    "f1-score": 0.8799999999999999,
+    "support": 12,
+    "confused_with": {
+      "provide_name": 1
+    }
+  },
+  "provide_address_street": {
+    "precision": 0.8846153846153846,
+    "recall": 0.9583333333333334,
+    "f1-score": 0.9199999999999999,
+    "support": 24,
+    "confused_with": {
+      "provide_name": 1
+    }
+  },
+  "provide_address_city": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 15,
+    "confused_with": {
+      "provide_pizza_type": 1,
+      "provide_name": 1
+    }
+  },
+  "provide_pizza_type": {
+    "precision": 0.7142857142857143,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.7692307692307692,
+    "support": 6,
+    "confused_with": {
+      "out_of_scope": 1
+    }
+  },
+  "accuracy": 0.8203389830508474,
+  "macro avg": {
+    "precision": 0.8475472279043708,
+    "recall": 0.7639592996289425,
+    "f1-score": 0.7838244045010961,
+    "support": 295
+  },
+  "weighted avg": {
+    "precision": 0.8405354846032812,
+    "recall": 0.8203389830508474,
+    "f1-score": 0.8155695972181253,
+    "support": 295
+  },
+  "micro avg": {
+    "precision": 0.8203389830508474,
+    "recall": 0.8203389830508474,
+    "f1-score": 0.8203389830508474,
+    "support": 295
+  }
+}

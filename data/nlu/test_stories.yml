@@ -1,3 +1,4 @@
+version: "3.1"
 stories:
 - story: table reservation
   steps:
@@ -8,7 +9,7 @@ stories:
   - action: client_form
   - active_loop: client_form
   - user: |
-      My name is [Paul Johnson](client_name)
+      My name is [Rafa Nadal](client_name)
     intent: provide_name
   - slot_was_set:
     - phone_number: "3669338869"
@@ -22,7 +23,7 @@ stories:
   - user: |
       I would like to reserve a table
     intent: init_request_table
-    action: action_suggest_table
+  - action: action_suggest_table
   - slot_was_set:
     - people_amount: "3"
     - time_slot: "7 p.m."
@@ -39,5 +40,318 @@ stories:
   - action: utter_check_reservation
   - user: |
       Yes perfect
-  - intent: response_positive
+    intent: response_positive
   - action: action_response_positive
+
+- story: provide user details
+  steps:
+    - user: |
+        hi
+      intent: welcome_greet
+    - action: utter_welcome_greet
+    - action: client_form
+    - active_loop: client_form
+    - user: |
+        I'm [Giovanna]{"entity": "client_name"}
+      intent: provide_name
+    - slot_was_set:
+      - new_client: True
+    - action: client_form
+    - user: |
+        My phone number is [21312324]{"entity": "phone_number"}
+      intent: provide_phone_number
+    - slot_was_set:
+      - phone_number: None
+    - action: client_form
+    - user: |
+        My phone number is [3669554478]{"entity": "phone_number"}
+      intent: provide_phone_number
+    - action: client_form
+    - active_loop: null
+    - action: action_save_client
+    - slot_was_set:
+      - pizza_type: None
+      - pizza_size: None
+      - pizza_amount: None
+
+- story: cancel order 
+  steps: 
+    - user: |
+        Can I delete my order?
+      intent: cancel_order
+    - action: utter_order_delete
+    - user: |
+        Yes delete please
+      intent: response_positive
+    - action: action_response_positive
+    - slot_was_set:
+      - pizza_type: None
+      - pizza_size: None
+      - pizza_amount: None
+      - toppings: None
+
+- story: order a pizza
+  steps: 
+    - user: |
+        is it possible to order [1]{"entity": "pizza_amount"} [large]{"entity": "pizza_size"} [margherita]{"entity": "pizza_type"}?
+      intent: init_request
+    - action: action_menu
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+
+- story: order a pizza and not correct
+  steps: 
+    - user: |
+        I want to order [1]{"entity": "pizza_amount"} [large]{"entity": "pizza_size"} [margherita]{"entity": "pizza_type"}
+      intent: init_request
+    - action: action_menu
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+    - user: |
+        Actually I changed my mind
+      intent: response_negative
+    - action: action_response_negative
+    - user: |
+        I want the [margherita]{"entity": "pizza_type"} in [small]{"entity": "pizza_size"} size
+      intent: item_change
+    - action: utter_slots_values
+    - user: |
+        Yes correct
+      intent: response_positive
+    - action: action_response_positive
+    - slot_was_set:
+      - pizza_type: None
+      - pizza_size: None
+      - pizza_amount: None
+      - toppings: None
+
+- story: credit card payment and delivery
+  steps:
+    - user: |
+        via visa credit card
+      intent: pay_credit_card
+    - action: credit_card_form
+    - active_loop: credit_card_form
+    - user: |
+        the credit card number is 4491504146769269
+    - action: credit_card_form
+    - active_loop: null
+    - action: utter_check_credit_card
+    - user: |
+        yes that's correct
+      intent: response_positive
+    - action: action_response_positive
+    - action: utter_modality
+    - user: |
+        I prefer delivery thanks
+      intent: order_delivery
+    - action: action_check_address
+    - user: |
+        no actually I want to change it
+      intent: response_negative
+    - action: action_response_negative
+    - slot_was_set:
+      - address_street: None
+      - address_number: None
+      - address_city: None
+    - action: delivery_form
+    - active_loop: delivery_form
+    - user: |
+        my street address is [Webster Street]{"entity": "address_street"}
+      intent: provide_address_street
+    - action: delivery_form
+    - user: |
+        number [23]{"entity": "address_number"}
+      intent: provide_address_number
+    - action: delivery_form
+    - user: |
+        I live in [Huston]{"entity": "address_city"}
+      intent: provide_address_city
+    - action: delivery_form
+    - active_loop: null
+    - action: utter_say_address
+    - user: |
+        correct
+      intent: response_positive
+    - action: action_response_positive
+    - action: action_save_address
+    - slot_was_set:
+      - pizza_amount: None
+
+
+- story: credit card payment and delivery
+  steps:
+    - user: |
+        through visa credit card
+      intent: pay_credit_card
+    - action: credit_card_form
+    - active_loop: credit_card_form
+    - user: |
+        What pizza types do you sell?
+      intent: menu_question
+    - action: action_menu
+    - action: credit_card_form
+    - user: |
+        the credit card number is 4491504146769269
+    - action: credit_card_form
+    - active_loop: null
+    - action: utter_check_credit_card
+    - user: |
+        yes that's correct
+      intent: response_positive
+    - action: action_response_positive
+    - action: utter_modality
+
+- story: pizza questions and out of scope story
+  steps:
+    - user: |
+        do you offer capricciosa pizza?
+      intent: pizza_availability
+    - action: action_pizza_availability
+    - user: |
+        how much is it?
+      intent: item_price
+    - action: action_price
+    - user: |
+        I want to drink tea
+      intent: out_of_scope
+    - action: utter_out_of_scope
+    - user: |
+        Which are the available sizes?
+      intent: init_pizza_question_size
+    - action: utter_init_pizza_question_size
+    - user: |
+        Do you have pizza without [tomato sauce]{"entity": "toppings"}?
+      intent: pizza_question_toppings
+    - action: action_pizza_question_toppings
+    - slot_was_set:
+      - toppings: None
+
+- story: order a pizza and yes correct and no anything else
+  steps: 
+    - user: |
+        I want to order [1]{"entity": "pizza_amount"} [large]{"entity": "pizza_size"} [margherita]{"entity": "pizza_type"}
+      intent: init_request
+    - action: action_menu
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+    - user: |
+        yes it's correct
+      intent: response_positive
+    - action: action_response_positive
+    - slot_was_set:
+      - pizza_type: None
+      - pizza_size: None
+      - pizza_amount: None
+      - toppings: None
+    - user: |
+        no thanks that's all
+      intent: response_negative
+    - action: action_response_negative
+
+- story: order a pizza and yes correct and yes anything else
+  steps: 
+    - user: |
+        I want to order [1]{"entity": "pizza_amount"} [large]{"entity": "pizza_size"} [margherita]{"entity": "pizza_type"}
+      intent: init_request
+    - action: action_menu
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+    - user: |
+        yes it's correct
+      intent: response_positive
+    - action: action_response_positive
+    - slot_was_set:
+      - pizza_type: None
+      - pizza_size: None
+      - pizza_amount: None
+      - toppings: None
+    - user: |
+        another pizza please
+      intent: response_positive
+    - action: action_response_positive
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - user: |
+        an [hawaii]{"entity": "pizza_type"} pizza please
+      intent: provide_pizza_type
+    - action: pizza_order_form
+    - user: |
+        [regular]{"entity": "pizza_size"} will be good
+      intent: provide_pizza_size
+    - action: pizza_order_form
+    - user: |
+        just [one]{"entity": "pizza_amount"} please
+      intent: provide_pizza_amount
+    - action: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+    - user: |
+        yes it's correct
+      intent: response_positive
+    - action: action_response_positive
+    - slot_was_set:
+      - pizza_type: None
+      - pizza_size: None
+      - pizza_amount: None
+      - toppings: None
+    - user: |
+        No thanks that's all
+      intent: response_negative
+    - action: action_response_negative
+
+- story: provide name old client
+  steps:
+    - user: |
+        hi
+      intent: welcome_greet
+    - action: utter_welcome_greet
+    - action: client_form
+    - active_loop: client_form
+    - user: |
+        I'm [Giusy]{"entity": "client_name"}
+      intent: provide_name
+    - slot_was_set:
+      - new_client: False
+      - client_name: "Giusy"
+      - phone_number: "3669445566"
+      - address_street: "Via Roma"
+      - address_number: "10"
+      - address_city: "Vittorio Veneto"
+    - action: client_form
+    - active_loop: null
+    - user: |
+        I would like to order a pizza
+      intent: init_request_without_entity
+    - action: action_suggest_pizza
+    - slot_was_set:
+      - pizza_type: "Pepperoni"
+    - intent: response_positive
+    - action: action_response_positive
+    - action: pizza_order_form 
+    - active_loop: pizza_order_form
+    - user: |
+        [regular]{"entity": "pizza_size"} will be good
+      intent: provide_pizza_size
+    - action: pizza_order_form
+    - user: |
+        just [one]{"entity": "pizza_amount"} please
+      intent: provide_pizza_amount
+    - action: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+

@@ -1,0 +1,298 @@
+[
+  {
+    "text": "I shall come",
+    "intent": "order_take_away",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2998942238428789
+    }
+  },
+  {
+    "text": "Can you bring it to me?",
+    "intent": "order_delivery",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3852605073677879
+    }
+  },
+  {
+    "text": "I want to order large pizza",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.6143862664589376
+    }
+  },
+  {
+    "text": "regular please",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5487671511477197
+    }
+  },
+  {
+    "text": "little please",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.672507823248619
+    }
+  },
+  {
+    "text": "two pizzas",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.820557883665285
+    }
+  },
+  {
+    "text": "I want 1 pizza",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.2771376419394237
+    }
+  },
+  {
+    "text": "coins",
+    "intent": "pay_cash",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.2568790326043319
+    }
+  },
+  {
+    "text": "For me is better cash",
+    "intent": "pay_cash",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5207004055612624
+    }
+  },
+  {
+    "text": "Is is possible to have a list of the available pizzas?",
+    "intent": "menu_question",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.28655615645313354
+    }
+  },
+  {
+    "text": "What pizzas do you offer?",
+    "intent": "menu_question",
+    "intent_prediction": {
+      "name": "init_pizza_question_size",
+      "confidence": 0.2779004021266658
+    }
+  },
+  {
+    "text": "Goodevening",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "provide_phone_number",
+      "confidence": 0.3580946517187064
+    }
+  },
+  {
+    "text": "Cashless",
+    "intent": "pay_credit_card",
+    "intent_prediction": {
+      "name": "pay_cash",
+      "confidence": 0.9960224451619921
+    }
+  },
+  {
+    "text": "what toppings do you have available?",
+    "intent": "init_pizza_question_toppings",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6675947707112809
+    }
+  },
+  {
+    "text": "which toppings do you have?",
+    "intent": "init_pizza_question_toppings",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6545003501596127
+    }
+  },
+  {
+    "text": "marinara please",
+    "intent": "provide_pizza_type",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.3133785398684894
+    }
+  },
+  {
+    "text": "I want an hawaii pizza",
+    "intent": "provide_pizza_type",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.1553555044778498
+    }
+  },
+  {
+    "text": "can I cancel my order please?",
+    "intent": "cancel_order",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.24757528229371836
+    }
+  },
+  {
+    "text": "We would like to be seated in your restaurant",
+    "intent": "init_request_table",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6510288627290296
+    }
+  },
+  {
+    "text": "no thank you",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "pizza_question_toppings",
+      "confidence": 0.33264390473848005
+    }
+  },
+  {
+    "text": "I need a pizza",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "provide_pizza_type",
+      "confidence": 0.291318034854715
+    }
+  },
+  {
+    "text": "can I order a pizza",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.40070838540128706
+    }
+  },
+  {
+    "text": "I want my pizza in small instead",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.3952273733733078
+    }
+  },
+  {
+    "text": "yes is ok for me",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.293536841998365
+    }
+  },
+  {
+    "text": "Do you prepare wurstel and french fries?",
+    "intent": "pizza_availability",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.34272683826182365
+    }
+  },
+  {
+    "text": "Buffalo",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.25433293441888866
+    }
+  },
+  {
+    "text": "William Porter",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "provide_address_city",
+      "confidence": 0.5894692700799116
+    }
+  },
+  {
+    "text": "Mary Bayliss",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.8571768696942578
+    }
+  },
+  {
+    "text": "Emery Cadman",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.7912116127932387
+    }
+  },
+  {
+    "text": "Alexia May",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.25177626763510663
+    }
+  },
+  {
+    "text": "Eve Sherwood",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "provide_address_city",
+      "confidence": 0.1871324212450401
+    }
+  },
+  {
+    "text": "I want a large pizza",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "provide_pizza_size",
+      "confidence": 0.21785718790661301
+    }
+  },
+  {
+    "text": "A little hawaii pizza",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "provide_pizza_type",
+      "confidence": 0.23635168538553164
+    }
+  },
+  {
+    "text": "how far is the square",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "item_price",
+      "confidence": 0.39623556710900565
+    }
+  },
+  {
+    "text": "asdfgasd",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_phone_number",
+      "confidence": 0.3580946517187064
+    }
+  },
+  {
+    "text": "can you cook dinner",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "pizza_availability",
+      "confidence": 0.27492937384768784
+    }
+  },
+  {
+    "text": "are you sick",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.4367487173110373
+    }
+  }
+]

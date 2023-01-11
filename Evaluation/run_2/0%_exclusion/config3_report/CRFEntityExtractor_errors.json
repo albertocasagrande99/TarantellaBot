@@ -1,0 +1,568 @@
+[
+  {
+    "text": "maybe big",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "big",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I'd like to reserve a table for four people, today at 5 p.m",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 54,
+        "end": 59,
+        "confidence_entity": 0.9050596660841821,
+        "value": "5 p.m",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 54,
+        "end": 55,
+        "value": "5",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "ops no I need to make a change",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.9082690210364163,
+        "value": "ops",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "actually , i 'd like marinara pizza.",
+    "entities": [
+      {
+        "start": 21,
+        "end": 29,
+        "value": "marinara",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.9585327983059201,
+        "value": "marinara",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 21,
+        "end": 29,
+        "value": "marinara",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Number 65",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "65",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the name of my city is Barre",
+    "entities": [
+      {
+        "start": 23,
+        "end": 28,
+        "value": "Barre",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Buffalo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Buffalo",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the name of my city is Denton",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "value": "Denton",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my city is Costa Mesa",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "value": "Costa Mesa",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 11,
+        "end": 21,
+        "confidence_entity": 0.9564161175851632,
+        "value": "Costa Mesa",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "William Porter",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "William Porter",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.461406576312631,
+        "value": "William",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I'm Kaleb Porter",
+    "entities": [
+      {
+        "start": 4,
+        "end": 16,
+        "value": "Kaleb Porter",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Mary Bayliss",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Mary Bayliss",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 12,
+        "confidence_entity": 0.6310524671475479,
+        "value": "Mary Bayliss",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Abbey Reyes is my name",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "Abbey Reyes",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9253555298003007,
+        "value": "Abbey",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Emery Cadman",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Emery Cadman",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Alexia May",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Alexia May",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name is Mark Bailey",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Mark Bailey",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_city",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.36432062684455185,
+        "value": "Bailey",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I'm Nathan Flowers",
+    "entities": [
+      {
+        "start": 4,
+        "end": 18,
+        "value": "Nathan Flowers",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 4,
+        "end": 10,
+        "confidence_entity": 0.6205261392620355,
+        "value": "Nathan",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "my street name is Chapmans Lane",
+    "entities": [
+      {
+        "start": 18,
+        "end": 31,
+        "value": "Chapmans Lane",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 18,
+        "end": 31,
+        "confidence_entity": 0.5502002542644656,
+        "value": "Chapmans Lane",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Tea Berry Lane",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "Tea Berry Lane",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 4,
+        "end": 14,
+        "confidence_entity": 0.6478008014358443,
+        "value": "Berry Lane",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "my street name is Virginia Triangle",
+    "entities": [
+      {
+        "start": 18,
+        "end": 35,
+        "value": "Virginia Triangle",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_city",
+        "start": 18,
+        "end": 35,
+        "confidence_entity": 0.5319373076194365,
+        "value": "Virginia Triangle",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "my street name is Lyndale Avenu",
+    "entities": [
+      {
+        "start": 18,
+        "end": 31,
+        "value": "Lyndale Avenu",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 18,
+        "end": 31,
+        "confidence_entity": 0.6660076246614896,
+        "value": "Lyndale Avenu",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "George Floyd Square",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "George Floyd Square",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 12,
+        "confidence_entity": 0.9137030020384659,
+        "value": "George Floyd",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Loudon Road Historic District",
+    "entities": [
+      {
+        "start": 0,
+        "end": 29,
+        "value": "Loudon Road Historic District",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 11,
+        "confidence_entity": 0.9500881670256065,
+        "value": "Loudon Road",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "client_name",
+        "start": 12,
+        "end": 29,
+        "confidence_entity": 0.5480132599236508,
+        "value": "Historic District",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Spring Mountain Road",
+    "entities": [
+      {
+        "start": 0,
+        "end": 20,
+        "value": "Spring Mountain Road",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 7,
+        "end": 20,
+        "confidence_entity": 0.9946994289591156,
+        "value": "Mountain Road",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "my street name is Salt Lake Highway",
+    "entities": [
+      {
+        "start": 18,
+        "end": 35,
+        "value": "Salt Lake Highway",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 18,
+        "end": 22,
+        "confidence_entity": 0.9322477640264383,
+        "value": "Salt",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "address_street",
+        "start": 23,
+        "end": 35,
+        "confidence_entity": 0.9682462817492328,
+        "value": "Lake Highway",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how far is the square",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 4,
+        "end": 7,
+        "confidence_entity": 0.9237202974606599,
+        "value": "far",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "and make chicken noises into the phone",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 24,
+        "end": 28,
+        "confidence_entity": 0.9528497065171799,
+        "value": "into",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "alexa, order 5 tons of natrium chloride",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.9173770684403971,
+        "value": "5",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 13,
+        "end": 14,
+        "value": "5",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "connect to alexa",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_city",
+        "start": 11,
+        "end": 16,
+        "confidence_entity": 0.5853423901471824,
+        "value": "alexa",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Won't you ask me how I am?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.6595506364550754,
+        "value": "Wo",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "i m looking for job",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 2,
+        "end": 3,
+        "confidence_entity": 0.9988090815381258,
+        "value": "m",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  }
+]

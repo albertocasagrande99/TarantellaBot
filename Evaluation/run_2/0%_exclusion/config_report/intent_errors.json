@@ -1,0 +1,202 @@
+[
+  {
+    "text": "I want to order large pizza",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.9991108775138855
+    }
+  },
+  {
+    "text": "five",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "provide_address_number",
+      "confidence": 0.4725955128669739
+    }
+  },
+  {
+    "text": "two pizzas",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.933207631111145
+    }
+  },
+  {
+    "text": "I want 1 pizza",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.9133572578430176
+    }
+  },
+  {
+    "text": "coins",
+    "intent": "pay_cash",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.7381883859634399
+    }
+  },
+  {
+    "text": "What pizzas do you offer?",
+    "intent": "menu_question",
+    "intent_prediction": {
+      "name": "pizza_availability",
+      "confidence": 0.34228575229644775
+    }
+  },
+  {
+    "text": "Goodevening",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.7604849338531494
+    }
+  },
+  {
+    "text": "Ciao",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.418317049741745
+    }
+  },
+  {
+    "text": "Cashless",
+    "intent": "pay_credit_card",
+    "intent_prediction": {
+      "name": "pay_cash",
+      "confidence": 0.9881536364555359
+    }
+  },
+  {
+    "text": "I want an hawaii pizza",
+    "intent": "provide_pizza_type",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.40833428502082825
+    }
+  },
+  {
+    "text": "Abort",
+    "intent": "cancel_order",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2643686830997467
+    }
+  },
+  {
+    "text": "want to order pizza",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.9472734928131104
+    }
+  },
+  {
+    "text": "can I order a pizza",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.46666964888572693
+    }
+  },
+  {
+    "text": "Buffalo",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.43168339133262634
+    }
+  },
+  {
+    "text": "William Porter",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "provide_address_city",
+      "confidence": 0.7130974531173706
+    }
+  },
+  {
+    "text": "Emery Cadman",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.3602154552936554
+    }
+  },
+  {
+    "text": "Alexia May",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.2588615417480469
+    }
+  },
+  {
+    "text": "Eve Sherwood",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.42477869987487793
+    }
+  },
+  {
+    "text": "I want a large pizza",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "provide_pizza_size",
+      "confidence": 0.4475080370903015
+    }
+  },
+  {
+    "text": "and make chicken noises into the phone",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "menu_question",
+      "confidence": 0.3402250111103058
+    }
+  },
+  {
+    "text": "alexa, order 5 tons of natrium chloride",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.8204908967018127
+    }
+  },
+  {
+    "text": "i want good flycam",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.4559745788574219
+    }
+  },
+  {
+    "text": "colder",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_pizza_type",
+      "confidence": 0.13167449831962585
+    }
+  },
+  {
+    "text": "i m looking for job",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "pay_credit_card",
+      "confidence": 0.3579958379268646
+    }
+  },
+  {
+    "text": "docs",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.44029107689857483
+    }
+  }
+]

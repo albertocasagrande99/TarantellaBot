@@ -1,0 +1,274 @@
+[
+  {
+    "text": "I want to order large pizza",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.9982743263244629
+    }
+  },
+  {
+    "text": "Little pizza",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.7839236855506897
+    }
+  },
+  {
+    "text": "3",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "provide_address_number",
+      "confidence": 0.6484931111335754
+    }
+  },
+  {
+    "text": "coins",
+    "intent": "pay_cash",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.28772643208503723
+    }
+  },
+  {
+    "text": "What pizza types do you sell?",
+    "intent": "menu_question",
+    "intent_prediction": {
+      "name": "init_pizza_question_size",
+      "confidence": 0.666302502155304
+    }
+  },
+  {
+    "text": "Goodmorning",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6918653845787048
+    }
+  },
+  {
+    "text": "Nice to meet you",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "order_delivery",
+      "confidence": 0.2842709720134735
+    }
+  },
+  {
+    "text": "greetings",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "init_request_without_entity",
+      "confidence": 0.17335782945156097
+    }
+  },
+  {
+    "text": "funghi please",
+    "intent": "provide_pizza_type",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.19809046387672424
+    }
+  },
+  {
+    "text": "I don't confirm",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "cancel_order",
+      "confidence": 0.686830461025238
+    }
+  },
+  {
+    "text": "I don't confirm the reservation",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.3445275127887726
+    }
+  },
+  {
+    "text": "Noo",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.5213037729263306
+    }
+  },
+  {
+    "text": "I'm hungry",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.6483869552612305
+    }
+  },
+  {
+    "text": "I need energy",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.1815456598997116
+    }
+  },
+  {
+    "text": "Can you cook some pizzas?",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "pizza_availability",
+      "confidence": 0.511783242225647
+    }
+  },
+  {
+    "text": "I want my pizza in small instead",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.8320585489273071
+    }
+  },
+  {
+    "text": "another pizza please",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "init_request_without_entity",
+      "confidence": 0.41824015974998474
+    }
+  },
+  {
+    "text": "Clovis",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.9043922424316406
+    }
+  },
+  {
+    "text": "Fort Collins",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.40551960468292236
+    }
+  },
+  {
+    "text": "Emery Cadman",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.901205837726593
+    }
+  },
+  {
+    "text": "my name is Dakota Lane",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.8963027596473694
+    }
+  },
+  {
+    "text": "Matt James",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.24075239896774292
+    }
+  },
+  {
+    "text": "Wade Squire",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.9489818811416626
+    }
+  },
+  {
+    "text": "I live in Peck Court",
+    "intent": "provide_address_street",
+    "intent_prediction": {
+      "name": "provide_address_city",
+      "confidence": 0.5167603492736816
+    }
+  },
+  {
+    "text": "Henry Johnson Boulevard",
+    "intent": "provide_address_street",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.6677379608154297
+    }
+  },
+  {
+    "text": "two pizzas",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "provide_pizza_amount",
+      "confidence": 0.6306567192077637
+    }
+  },
+  {
+    "text": "Cars",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.8844009041786194
+    }
+  },
+  {
+    "text": "alexa, order 5 tons of natrium chloride",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.7964755296707153
+    }
+  },
+  {
+    "text": "flight catch up",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "order_take_away",
+      "confidence": 0.5389334559440613
+    }
+  },
+  {
+    "text": "i need money",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "cancel_order",
+      "confidence": 0.3433303236961365
+    }
+  },
+  {
+    "text": "i want good flycam",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.384579598903656
+    }
+  },
+  {
+    "text": "Can you make sandwiches?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "pizza_availability",
+      "confidence": 0.5266028642654419
+    }
+  },
+  {
+    "text": "Do I have to accept?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "cancel_order",
+      "confidence": 0.4233849346637726
+    }
+  },
+  {
+    "text": "your contry name",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.5400291681289673
+    }
+  }
+]

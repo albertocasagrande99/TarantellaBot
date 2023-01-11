@@ -222,8 +222,8 @@ responses:
 actions:
 - utter_welcome_greet
 - action_menu
-- utter_init_pizza_question/size
-- utter_init_pizza_question/toppings
+- utter_init_pizza_question_size
+- utter_init_pizza_question_toppings
 - action_price
 - action_pizza_availability
 - action_pizza_question_toppings

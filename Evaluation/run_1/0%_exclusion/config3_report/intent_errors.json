@@ -1,0 +1,426 @@
+[
+  {
+    "text": "I'll come to your pizzeria",
+    "intent": "order_take_away",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.4513200482852349
+    }
+  },
+  {
+    "text": "i prefer take away",
+    "intent": "order_take_away",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.39088664225544023
+    }
+  },
+  {
+    "text": "I want to order large pizza",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.7016606406027595
+    }
+  },
+  {
+    "text": "Little pizza",
+    "intent": "provide_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.7559260605434786
+    }
+  },
+  {
+    "text": "3",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "provide_address_number",
+      "confidence": 0.8803598333960804
+    }
+  },
+  {
+    "text": "just one please",
+    "intent": "provide_pizza_amount",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.4597988951642773
+    }
+  },
+  {
+    "text": "coins",
+    "intent": "pay_cash",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.16674222168605704
+    }
+  },
+  {
+    "text": "What pizza types do you sell?",
+    "intent": "menu_question",
+    "intent_prediction": {
+      "name": "init_pizza_question_size",
+      "confidence": 0.4355795916557242
+    }
+  },
+  {
+    "text": "What are the pizzas?",
+    "intent": "menu_question",
+    "intent_prediction": {
+      "name": "init_pizza_question_size",
+      "confidence": 0.34584270271870654
+    }
+  },
+  {
+    "text": "Hello Tarantella",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3038425488366644
+    }
+  },
+  {
+    "text": "Goodmorning",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.2557232345096473
+    }
+  },
+  {
+    "text": "Nice to meet you",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5690243813751952
+    }
+  },
+  {
+    "text": "greetings",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6379424098889994
+    }
+  },
+  {
+    "text": "I prefer to pay by credit card",
+    "intent": "pay_credit_card",
+    "intent_prediction": {
+      "name": "pay_cash",
+      "confidence": 0.4093392228928332
+    }
+  },
+  {
+    "text": "Online please",
+    "intent": "pay_credit_card",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3715812972344554
+    }
+  },
+  {
+    "text": "funghi please",
+    "intent": "provide_pizza_type",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.18297597767876167
+    }
+  },
+  {
+    "text": "I would like to go back and cancel the order",
+    "intent": "cancel_order",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.4815761959199873
+    }
+  },
+  {
+    "text": "I want a table",
+    "intent": "init_request_table",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.21910945631404533
+    }
+  },
+  {
+    "text": "I want to eat at your pizzeria the 1 of June",
+    "intent": "init_request_table",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.37516764027341865
+    }
+  },
+  {
+    "text": "We want a table",
+    "intent": "init_request_table",
+    "intent_prediction": {
+      "name": "init_request_without_entity",
+      "confidence": 0.28383398340478655
+    }
+  },
+  {
+    "text": "I don't confirm",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "cancel_order",
+      "confidence": 0.41731560946254465
+    }
+  },
+  {
+    "text": "I don't confirm the reservation",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "cancel_order",
+      "confidence": 0.22837896630963725
+    }
+  },
+  {
+    "text": "actually I want to change my order",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "cancel_order",
+      "confidence": 0.41251286567250395
+    }
+  },
+  {
+    "text": "Noo",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.7904769741082455
+    }
+  },
+  {
+    "text": "I'm hungry",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.47082304765052013
+    }
+  },
+  {
+    "text": "can I order a pizza",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.5132864485267052
+    }
+  },
+  {
+    "text": "Make me some pizzas",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "menu_question",
+      "confidence": 0.1674119822522389
+    }
+  },
+  {
+    "text": "I need energy",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.3763839057933068
+    }
+  },
+  {
+    "text": "Can you cook some pizzas?",
+    "intent": "init_request_without_entity",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2692729754232932
+    }
+  },
+  {
+    "text": "which sizes do you have?",
+    "intent": "init_pizza_question_size",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3707778129098069
+    }
+  },
+  {
+    "text": "do you have medium pizzas?",
+    "intent": "init_pizza_question_size",
+    "intent_prediction": {
+      "name": "pizza_availability",
+      "confidence": 0.2620321515803894
+    }
+  },
+  {
+    "text": "Can you tell me the sizes?",
+    "intent": "init_pizza_question_size",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.4460781697123472
+    }
+  },
+  {
+    "text": "I changed my mind. Can I get  a funghi instead?",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.32759467303843426
+    }
+  },
+  {
+    "text": "I want my pizza in small instead",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.44769938152526895
+    }
+  },
+  {
+    "text": "I confirm the reservation",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2102958307743857
+    }
+  },
+  {
+    "text": "Do you prepare wurstel and french fries?",
+    "intent": "pizza_availability",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.35533483019044987
+    }
+  },
+  {
+    "text": "Number 1357",
+    "intent": "provide_address_number",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.25975729743508036
+    }
+  },
+  {
+    "text": "Clovis",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "provide_pizza_type",
+      "confidence": 0.4123754107223774
+    }
+  },
+  {
+    "text": "Allentown",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.8955878276351497
+    }
+  },
+  {
+    "text": "Fort Collins",
+    "intent": "provide_address_city",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.649960109243444
+    }
+  },
+  {
+    "text": "Emery Cadman",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.724226288687545
+    }
+  },
+  {
+    "text": "Matt James",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.30516609374762743
+    }
+  },
+  {
+    "text": "Wade Squire",
+    "intent": "provide_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.28437354271228293
+    }
+  },
+  {
+    "text": "Henry Johnson Boulevard",
+    "intent": "provide_address_street",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.614690822295176
+    }
+  },
+  {
+    "text": "two pizzas",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "provide_pizza_amount",
+      "confidence": 0.6537087073685338
+    }
+  },
+  {
+    "text": "A little hawaii pizza",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "provide_pizza_type",
+      "confidence": 0.3231189108254647
+    }
+  },
+  {
+    "text": "sfasd",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_phone_number",
+      "confidence": 0.3427318289307214
+    }
+  },
+  {
+    "text": "Cars",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_address_street",
+      "confidence": 0.828247759700451
+    }
+  },
+  {
+    "text": "please voulette",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_pizza_size",
+      "confidence": 0.1463081213091307
+    }
+  },
+  {
+    "text": "flight catch up",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "order_take_away",
+      "confidence": 0.42353419872141956
+    }
+  },
+  {
+    "text": "4 + 2 = ?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_address_number",
+      "confidence": 0.22199157716071746
+    }
+  },
+  {
+    "text": "buy groceries",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "init_pizza_question_size",
+      "confidence": 0.08593539451026876
+    }
+  },
+  {
+    "text": "your contry name",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "provide_name",
+      "confidence": 0.22688896811609588
+    }
+  }
+]

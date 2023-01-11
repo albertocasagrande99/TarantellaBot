@@ -1,0 +1,396 @@
+[
+  {
+    "text": "Goodevening",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_city",
+        "start": 0,
+        "end": 11,
+        "confidence_entity": 0.9743883609771729,
+        "value": "Goodevening",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd like to reserve a table for four people, today at 5 p.m",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 32,
+        "end": 36,
+        "confidence_entity": 0.8815840482711792,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 54,
+        "end": 59,
+        "confidence_entity": 0.6427584886550903,
+        "value": "5 p.m",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 54,
+        "end": 55,
+        "value": "5",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "actually , i 'd like marinara pizza.",
+    "entities": [
+      {
+        "start": 21,
+        "end": 29,
+        "value": "marinara",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.9400197863578796,
+        "value": "marinara",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 21,
+        "end": 29,
+        "value": "marinara",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "the name of my city is Barre",
+    "entities": [
+      {
+        "start": 23,
+        "end": 28,
+        "value": "Barre",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.6416208744049072,
+        "value": "Barre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Buffalo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Buffalo",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.6406933665275574,
+        "value": "Buffalo",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my city is Costa Mesa",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "value": "Costa Mesa",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 11,
+        "end": 21,
+        "confidence_entity": 0.4775959551334381,
+        "value": "Costa Mesa",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "William Porter",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "William Porter",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.8999627828598022,
+        "value": "William",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'm Kaleb Porter",
+    "entities": [
+      {
+        "start": 4,
+        "end": 16,
+        "value": "Kaleb Porter",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Emery Cadman",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Emery Cadman",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 6,
+        "end": 12,
+        "confidence_entity": 0.7465851306915283,
+        "value": "Cadman",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Alexia May",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Alexia May",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Eve Sherwood",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Eve Sherwood",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_city",
+        "start": 4,
+        "end": 12,
+        "confidence_entity": 0.634322464466095,
+        "value": "Sherwood",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name is Denny Yates",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Denny Yates",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 11,
+        "end": 16,
+        "confidence_entity": 0.9886624217033386,
+        "value": "Denny",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name is Mark Bailey",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Mark Bailey",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.9913619160652161,
+        "value": "Bailey",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Tea Berry Lane",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "Tea Berry Lane",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 4,
+        "end": 14,
+        "confidence_entity": 0.6593024730682373,
+        "value": "Berry Lane",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "the street name is Calico Drive",
+    "entities": [
+      {
+        "start": 19,
+        "end": 31,
+        "value": "Calico Drive",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 10,
+        "confidence_entity": 0.5996424555778503,
+        "value": "the street",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "address_street",
+        "start": 19,
+        "end": 31,
+        "confidence_entity": 0.9053471684455872,
+        "value": "Calico Drive",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "George Floyd Square",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "George Floyd Square",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.7384872436523438,
+        "value": "George",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "and make chicken noises into the phone",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.7504763007164001,
+        "value": "and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.3546464145183563,
+        "value": "chicken",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "alexa, order 5 tons of natrium chloride",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.622281551361084,
+        "value": "5",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 23,
+        "end": 30,
+        "confidence_entity": 0.40125730633735657,
+        "value": "natrium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 13,
+        "end": 14,
+        "value": "5",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  }
+]

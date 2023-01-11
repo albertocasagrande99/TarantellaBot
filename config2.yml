@@ -3,10 +3,10 @@ recipe: default.v1
 language: en
 
 pipeline:
-  - name: MitieNLP
-    model: "data/total_word_feature_extractor.dat"
-  - name: MitieTokenizer
-  - name: MitieFeaturizer
+  - name: SpacyNLP
+    model: en_core_web_md
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
@@ -16,9 +16,41 @@ pipeline:
     max_ngram: 4
   - name: DIETClassifier
     epochs: 50
-    constrain_similarities: yes
+    constrain_similarities: true
+    entity_recognition: false
   - name: FallbackClassifier
     threshold: 0.5
+  - name: CRFEntityExtractor
+    # BILOU_flag determines whether to use BILOU tagging or not.
+    "BILOU_flag": True
+    # features to extract in the sliding window
+    "features": [
+      ["low", "title", "upper"],
+      [
+        "bias",
+        "low",
+        "prefix5",
+        "prefix2",
+        "suffix5",
+        "suffix3",
+        "suffix2",
+        "upper",
+        "title",
+        "digit",
+        "pattern",
+        "text_dense_features"
+      ],
+      ["low", "title", "upper"],
+    ]
+    # The maximum number of iterations for optimization algorithms.
+    "max_iterations": 50
+    # weight of the L1 regularization
+    "L1_c": 0.1
+    # weight of the L2 regularization
+    "L2_c": 0.1
+    # Name of dense featurizers to use.
+    # If list is empty all available dense features are used.
+    "featurizers": []
   - name: DucklingEntityExtractor
     dimensions: ["credit-card-number", "time", "number"]
     url: "http://localhost:8000"  #docker run -p 8000:8000 rasa/duckling
@@ -34,6 +66,7 @@ pipeline:
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 50
+    constrain_similarities: true
 
 policies:
   - name: TEDPolicy

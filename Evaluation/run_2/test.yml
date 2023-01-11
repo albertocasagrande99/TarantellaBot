@@ -1,0 +1,534 @@
+version: "3.1"
+nlu:
+- intent: order_take_away
+  examples: |
+    - I shall come
+    - take away
+    - better take-away
+    - I'll come
+- intent: order_delivery
+  examples: |
+    - Can you bring it home for me?
+    - better delivery
+    - Can you bring it to me?
+- intent: provide_pizza_size
+  examples: |
+    - I want to order [large](pizza_size) pizza
+    - [regular](pizza_size) please
+    - maybe [big](pizza_size)
+    - [little](pizza_size) please
+- intent: provide_pizza_amount
+  examples: |
+    - [five](pizza_amount)
+    - [two](pizza_amount) pizzas
+    - I need [5](pizza_amount)
+    - I want [1](pizza_amount) pizza
+- intent: pay_cash
+  examples: |
+    - I prefer by cash
+    - coins
+    - Cash
+    - I want to pay cash
+    - For me is better cash
+- intent: menu_question
+  examples: |
+    - Is is possible to have a list of the available pizzas?
+    - What are the pizzas in the menu?
+    - I want to know the menu
+    - What pizzas do you offer?
+    - Which are the pizzas?
+- intent: provide_phone_number
+  examples: |
+    - my mobile phone number is [3569957060](phone_number)
+    - my telephone number is [3519436060](phone_number)
+    - [3939957060](phone_number)
+    - my mobile phone number is [3567359934](phone_number)
+    - [3349876060](phone_number)
+    - my telephone number is [3399902450](phone_number)
+- intent: welcome_greet
+  examples: |
+    - Goodevening
+    - Ciao
+    - Hey
+    - Howdy
+    - Hi there
+- intent: pay_credit_card
+  examples: |
+    - Online
+    - using the credit card
+    - Cashless
+    - Credit card
+    - through visa card
+    - possibly pay credit card
+- intent: init_pizza_question_toppings
+  examples: |
+    - what toppings do you have available?
+    - Toppings
+    - all the possible ingredients
+    - Which ingredients I can put on my pizza?
+    - please list me the toppings
+    - which toppings do you have?
+- intent: provide_pizza_type
+  examples: |
+    - [marinara](pizza_type) please
+    - I want an [hawaii](pizza_type) pizza
+    - a [margherita](pizza_type)
+    - [veggie](pizza_type)
+    - a [veggie](pizza_type) pizza
+    - a [pepperoni](pizza_type), thanks
+- intent: cancel_order
+  examples: |
+    - Abort my order
+    - is it possible to cancel the order
+    - I do not want to order any more
+    - I don't want anymore to order
+    - Abort
+    - can I cancel my order please?
+- intent: init_request_table
+  examples: |
+    - I'd like to reserve a table for four people, today at 5 p.m
+    - Can I book a table for next Sunday?
+    - want a table for today
+    - I would like to reserve a table for monday
+    - We would like to be seated in your restaurant
+    - We want a table
+    - is a table for 2 people available tonight?
+- intent: response_negative
+  examples: |
+    - no I don't want the table as last time
+    - no thank you
+    - no I want to change my order
+    - actually I want the pizza to be delivered to a different address
+    - no thanks
+    - ops no I need to make a change
+    - No that table
+    - no I changed my mind
+- intent: item_price
+  examples: |
+    - Cost of [mushrooms and ham](pizza_type) pizza
+    - how much is the [ham and mushrooms](pizza_type) one?
+    - What is the price for the [veggie](pizza_type) pizza?
+    - Can you tell me the price of the [margherita](pizza_type)?
+    - how much is the [vegerarian](pizza_type) one?
+    - What is the price for the [margherita](pizza_type)?
+    - how much is the [hawaii](pizza_type) one?
+    - Can you tell me the price of the [ham and mushrooms](pizza_type)?
+- intent: init_request_without_entity
+  examples: |
+    - want to order pizza
+    - I want a good pizza
+    - I need a pizza
+    - I want to buy a pizza
+    - It's pizza time
+    - can I order a pizza
+    - Pizza please
+    - Is it possible to order a delicious pizza?
+- intent: init_pizza_question_size
+  examples: |
+    - do you sell [medium](pizza_size) pizzas?
+    - Is there the [large](pizza_size) size available?
+    - what sizes for the pizzas?
+    - [medium](pizza_size) pizzas?
+    - Is there the [tiny](pizza_size)?
+    - do you sell [huge](pizza_size) pizzas?
+    - which sizes do you have?
+    - do you offer [medium](pizza_size) pizzas?
+    - [large](pizza_size) pizzas?
+- intent: item_change
+  examples: |
+    - actually, i would like a [regular](pizza_size) [vegetarian](pizza_type).
+    - wait, can i get  it in [large](pizza_size).
+    - I don't want anymore that pizza now I want a [large](pizza_size) [hawaii](pizza_type)
+    - I want my pizza in [small](pizza_size) instead
+    - actually , i 'd like [marinara](pizza_size) pizza.
+    - Actually I want a [hawaii](pizza_type)
+    - actually i would like [2](pizza_amount) [tiny](pizza_size) [margherita](pizza_type)
+    - actually i would like a [small](pizza_size) [american](pizza_type)
+    - I don't want anymore that pizza now I want a [veggie](pizza_type)
+    - can i get a [pepperoni](pizza_type) instead?
+- intent: response_positive
+  examples: |
+    - yes I totally confirm
+    - yeah all is good
+    - yes the same pizza as always
+    - confirm
+    - can I have also a [small](pizza_size) [mushrooms](pizza_type) pizza?
+    - yes is ok for me
+    - Yes
+    - that sounds good
+    - right
+    - yes I'd like also [two](pizza_amount) [pepperoni](pizza_type) pizzas
+    - yes I confirm what you said
+- intent: pizza_availability
+  examples: |
+    - Do you prepare [wurstel and french fries](pizza_type)?
+    - do you have [pepperoni](pizza_type) pizza?
+    - Can you make a [marinara](pizza_type) pizza?
+    - Is [vegetarian](pizza_type) available in your menu?
+    - [capricciosa](pizza_type) is available?
+    - Is [marinara](pizza_type) available in your menu?
+    - do you offer pizza [margherita](pizza_type)
+    - Can you make a [mushrooms and ham](pizza_type) pizza?
+    - do you offer [marinara](pizza_type) pizza
+    - Is [mushrooms and ham](pizza_type) available in your menu?
+    - Do you prepare [pepperoni](pizza_type)?
+- intent: inform_time_slot
+  examples: |
+    - I prefer the [first](time_slot) slot
+    - [second](time_slot) slot
+    - I want the [9 p.m.](time_slot) slot
+    - [7 pm](time_slot)
+    - I prefer the [second](time_slot) one
+    - better [9pm](time_slot)
+    - [9pm](time_slot)
+    - better [7 pm](time_slot)
+    - I prefer the [second](time_slot) slot
+    - I'd like the [9 pm](time_slot) slot
+    - I prefer the [7pm](time_slot) slot
+- intent: provide_address_number
+  examples: |
+    - Number [65](address_number)
+    - number [16](address_number)
+    - [10](address_number)
+    - number [11](address_number)
+    - [3545](address_number)
+    - Number [2327](address_number)
+    - number [14](address_number)
+    - number [13](address_number)
+    - [14](address_number)
+    - [18](address_number)
+    - my address number is [13](address_number)
+    - [843](address_number)
+- intent: provide_address_city
+  examples: |
+    - [Tucson](address_city)
+    - the name of my city is [Birmingham](address_city)
+    - [Huntington Beach](address_city)
+    - the name of my city is [Barre](address_city)
+    - [Buffalo](address_city)
+    - the name of my city is [Denton](address_city)
+    - [Columbia](address_city)
+    - my city is [Costa Mesa](address_city)
+    - I live in [Lubbock](address_city)
+    - [Stamford](address_city)
+    - my city is [Cleveland](address_city)
+    - I live in [Rockford](address_city)
+    - [Minneapolis](address_city)
+    - I live in [Denver](address_city)
+    - my city is [Berlin](address_city)
+- intent: provide_name
+  examples: |
+    - [Michael Daley](client_name)
+    - my name is [Nicholas Johnston](client_name)
+    - [William Porter](client_name)
+    - I'm [Kaleb Porter](client_name)
+    - my name is [Brayden Newman](client_name)
+    - i'm [Avianna Johnson](client_name)
+    - [Fiona Mitchell](client_name)
+    - [Mary Bayliss](client_name)
+    - [Abbey Reyes](client_name) is my name
+    - my name is [Terry Hunter](client_name)
+    - I'm [Katherine Jones](client_name)
+    - my name is [Michelle Diaz](client_name)
+    - [Holly Curtis](client_name)
+    - [Emery Cadman](client_name)
+    - [Alexia May](client_name)
+    - [Eve Sherwood](client_name)
+    - my name is [Denny Yates](client_name)
+    - my name is [Mark Bailey](client_name)
+    - I'm [Nathan Flowers](client_name)
+    - [Juliana Watson](client_name)
+- intent: pizza_question_toppings
+  examples: |
+    - do you have pizza with no [wurstel](toppings)?
+    - any pizza without [tomato sauce](toppings) please?
+    - pizza without [pepperoni](toppings) please?
+    - pizza with no [pepper](toppings)?
+    - do you have pizza with no [funghi](toppings)?
+    - i'm looking for a pizza with no [zucchini](toppings)
+    - any pizza without [pepperoni](toppings) please?
+    - I want a pizza with no [mushrooms](toppings) please
+    - pizza with no [mushrooms](toppings)?
+    - I want a pizza with no [pepperoni](toppings) please
+    - do you have pizza with no [pepper](toppings) please?
+    - Do you have pizza without [olives](toppings)?
+    - I want a pizza without [funghi](toppings) please
+    - do you have pizza without [peppers](toppings) please?
+    - do you have pizza without [meat](toppings)?
+    - i'm looking for a pizza with no [pineapple](toppings)
+    - i'm looking for a pizza with no [meat](toppings)
+    - Do you have pizza without [ham](toppings)?
+    - any pizza with no [pepperoni](toppings)?
+    - Which are the pizza without [eggplant](toppings)?
+    - sorry i'm looking for a pizza with no [ham](toppings)
+    - sorry, do you have pizza with no [olives](toppings)?
+    - Which are the pizza without [basil](toppings)?
+    - pizza without [mushrooms](toppings) please?
+- intent: provide_address_street
+  examples: |
+    - [5st Avenue](address_street)
+    - my street name is [Ersel Street](address_street)
+    - my street name is [Pringle Drive](address_street)
+    - [Collins Avenue](address_street)
+    - my street name is [Chapmans Lane](address_street)
+    - [Tea Berry Lane](address_street)
+    - my street name is [Virginia Triangle](address_street)
+    - my street name is [Lyndale Avenu](address_street)
+    - the street name is [Calico Drive](address_street)
+    - [George Floyd Square](address_street)
+    - my street name is [50th Avenue](address_street)
+    - my street name is [Nicollet Mall](address_street)
+    - [1st Avenue](address_street)
+    - [Loudon Road Historic District](address_street)
+    - [Spring Mountain Road](address_street)
+    - [Fidler Drive](address_street)
+    - street address is [Franklin Street](address_street)
+    - my street name is [Salt Lake Highway](address_street)
+    - street address is [Broadway Street](address_street)
+    - [Hudson Avenue](address_street) is my house's street name
+    - my street name is [France Avenue](address_street)
+    - [Hollywood Boulevard](address_street)
+    - [Heron Way](address_street)
+    - [Liberty Street](address_street)
+- intent: init_request
+  examples: |
+    - I need [three](pizza_amount) [little](pizza_size) [ham and mushrooms](pizza_type) pizzas
+    - i would like [small](pizza_size) [mushrooms](pizza_type) pizza
+    - I want [2](pizza_amount) [marinara](pizza_type) in [small](pizza_size) size
+    - can I order [2](pizza_amount) [big](pizza_size) [margherita](pizza_type) pizzas
+    - I need [two](pizza_amount) [large](pizza_size) pizzas
+    - I would like to buy [one](pizza_amount) [pepperoni](pizza_type) pizza in [small](pizza_size) size
+    - I like [small](pizza_size) olives pizza
+    - [Big](pizza_size) [margherita](pizza_type) pizza
+    - I want [two](pizza_amount) [marinara](pizza_type) in [huge](pizza_size) size
+    - I would like to buy [two](pizza_amount) [capricciosa](pizza_type) pizzas in [regular](pizza_size) size
+    - [3](pizza_amount) [big](pizza_size) pizzas
+    - i would like to order [ham and mushrooms](pizza_type) pizza
+    - [four](pizza_amount) [large](pizza_size) [ham and mushrooms](pizza_type) pizzas
+    - I want a [large](pizza_size) pizza
+    - I want [3](pizza_amount) [ham and mushrooms](pizza_type) in [large](pizza_size) size
+    - A [little](pizza_size) [hawaii](pizza_type) pizza
+    - I need to order [2](pizza_amount) pizzas
+    - [3](pizza_amount) [medium](pizza_size) [capricciosa](pizza_type) pizzas
+    - need [large](pizza_size) [pepperoni](pizza_type) pizza
+    - [medium](pizza_size) [margherita](pizza_type) pizzas
+    - want [large](pizza_size) pepper pizza
+    - can I order [3](pizza_amount) [normal](pizza_size) pizzas?
+    - i need to order [4](pizza_amount) [normal](pizza_size) [hawaii](pizza_type) pizzas
+    - I need to buy [3](pizza_amount) [american](pizza_type) pizzas in [huge](pizza_size) size
+    - I want to order [one](pizza_amount) [tiny](pizza_size) pizza
+- intent: out_of_scope
+  examples: |
+    - do you have shoes
+    - how far is the square
+    - and make chicken noises into the phone
+    - What is todays date
+    - What is your hobbies?
+    - asdfgasd
+    - but if rasa is open source why do you have a sales team
+    - Do you have a demo?
+    - do you have your photo?
+    - alexa, order 5 tons of natrium chloride
+    - have you heard of corona?
+    - chinese ok?
+    - do you have a sister
+    - can you cheer me up
+    - connect to alexa
+    - i want good flycam
+    - can you help me with the docs?
+    - can you cook dinner
+    - colder
+    - Won't you ask me how I am?
+    - i m looking for job
+    - where do i type in commandy
+    - docs
+    - how do you like your coffee
+    - aRE YOU SINGLE
+    - but I just told you that :(
+    - can you give me a cup of coffee
+    - are you sick
+    - kiss me
+    - Where am I right now?
+    - sudo reboot
+    - What did you eat yesterday?
+- synonym: mushrooms
+  examples: |
+    - Funghi
+    - Mushroom
+    - funghi
+    - mushrooms
+    - mushroom
+- synonym: Hawaii
+  examples: |
+    - Hawaii
+    - hawaii
+- synonym: margherita
+  examples: |
+    - Margherita
+    - margherita
+    - marghe
+- synonym: pepperoni
+  examples: |
+    - Pepp
+    - Pepperoni
+- synonym: marinara
+  examples: |
+    - marinara
+    - Marinara
+- synonym: mozzarella
+  examples: |
+    - mozzarella
+    - Mozzarella
+    - cheese
+    - Cheese
+- synonym: tomato sauce
+  examples: |
+    - marinara sauce
+    - red sauce
+    - tomato paste
+    - pasta sauce
+- synonym: peppers
+  examples: |
+    - pepper
+    - Peppers
+- synonym: vegetarian
+  examples: |
+    - Vegetarian
+    - vegetarian
+    - Vegetable
+    - veggie
+    - Veggie
+- synonym: american
+  examples: |
+    - American
+    - american
+    - wurstel and french fries
+- synonym: ham and mushrooms
+  examples: |
+    - Ham and Mushrooms
+    - mushrooms and ham
+    - Mushrooms and Ham
+    - ham and mushrooms
+- synonym: capricciosa
+  examples: |
+    - capricciosa
+    - Capricciosa
+- synonym: '1'
+  examples: |
+    - one
+    - One
+- synonym: '2'
+  examples: |
+    - two
+    - Two
+- synonym: '3'
+  examples: |
+    - three
+    - Three
+- synonym: '4'
+  examples: |
+    - four
+    - Four
+- synonym: '5'
+  examples: |
+    - five
+    - Five
+- synonym: small
+  examples: |
+    - Small
+    - small
+    - little
+    - tiny
+    - Little
+    - Tiny
+- synonym: medium
+  examples: |
+    - medium
+    - Medium
+    - normal
+    - regular
+    - Regular
+    - Normal
+- synonym: large
+  examples: |
+    - large
+    - Large
+    - huge
+    - Huge
+    - big
+    - Big
+- synonym: 7pm
+  examples: |
+    - first
+    - First
+    - 7 pm
+    - 7pm
+    - seven pm
+    - 7 p.m.
+- synonym: 9pm
+  examples: |
+    - second
+    - Second
+    - 9 pm
+    - 9pm
+    - 9 p.m.
+- lookup: pizza_amount
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+- lookup: pizza_size
+  examples: |
+    - small
+    - large
+    - medium
+- lookup: toppings
+  examples: |
+    - mushrooms
+    - mozzarella
+    - tomato sauce
+    - pepperoni
+    - vegetables
+    - peppers
+    - basil
+    - pineapple
+    - ham
+    - zucchini
+    - onions
+    - eggplant
+    - wurstel
+    - french fries
+    - artichokes
+    - olives
+- lookup: pizza_type
+  examples: |
+    - mushrooms
+    - pepperoni
+    - margherita
+    - marinara
+    - hawaii
+    - vegetarian
+    - american
+    - ham and mushrooms
+    - capricciosa
+- lookup: time_slot
+  examples: |
+    - 7pm
+    - 9pm

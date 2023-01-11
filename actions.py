@@ -452,7 +452,6 @@ class ActionSuggestPizza(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		try:
-			print("entro")
 			conn = create_connection("data_db/orders.db")
 			cur = conn.cursor()
 			cur.execute(f"""
