@@ -313,7 +313,7 @@ stories:
       intent: response_negative
     - action: action_response_negative
 
-- story: provide name old client
+- story: provide name old client and suggest pizza
   steps:
     - user: |
         hi
@@ -333,6 +333,7 @@ stories:
       - address_city: "Vittorio Veneto"
     - action: client_form
     - active_loop: null
+    - action: action_save_client
     - user: |
         I would like to order a pizza
       intent: init_request_without_entity
@@ -355,3 +356,45 @@ stories:
     - action: utter_submit_form_pizza         
     - action: utter_slots_values
 
+- story: take-away order
+  steps:
+    - user: |
+        I prefer take-away
+      intent: order_take_away
+    - action: utter_summarize_order_take_away
+
+- story: deny table suggestion, ask table reservation and yes correct
+  steps:
+    - user: |
+        I would like to make a dinner reservation
+      intent: init_request_table
+    - action: action_suggest_table
+    - slot_was_set:
+      - people_amount: "2"
+      - time_slot: "7 p.m."
+    - user: |
+        Actually no
+      intent: response_negative
+    - action: action_response_negative
+    - slot_was_set:
+      - date: None
+      - time_slot: None
+      - people_amount: None
+    - action: reservation_form
+    - active_loop: reservation_form
+    - user: |
+        I need the table for tomorrow
+    - action: reservation_form
+    - user: |
+        better the [second]{"entity": "time_slot"} slot
+      intent: inform_time_slot
+    - action: reservation_form
+    - user: |
+        3 people
+    - action: reservation_form
+    - active_loop: null
+    - action: utter_check_reservation
+    - user: |
+        Yes perfect
+      intent: response_positive
+    - action: action_response_positive
