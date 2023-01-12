@@ -88,8 +88,7 @@ rules:
   steps:
   - action: credit_card_form      
   - active_loop: null
-  - action: utter_check_credit_card
-  # - action: utter_modality
+  - action: action_check_credit_card
 
 - rule: check user for the delivery
   steps:
@@ -108,7 +107,6 @@ rules:
   - action: delivery_form      
   - active_loop: null
   - action: utter_say_address
-  #- action: action_save_address
 
 - rule: take away order
   steps:

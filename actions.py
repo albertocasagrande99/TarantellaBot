@@ -45,13 +45,13 @@ class ActionMenu(Action):
 			cur.execute("""SELECT title FROM pizzas """)
 			rows = cur.fetchall()
 			if len(list(rows)) < 1:
-				dispatcher.utter_message("These are no available pizzas at the moment")
+				dispatcher.utter_message("These are no available pizzas at the moment.")
 			else:
 				pizzas = ""
 				for i in rows:
 					pizzas = pizzas + i[0] + ", "
 				pizzas = pizzas[:-2]
-				dispatcher.utter_message("The available pizzas are: " + pizzas)
+				dispatcher.utter_message("The available pizzas are: " + pizzas + ".")
 		return[]
 
 class ActionPrice(Action):
@@ -445,6 +445,15 @@ class ActionSaveAddress(Action):
 		except:
 			dispatcher.utter_message("I encountered a problem while saving the information")
 		return[SlotSet("pizza_amount", None)]
+
+class ActionCheckCreditCard(Action):
+	def name(self):
+		return 'action_check_credit_card'
+
+	def run(self, dispatcher, tracker, domain):
+		credit_card_string = str(tracke.get_slot("credit-card-number"))
+		dispatcher.utter_message(response="utter_check_credit_card", credit_card = credit_card_string)
+		return[]
 
 class ActionSuggestPizza(Action):
 	def name(self):

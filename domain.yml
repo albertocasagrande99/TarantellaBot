@@ -157,7 +157,7 @@ responses:
   utter_init_pizza_question_size:
   - text: The available sizes are small, medium and large.
   utter_check_credit_card:
-  - text: Your credit card numer is {credit-card-number}, is that correct?
+  - text: Your credit card numer is {credit_card}, is that correct?
   utter_init_pizza_question_toppings:
   - text: The available toppings are mozzarella, mushrooms, vegetables, peppers, onions, zucchini, wurstel and olives.
   utter_ask_pizza_size:
@@ -259,6 +259,7 @@ actions:
 - utter_summarize_reservation
 - validate_reservation_form
 - action_suggest_table
+- action_check_credit_card
 
 forms:
   pizza_order_form:
