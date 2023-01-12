@@ -40,7 +40,7 @@ policies:
   - name: TEDPolicy
     max_history: 7
     epochs: 50
-    constrain_similarities: yes
+    constrain_similarities: true
   - name: AugmentedMemoizationPolicy
     max_history: 4
   - name: RulePolicy

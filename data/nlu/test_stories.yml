@@ -90,6 +90,17 @@ stories:
       - pizza_amount: None
       - toppings: None
 
+- story: cancel order and not sure
+  steps: 
+    - user: |
+        Can I delete my order?
+      intent: cancel_order
+    - action: utter_order_delete
+    - user: |
+        No sorry I changed my mind
+      intent: response_negative
+    - action: action_response_negative
+
 - story: order a pizza
   steps: 
     - user: |
@@ -153,19 +164,10 @@ stories:
       intent: order_delivery
     - action: action_check_address
     - user: |
-        no actually I want to change it
-      intent: response_negative
-    - action: action_response_negative
-    - slot_was_set:
-      - address_street: None
-      - address_number: None
-      - address_city: None
-    - action: delivery_form
-    - active_loop: delivery_form
-    - user: |
-        my street address is [Webster Street]{"entity": "address_street"}
+        actually I want the order to be delivered at [Liberty Street](address_street)
       intent: provide_address_street
     - action: delivery_form
+    - active_loop: delivery_form
     - user: |
         number [23]{"entity": "address_number"}
       intent: provide_address_number
@@ -184,8 +186,7 @@ stories:
     - slot_was_set:
       - pizza_amount: None
 
-
-- story: credit card payment and delivery
+- story: credit card payment and menu question
   steps:
     - user: |
         through visa credit card
@@ -211,7 +212,7 @@ stories:
 - story: pizza questions and out of scope story
   steps:
     - user: |
-        do you offer capricciosa pizza?
+        do you offer [capricciosa]{"entity": "pizza_type"} pizza?
       intent: pizza_availability
     - action: action_pizza_availability
     - user: |
@@ -340,7 +341,13 @@ stories:
     - action: action_suggest_pizza
     - slot_was_set:
       - pizza_type: "Pepperoni"
-    - intent: response_positive
+    - user: |
+        how much is it? 
+      intent: item_price
+    - action: action_price
+    - user: |
+        ok that one is perfect
+      intent: response_positive
     - action: action_response_positive
     - action: pizza_order_form 
     - active_loop: pizza_order_form
@@ -355,6 +362,11 @@ stories:
     - active_loop: null
     - action: utter_submit_form_pizza         
     - action: utter_slots_values
+    - user: |
+        sorry I wanted to say [two](pizza_amount) 
+      intent: provide_pizza_amount
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
 
 - story: take-away order
   steps:
@@ -362,6 +374,154 @@ stories:
         I prefer take-away
       intent: order_take_away
     - action: utter_summarize_order_take_away
+
+- story: delivery order
+  steps:
+    - user: |
+        I prefer delivery
+      intent: order_delivery
+    - action: action_check_address
+    - user: |
+        actually I want the office address
+      intent: response_negative
+    - action: action_response_negative
+    - slot_was_set:
+      - address_street: None
+      - address_number: None
+      - address_city: None
+    - action: delivery_form
+    - active_loop: delivery_form
+
+- story: deny table suggestion, ask table reservation, change time slot and and yes correct
+  steps:
+    - user: |
+        I would like to make a dinner reservation
+      intent: init_request_table
+    - action: action_suggest_table
+    - slot_was_set:
+      - people_amount: "2"
+      - time_slot: "7 p.m."
+    - user: |
+        Actually no
+      intent: response_negative
+    - action: action_response_negative
+    - slot_was_set:
+      - date: None
+      - time_slot: None
+      - people_amount: None
+    - action: reservation_form
+    - active_loop: reservation_form
+    - user: |
+        I need the table for tomorrow
+    - action: reservation_form
+    - user: |
+        better the [second]{"entity": "time_slot"} slot
+      intent: inform_time_slot
+    - action: reservation_form
+    - user: |
+        3 people
+    - action: reservation_form
+    - active_loop: null
+    - action: utter_check_reservation
+    - user: |
+        Actually I need at [7 p.m.](time_slot)
+      intent: inform_time_slot
+    - action: utter_check_reservation
+    - user: |
+        oh maybe also mary will come, so let's reserve for 4 people
+    - action: utter_check_reservation
+    - user: |
+        yes correct
+      intent: response_positive
+    - action: action_response_positive
+
+- story: order a pizza ...
+  steps: 
+    - user: |
+        I want to order [1]{"entity": "pizza_amount"} [large]{"entity": "pizza_size"} [margherita]{"entity": "pizza_type"}
+      intent: init_request
+    - action: action_menu
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+    - user: |
+        actually I want also a [pepperoni](pizza_type) pizza
+      intent: init_request
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - user: |
+        [regular]{"entity": "pizza_size"} will be good
+      intent: provide_pizza_size
+    - action: pizza_order_form
+    - user: |
+        just [one]{"entity": "pizza_amount"} please
+      intent: provide_pizza_amount
+    - action: pizza_order_form
+    - active_loop: null
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+    - user: |
+        oh I wanted a [small](pizza_size) pizza sorry
+      intent: provide_pizza_size
+    - action: utter_submit_form_pizza         
+    - action: utter_slots_values
+
+    
+- story: pizza order, inside form change mind
+  steps:
+  - user: |
+      hello
+    intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+  - user: |
+      My name is [Rafa Nadal](client_name)
+    intent: provide_name
+  - slot_was_set:
+    - phone_number: "3669338869"
+    - address_street: ""
+    - address_number: ""
+    - address_city: ""
+    - new_client: "False"
+  - action: client_form
+  - active_loop: null
+  - action: action_save_client
+  - user: |
+      I would like to order a pizza
+    intent: init_request_without_entity
+  - action: action_suggest_pizza
+  - slot_was_set:
+    - pizza_type: "capricciosa"
+  - user: |
+      Yes I want that pizza
+    intent: response_positive
+  - action: action_response_positive
+  - action: pizza_order_form 
+  - active_loop: pizza_order_form
+  - user: |
+      oh sorry actually I would like to reserve a table
+    intent: init_request_table
+  - action: action_suggest_table
+  - slot_was_set:
+    - people_amount: "3"
+    - time_slot: "7 p.m."
+  - user: |
+      at [9 p.m.](time_slot) actually
+    intent: inform_time_slot
+  - action: reservation_form
+  - active_loop: reservation_form
+  - user: |
+      I will come tomorrow
+  - action: reservation_form
+  - active_loop: null
+  - action: utter_check_reservation
+  - user: |
+      Yes perfect
+    intent: response_positive
+  - action: action_response_positive
 
 - story: deny table suggestion, ask table reservation and yes correct
   steps:
@@ -395,6 +555,6 @@ stories:
     - active_loop: null
     - action: utter_check_reservation
     - user: |
-        Yes perfect
+        yes
       intent: response_positive
     - action: action_response_positive
