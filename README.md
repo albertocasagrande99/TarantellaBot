@@ -22,6 +22,14 @@ This chatbot was built using [Rasa](https://rasa.com/docs/getting-started/).
 ### Getting Started :white_check_mark:
 > install first [Rasa](https://rasa.com/docs/rasa/installation/environment-set-up)
 
+Before any other operation, it is necessary to activate DucklingEntityExtractor and run the custom actions in different terminal tabs.
+```
+rasa run actions
+```
+```
+docker run -p 8000:8000 rasa/duckling
+```
+
 ### Train the chatbot :runner:
 ```
 rasa train --config config.yml
