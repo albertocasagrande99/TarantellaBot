@@ -462,7 +462,7 @@ stories:
   - slot_was_set:
     - credit-card-number
   - active_loop: null
-  - action: action_check_credit_card
+  - action: utter_check_credit_card
   - intent: response_positive
   - action: action_response_positive
   - action: utter_modality
@@ -475,7 +475,7 @@ stories:
   - slot_was_set:
     - credit-card-number
   - active_loop: null
-  - action: action_check_credit_card
+  - action: utter_check_credit_card
   - intent: response_negative
   - action: action_response_negative
   - action: credit_card_form
@@ -483,7 +483,7 @@ stories:
   - slot_was_set:
     - credit-card-number
   - active_loop: null
-  - action: action_check_credit_card
+  - action: utter_check_credit_card
   - intent: response_positive
   - action: action_response_positive
   - action: utter_modality

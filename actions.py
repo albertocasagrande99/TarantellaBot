@@ -446,15 +446,6 @@ class ActionSaveAddress(Action):
 			dispatcher.utter_message("I encountered a problem while saving the information")
 		return[SlotSet("pizza_amount", None)]
 
-class ActionCheckCreditCard(Action):
-	def name(self):
-		return 'action_check_credit_card'
-
-	def run(self, dispatcher, tracker, domain):
-		credit_card_string = str(tracke.get_slot("credit-card-number"))
-		dispatcher.utter_message(response="utter_check_credit_card", credit_card = credit_card_string)
-		return[]
-
 class ActionSuggestPizza(Action):
 	def name(self):
 		return 'action_suggest_pizza'

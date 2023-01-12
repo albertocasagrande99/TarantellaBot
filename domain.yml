@@ -124,6 +124,9 @@ slots:
     mappings:
       - type: from_entity
         entity: credit-card-number
+        conditions:
+        - active_loop: credit_card_form
+          requested_slot: credit-card-number
   people_amount:
     type: any
     mappings:
@@ -157,7 +160,7 @@ responses:
   utter_init_pizza_question_size:
   - text: The available sizes are small, medium and large.
   utter_check_credit_card:
-  - text: Your credit card numer is {credit_card}, is that correct?
+  - text: Your credit card number is {credit_card}, is that correct?
   utter_init_pizza_question_toppings:
   - text: The available toppings are mozzarella, mushrooms, vegetables, peppers, onions, zucchini, wurstel and olives.
   utter_ask_pizza_size:
@@ -259,7 +262,6 @@ actions:
 - utter_summarize_reservation
 - validate_reservation_form
 - action_suggest_table
-- action_check_credit_card
 
 forms:
   pizza_order_form:
