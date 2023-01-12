@@ -129,7 +129,7 @@ stories:
       intent: response_negative
     - action: action_response_negative
     - user: |
-        I want the [margherita]{"entity": "pizza_type"} in [small]{"entity": "pizza_size"} size
+        Actually I want the [margherita]{"entity": "pizza_type"} in [small]{"entity": "pizza_size"} size
       intent: item_change
     - action: utter_slots_values
     - user: |
@@ -216,12 +216,12 @@ stories:
       intent: pizza_availability
     - action: action_pizza_availability
     - user: |
-        how much is it?
+        how much is a [margherita]{"entity": "pizza_type"}?
       intent: item_price
     - action: action_price
     - user: |
         I want to drink tea
-      intent: out_of_scope
+      intent: nlu_fallback
     - action: utter_out_of_scope
     - user: |
         Which are the available sizes?
@@ -294,7 +294,7 @@ stories:
       intent: provide_pizza_size
     - action: pizza_order_form
     - user: |
-        just [one]{"entity": "pizza_amount"} please
+        just [1]{"entity": "pizza_amount"} please
       intent: provide_pizza_amount
     - action: pizza_order_form
     - active_loop: null
