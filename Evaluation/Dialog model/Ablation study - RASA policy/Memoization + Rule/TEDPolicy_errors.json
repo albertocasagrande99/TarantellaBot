@@ -1,0 +1,452 @@
+[
+  {
+    "text": "I want to order 1 large margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "1",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 34,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order 1 large margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "1",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 34,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "an hawaii pizza please",
+    "entities": [
+      {
+        "start": 3,
+        "end": 9,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "regular will be good",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "regular",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "just 1 please",
+    "entities": [
+      {
+        "start": 5,
+        "end": 6,
+        "value": "1",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I'm Giusy",
+    "entities": [
+      {
+        "start": 4,
+        "end": 9,
+        "value": "Giusy",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "regular will be good",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "regular",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "just one please",
+    "entities": [
+      {
+        "start": 5,
+        "end": 8,
+        "value": "one",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "sorry I wanted to say two",
+    "entities": [
+      {
+        "start": 22,
+        "end": 25,
+        "value": "two",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "better the second slot",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "second",
+        "entity": "time_slot"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Actually I need at 7 p.m.",
+    "entities": [
+      {
+        "start": 19,
+        "end": 25,
+        "value": "7 p.m.",
+        "entity": "time_slot"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order 1 large margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "1",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 34,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "actually I want also a pepperoni pizza",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "value": "pepperoni",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "regular will be good",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "regular",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "just one please",
+    "entities": [
+      {
+        "start": 5,
+        "end": 8,
+        "value": "one",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "oh I wanted a small pizza sorry",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "value": "small",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "My name is Rafa Nadal",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "value": "Rafa Nadal",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at 9 p.m. actually",
+    "entities": [
+      {
+        "start": 3,
+        "end": 9,
+        "value": "9 p.m.",
+        "entity": "time_slot"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "better the second slot",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "second",
+        "entity": "time_slot"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "My name is Rafa Nadal",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "value": "Rafa Nadal",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I'm Giovanna",
+    "entities": [
+      {
+        "start": 4,
+        "end": 12,
+        "value": "Giovanna",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "My phone number is 21312324",
+    "entities": [
+      {
+        "start": 19,
+        "end": 27,
+        "value": "21312324",
+        "entity": "phone_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "My phone number is 3669554478",
+    "entities": [
+      {
+        "start": 19,
+        "end": 29,
+        "value": "3669554478",
+        "entity": "phone_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "is it possible to order 1 large margherita?",
+    "entities": [
+      {
+        "start": 24,
+        "end": 25,
+        "value": "1",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 26,
+        "end": 31,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 32,
+        "end": 42,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order 1 large margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "1",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 34,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Actually I want the margherita in small size",
+    "entities": [
+      {
+        "start": 20,
+        "end": 30,
+        "value": "margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 34,
+        "end": 39,
+        "value": "small",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "actually I want the order to be delivered at Liberty Street",
+    "entities": [
+      {
+        "start": 45,
+        "end": 59,
+        "value": "Liberty Street",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "number 23",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "23",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I live in Huston",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "value": "Huston",
+        "entity": "address_city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "do you offer capricciosa pizza?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 24,
+        "value": "capricciosa",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "how much is a margherita?",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Do you have pizza without tomato sauce?",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "value": "tomato sauce",
+        "entity": "toppings"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

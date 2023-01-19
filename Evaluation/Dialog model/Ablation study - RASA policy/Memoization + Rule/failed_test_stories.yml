@@ -1,0 +1,442 @@
+version: "3.1"
+stories:
+- story: order a pizza and yes correct and no anything else (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: init_request
+    entities:
+    - pizza_amount: '1'
+    - pizza_size: large
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - slot_was_set:
+    - pizza_type: None
+  - slot_was_set:
+    - pizza_size: None
+  - slot_was_set:
+    - pizza_amount: None
+  - slot_was_set:
+    - toppings: None
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: response_negative
+  - action: action_response_negative  # predicted: action_default_fallback
+- story: order a pizza and yes correct and yes anything else (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: init_request
+    entities:
+    - pizza_amount: '1'
+    - pizza_size: large
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - slot_was_set:
+    - pizza_type: None
+  - slot_was_set:
+    - pizza_size: None
+  - slot_was_set:
+    - pizza_amount: None
+  - slot_was_set:
+    - toppings: None
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_type: hawaii
+  - slot_was_set:
+    - pizza_size: regular
+  - slot_was_set:
+    - pizza_amount: '1'
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+    - pizza_type: None
+  - slot_was_set:
+    - pizza_size: None
+  - slot_was_set:
+    - pizza_amount: None
+  - slot_was_set:
+    - toppings: None
+  - intent: response_negative
+  - action: action_response_negative
+- story: provide name old client and suggest pizza (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+  - slot_was_set:
+    - new_client: false
+  - slot_was_set:
+    - client_name: Giusy
+  - slot_was_set:
+    - phone_number: '3669445566'
+  - slot_was_set:
+    - address_street: Via Roma
+  - slot_was_set:
+    - address_number: '10'
+  - slot_was_set:
+    - address_city: Vittorio Veneto
+  - active_loop: null
+  - action: action_save_client
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: init_request_without_entity
+  - action: action_suggest_pizza  # predicted: action_default_fallback
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: item_price
+  - action: action_price
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: pizza_order_form  # predicted: action_default_fallback
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size: regular
+  - slot_was_set:
+    - pizza_amount: one
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: provide_pizza_amount
+    entities:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_amount: two
+  - action: utter_submit_form_pizza  # predicted: action_default_fallback
+  - action: utter_slots_values  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: delivery order (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: order_delivery
+  - action: action_check_address
+  - intent: response_negative
+  - action: action_response_negative  # predicted: action_default_fallback
+  - slot_was_set:
+    - address_street: None
+  - slot_was_set:
+    - address_number: None
+  - slot_was_set:
+    - address_city: None
+  - action: delivery_form  # predicted: action_default_fallback
+  - active_loop: delivery_form
+- story: deny table suggestion, ask table reservation, change time slot and and yes correct (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: init_request_table
+  - action: action_suggest_table
+  - slot_was_set:
+    - people_amount: '2'
+  - slot_was_set:
+    - time_slot: 7 p.m.
+  - intent: response_negative
+  - action: action_response_negative  # predicted: action_default_fallback
+  - slot_was_set:
+    - date: None
+  - slot_was_set:
+    - time_slot: None
+  - slot_was_set:
+    - people_amount: None
+  - action: reservation_form
+  - active_loop: reservation_form
+  - active_loop: null
+  - action: utter_check_reservation
+  - intent: inform_time_slot
+    entities:
+    - time_slot: 7 p.m.
+  - action: utter_check_reservation  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - user: |-
+      oh maybe also mary will come, so let's reserve for 4 people
+  - action: utter_check_reservation  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: order a pizza ... (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: init_request
+    entities:
+    - pizza_amount: '1'
+    - pizza_size: large
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: init_request
+    entities:
+    - pizza_type: pepperoni
+  - slot_was_set:
+    - pizza_type: pepperoni
+  - action: pizza_order_form  # predicted: action_menu
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size: regular
+  - slot_was_set:
+    - pizza_amount: one
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: provide_pizza_size
+    entities:
+    - pizza_size: small
+  - slot_was_set:
+    - pizza_size: small
+  - action: utter_submit_form_pizza  # predicted: action_default_fallback
+  - action: utter_slots_values  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: pizza order, inside form change mind (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+  - slot_was_set:
+    - phone_number: '3669338869'
+  - slot_was_set:
+    - address_street: ''
+  - slot_was_set:
+    - address_number: ''
+  - slot_was_set:
+    - address_city: ''
+  - slot_was_set:
+    - new_client: 'False'
+  - active_loop: null
+  - action: action_save_client
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: init_request_without_entity
+  - action: action_suggest_pizza  # predicted: action_default_fallback
+  - slot_was_set:
+    - pizza_type: capricciosa
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - intent: init_request_table
+  - action: action_suggest_table
+  - slot_was_set:
+    - people_amount: '3'
+  - slot_was_set:
+    - time_slot: 7 p.m.
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: inform_time_slot
+    entities:
+    - time_slot: 9 p.m.
+  - action: reservation_form  # predicted: action_default_fallback
+  - active_loop: reservation_form
+  - active_loop: null
+  - action: utter_check_reservation
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: deny table suggestion, ask table reservation and yes correct (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: init_request_table
+  - action: action_suggest_table
+  - slot_was_set:
+    - people_amount: '2'
+  - slot_was_set:
+    - time_slot: 7 p.m.
+  - intent: response_negative
+  - action: action_response_negative  # predicted: action_default_fallback
+  - slot_was_set:
+    - date: None
+  - slot_was_set:
+    - time_slot: None
+  - slot_was_set:
+    - people_amount: None
+  - action: reservation_form
+  - active_loop: reservation_form
+  - active_loop: null
+  - action: utter_check_reservation
+  - intent: response_positive
+  - action: action_response_positive
+- story: table reservation (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+  - slot_was_set:
+    - phone_number: '3669338869'
+  - slot_was_set:
+    - address_street: ''
+  - slot_was_set:
+    - address_number: ''
+  - slot_was_set:
+    - address_city: ''
+  - slot_was_set:
+    - new_client: 'False'
+  - active_loop: null
+  - action: action_save_client
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: init_request_table
+  - action: action_suggest_table
+  - slot_was_set:
+    - people_amount: '3'
+  - slot_was_set:
+    - time_slot: 7 p.m.
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: reservation_form
+  - active_loop: reservation_form
+  - active_loop: null
+  - action: utter_check_reservation
+  - intent: response_positive
+  - action: action_response_positive
+- story: provide user details (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - action: client_form
+  - active_loop: client_form
+  - slot_was_set:
+    - new_client: true
+  - slot_was_set:
+    - phone_number: None
+  - active_loop: null
+  - action: action_save_client
+  - slot_was_set:
+    - pizza_type: None
+  - slot_was_set:
+    - pizza_size: None
+  - slot_was_set:
+    - pizza_amount: None
+  - action: action_listen  # predicted: action_default_fallback
+- story: cancel order (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: cancel_order
+  - action: utter_order_delete
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - slot_was_set:
+    - pizza_type: None
+  - slot_was_set:
+    - pizza_size: None
+  - slot_was_set:
+    - pizza_amount: None
+  - slot_was_set:
+    - toppings: None
+- story: cancel order and not sure (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: cancel_order
+  - action: utter_order_delete
+  - intent: response_negative
+  - action: action_response_negative  # predicted: action_default_fallback
+- story: order a pizza and not correct (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: init_request
+    entities:
+    - pizza_amount: '1'
+    - pizza_size: large
+    - pizza_type: margherita
+  - slot_was_set:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: action_menu
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - active_loop: null
+  - action: utter_submit_form_pizza
+  - action: utter_slots_values
+  - intent: response_negative
+  - action: action_response_negative  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: item_change
+    entities:
+    - pizza_type: margherita
+    - pizza_size: small
+  - slot_was_set:
+    - pizza_size: small
+  - slot_was_set:
+    - pizza_type: margherita
+  - action: utter_slots_values
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - slot_was_set:
+    - pizza_type: None
+  - slot_was_set:
+    - pizza_size: None
+  - slot_was_set:
+    - pizza_amount: None
+  - slot_was_set:
+    - toppings: None
+  - action: action_listen  # predicted: action_default_fallback
+- story: credit card payment and delivery (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: pay_credit_card
+  - action: credit_card_form
+  - active_loop: credit_card_form
+  - active_loop: null
+  - action: utter_check_credit_card
+  - intent: response_positive
+  - action: action_response_positive
+  - action: utter_modality
+  - intent: order_delivery
+  - action: action_check_address
+  - intent: provide_address_street
+    entities:
+    - address_street: Liberty Street
+  - action: delivery_form  # predicted: action_default_fallback
+  - active_loop: delivery_form
+  - active_loop: null
+  - action: utter_say_address
+  - intent: response_positive
+  - action: action_response_positive
+  - action: action_save_address
+  - slot_was_set:
+    - pizza_amount: None
+- story: credit card payment and menu question (/Users/albertocasagrande/Desktop/TarantellaBot/data/nlu/test_stories.yml)
+  steps:
+  - intent: pay_credit_card
+  - action: credit_card_form
+  - active_loop: credit_card_form
+  - intent: menu_question
+  - action: action_menu
+  - action: credit_card_form
+  - active_loop: null
+  - action: utter_check_credit_card
+  - intent: response_positive
+  - action: action_response_positive  # predicted: action_default_fallback
+  - action: utter_modality  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
