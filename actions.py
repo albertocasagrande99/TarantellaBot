@@ -111,9 +111,9 @@ class ActionPizzaQuestionToppings(Action):
 					pizzas = pizzas + pizza[0] + ", "
 			pizzas = pizzas[:-2]
 			if(len(pizzas)!=0):
-				dispatcher.utter_message("Our pizzas without " + topping + " are: " + pizzas)
+				dispatcher.utter_message("Our pizzas without " + topping + " are: " + pizzas + ".")
 			else:
-				dispatcher.utter_message("There are no pizzas without " + topping + " in our menu")
+				dispatcher.utter_message("There are no pizzas without " + topping + " in our menu.")
 		return[SlotSet("toppings", None)]
 
 class ActionResponsePositive(Action):
