@@ -57,7 +57,7 @@ rasa shell
 ```
 ---
 ### Interaction Examples :partying_face:
-Some examples of interactions can be seen at the following [link](https://rasa.com/docs/getting-started/).
+Some examples of interactions can be seen at the following [link]([https://rasa.com/docs/getting-started/](https://drive.google.com/drive/folders/1WlYTd66RKLx0xzwGODU9-4R1jWLcfK0e?usp=sharing)).
 ### Authors :man_student: :man_student:
 - Alberto Casagrande
 - Alessio Belli
