@@ -160,7 +160,7 @@ class ActionResponsePositive(Action):
 						DELETE FROM orders
 						WHERE order_id='{tracker.sender_id}'
 					""")
-					dispatcher.utter_message("Ok, I have deleted your order")
+					dispatcher.utter_message("Ok, I have deleted your order.")
 				conn.commit()
 				conn.close()
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
