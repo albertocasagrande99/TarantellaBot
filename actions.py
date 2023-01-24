@@ -67,9 +67,9 @@ class ActionPrice(Action):
 		cur.execute(f"""SELECT price FROM pizzas WHERE title='{pizza_type}'""")
 		rows = cur.fetchall()
 		if len(list(rows)) < 1:
-			dispatcher.utter_message(f"The pizza '{pizza_type}' is not present in the menu")
+			dispatcher.utter_message(f"The pizza '{pizza_type}' is not present in the menu.")
 		else:
-			dispatcher.utter_message("The price of " + pizza_type + " is " + rows[0][0] + " euros")
+			dispatcher.utter_message("The price of " + pizza_type + " is " + rows[0][0] + " euros.")
 		return[]
 
 class ActionPizzaAvailability(Action):
@@ -103,7 +103,7 @@ class ActionPizzaQuestionToppings(Action):
 		cur.execute("""SELECT * FROM pizzas """)
 		rows = cur.fetchall()
 		if len(list(rows)) < 1:
-			dispatcher.utter_message("These are no available pizzas at the moment")
+			dispatcher.utter_message("These are no available pizzas at the moment.")
 		else:
 			pizzas = ""
 			for pizza in rows:
@@ -327,7 +327,7 @@ class ValidateClientForm(FormValidationAction):
         cur.execute(f"""SELECT * FROM users WHERE client_name='{slot_value.lower()}'""")
         rows = cur.fetchall()
         if(len(list(rows))<1):
-            dispatcher.utter_message(f"Welcome {slot_value}, seems you are a new client")
+            dispatcher.utter_message(f"Welcome {slot_value}, seems you are a new client.")
             return {"client_name": slot_value, "new_client": True}
         else:
             dispatcher.utter_message(f"Welcome back {slot_value}! How can I help you?")
@@ -410,7 +410,7 @@ class ActionSaveClient(Action):
 			conn.commit()
 			conn.close()
 		except:
-			dispatcher.utter_message("Problem while saving the information")
+			dispatcher.utter_message("Problem while saving the information.")
 		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
 
 class ActionCheckAddress(Action):
@@ -443,7 +443,7 @@ class ActionSaveAddress(Action):
 			conn.close()
 			dispatcher.utter_message(response='utter_summarize_order_delivery')
 		except:
-			dispatcher.utter_message("I encountered a problem while saving the information")
+			dispatcher.utter_message("I encountered a problem while saving the information.")
 		return[SlotSet("pizza_amount", None)]
 
 class ActionSuggestPizza(Action):
@@ -551,5 +551,5 @@ class ActionSuggestTable(Action):
 			else:
 				return[FollowupAction("reservation_form")]
 		except:
-			dispatcher.utter_message("Problem")
+			dispatcher.utter_message("Problem.")
 		return[]
