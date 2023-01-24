@@ -56,7 +56,7 @@ rasa test core --stories data/nlu/test_stories.yml --out results
 rasa shell
 ```
 ---
-### Interaction Examples
+### Interaction Examples :partying_face:
 Some examples of interactions can be seen at the following [link](https://rasa.com/docs/getting-started/).
 ### Authors :man_student: :man_student:
 - Alberto Casagrande
