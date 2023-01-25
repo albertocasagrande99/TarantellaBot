@@ -47,7 +47,7 @@ class AlexaConnector(InputChannel):
             # if the user is starting the skill, let them
             # know it worked & what to do next
             if intenttype == "LaunchRequest":
-                message = "Hello! Welcome to this Rasa-powered Alexa skill. You can start by saying 'hi'."
+                message = "Hello! This is a bot developed by <lang xml:lang=\"it-IT\">Alessio Belli</lang> and <lang xml:lang=\"it-IT\">Alberto Casagrande</lang>. You can start by saying 'hi'."
                 session = "false"
             else:
                 # get the Alexa-detected intent
@@ -85,15 +85,14 @@ class AlexaConnector(InputChannel):
                "sessionAttributes": {"status": "test"},
                "response": {
                    "outputSpeech": {
-                       "type": "PlainText",
-                       "text": message,
-                       "playBehavior": "REPLACE_ENQUEUED",
+                       "type": "SSML",
+                       "ssml": "<speak>"+message+"</speak>",
+                       
                    },
                    "reprompt": {
                        "outputSpeech": {
-                          "type": "PlainText",
-                          "text": message,
-                          "playBehavior": "REPLACE_ENQUEUED",
+                          "type": "SSML",
+                          "ssml": "<speak>"+message+"</speak>",
                        }
                    },
                    "shouldEndSession": session,

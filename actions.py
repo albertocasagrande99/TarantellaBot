@@ -160,7 +160,7 @@ class ActionResponsePositive(Action):
 						DELETE FROM orders
 						WHERE order_id='{tracker.sender_id}'
 					""")
-					dispatcher.utter_message("Ok, I have deleted your order.")
+					dispatcher.utter_message("Ok, I have deleted your order.<break time=\"500ms\"/> What do you want to do?")
 				conn.commit()
 				conn.close()
 				return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("toppings", None)]
@@ -193,7 +193,7 @@ class ActionResponsePositive(Action):
 					""")
 					dispatcher.utter_message(response="utter_summarize_reservation")
 				else:
-					dispatcher.utter_message("Unfortunately all the tables are already booked for the indicated time.")
+					dispatcher.utter_message("<amazon:emotion name=\"disappointed\" intensity=\"high\">Unfortunately all the tables are already booked for the indicated time.</amazon:emotion>")
 					if(time_slot=="7pm"):
 						time_slot = "9pm"
 					else:
@@ -253,7 +253,7 @@ class ActionResponseNegative(Action):
 			if (bot_event['metadata']['utter_action'] == 'utter_slots_values'):
 				dispatcher.utter_message(response='utter_order_confirm_negative')
 			elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
-				dispatcher.utter_message("Let me check your order. Please wait a moment... ")
+				dispatcher.utter_message("Let me check your order. Please wait a moment<break time=\"2s\"/> ")
 				conn = create_connection("data_db/orders.db")
 				cur = conn.cursor()
 				cur.execute(f"""SELECT * FROM orders WHERE order_id='{tracker.sender_id}'""")
@@ -327,10 +327,10 @@ class ValidateClientForm(FormValidationAction):
         cur.execute(f"""SELECT * FROM users WHERE client_name='{slot_value.lower()}'""")
         rows = cur.fetchall()
         if(len(list(rows))<1):
-            dispatcher.utter_message(f"Welcome {slot_value}, seems you are a new client.")
+            dispatcher.utter_message(f"<amazon:emotion name=\"excited\" intensity=\"high\">Welcome {slot_value}</amazon:emotion>,<break time=\"500ms\"/> seems you are a new client.")
             return {"client_name": slot_value, "new_client": True}
         else:
-            dispatcher.utter_message(f"Welcome back {slot_value}! How can I help you?")
+            dispatcher.utter_message(f"<amazon:emotion name=\"excited\" intensity=\"high\">Welcome back {slot_value}!</amazon:emotion><break time=\"500ms\"/> How can I help you?")
             return {"client_name": slot_value, "phone_number": rows[0][1], "address_street": rows[0][2], "address_number": rows[0][3], "address_city": rows[0][4], "new_client": False}
 	
     def validate_phone_number(

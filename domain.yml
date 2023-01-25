@@ -160,7 +160,7 @@ responses:
   utter_init_pizza_question_size:
   - text: The available sizes are small, medium and large.
   utter_check_credit_card:
-  - text: Your credit card number is {credit-card-number}, is that correct?
+  - text: Your credit card number is <say-as interpret-as="digits">{credit-card-number}</say-as>, is that correct?
   utter_init_pizza_question_toppings:
   - text: The available toppings are mozzarella, mushrooms, vegetables, peppers, onions, zucchini, wurstel and olives.
   utter_ask_pizza_size:
@@ -202,11 +202,11 @@ responses:
   utter_modality:
   - text: Ok, do you prefer take away or home delivery?
   utter_summarize_order_delivery:
-  - text: Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!
+  - text: <amazon:emotion name="excited" intensity="medium">Great. Your order will be delivered in 20 minutes at {address_street} number {address_number}, {address_city}. Thanks for using our service!</amazon:emotion>
   utter_summarize_order_take_away:
-  - text: Great. Your order will be ready in 30 minutes. See you later!
-  - text: Great. Your order will be ready in 15 minutes. See you later!
-  - text: Great. Your order will be ready in 20 minutes. See you later!
+  - text: <amazon:emotion name="excited" intensity="medium">Great. Your order will be ready in 30 minutes. See you later!</amazon:emotion>
+  - text: <amazon:emotion name="excited" intensity="medium">Great. Your order will be ready in 15 minutes. See you later!</amazon:emotion>
+  - text: <amazon:emotion name="excited" intensity="medium">Great. Your order will be ready in 20 minutes. See you later!</amazon:emotion>
   utter_ask_people_amount:
   - text: And, how many people will you need the reservation for?
   utter_ask_date:
