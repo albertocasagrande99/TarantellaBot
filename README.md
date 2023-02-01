@@ -35,9 +35,9 @@ docker run -p 8000:8000 rasa/duckling
 rasa train --config config.yml
 ```
 It is possible to try out three different NLU pipelines, by specifying the configuration file in the training command.
-- Config 1: DIET classifier for both intent classification and entity recognition.
-- Config 2: DIETClassifier for intent classification and CRFEntityExtractor for entity recognition.
-- Config 3: SklearnIntentClassifier for intent classification and the CRFEntityExtractor for entity recognition.
+- Config 1: *DIETClassifier* for both intent classification and entity recognition.
+- Config 2: *DIETClassifier* for intent classification and *CRFEntityExtractor* for entity recognition.
+- Config 3: *SklearnIntentClassifier* for intent classification and the *CRFEntityExtractor* for entity recognition.
 
 ### Test chatbot :mag:
 #### Natural Language Understanding Model
