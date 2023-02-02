@@ -501,7 +501,6 @@ class ValidateReservationForm(FormValidationAction):
             day_word = datetime_obj.strftime("%A")
 
             date_new = day_word + " " + day + " of " + month
-            print(date_new)
 			#print(humanDate)
             return {"date": date_new}
         except:
@@ -534,7 +533,6 @@ class ActionSuggestTable(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		try:
-			print("Action suggest table")
 			conn = create_connection("data_db/reservations.db")
 			cur = conn.cursor()
 			cur.execute(f"""
