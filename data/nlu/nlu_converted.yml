@@ -285,9 +285,7 @@ nlu:
     - Is there the [tiny](pizza_size)?
     - Is there the [huge](pizza_size)?
     - Is there the [large](pizza_size)?
-    - Is there the [normal](pizza_size)?
-    
-    
+    - Is there the [normal](pizza_size)? 
 
 - intent: init_pizza_question_toppings
   examples: |
@@ -321,7 +319,6 @@ nlu:
     - ingredients available
     - What I can put on the pizza?
     - Which ingredients I can put on my pizza?
-
 
 - intent: item_price
   examples: |
@@ -918,7 +915,6 @@ nlu:
     - my telephone number is [2713601804](phone_number)
     - my telephone number is [3023403649](phone_number)
     - my mobile phone number is [6366298134](phone_number)
-    
 
 - intent: provide_address_street
   examples: |
@@ -1358,7 +1354,6 @@ nlu:
     - [hawaii](pizza_type) is available?
     - [capricciosa](pizza_type) is available?
     - [pepperoni](pizza_type) is available?
-
 
 - intent: init_request_table
   examples: |
