@@ -110,10 +110,6 @@ slots:
     influence_conversation: true
     mappings:
     - type: custom
-  # requested_slot:
-  #   type: any
-  #   mappings:
-  #     - type: custom
   toppings:
     type: any
     mappings:
